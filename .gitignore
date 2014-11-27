@@ -12,6 +12,12 @@
 /*.pidb
 /*.booproj
 
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+*.svd
+
 # =========================
 # Operating System Files
 # =========================
