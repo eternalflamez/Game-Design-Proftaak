@@ -55,40 +55,9 @@ public class GameManager : MonoBehaviour
 
 	public void enableButtons(bool up, bool down, bool right, bool left)
 	{
-		if (up)
-		{
-			btnUp.interactable = true;
-		}
-		else
-		{
-			btnUp.interactable = false;
-		}
-
-		if (down)
-		{
-			btnDown.interactable = true;
-		}
-		else
-		{
-			btnDown.interactable = false;
-		}
-
-		if (right)
-		{
-			btnRight.interactable = true;
-		}
-		else
-		{
-			btnRight.interactable = false;
-		}
-
-		if (left)
-		{
-			btnLeft.interactable = true;
-		}
-		else
-		{
-			btnLeft.interactable = false;
-		}
+        btnUp.interactable = up;
+        btnDown.interactable = down;
+        btnRight.interactable = right;
+        btnLeft.interactable = left;
 	}
 }

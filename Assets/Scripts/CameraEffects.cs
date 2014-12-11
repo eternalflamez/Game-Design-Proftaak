@@ -23,8 +23,8 @@ public class CameraEffects : MonoBehaviour {
         allowMove = true;
         shaking = false;
         shakeForward = true;
-        shakeSpeed = 150;
-        shakeThreshold = 8;
+        shakeSpeed = 75;
+        shakeThreshold = 4;
         moveThreshold = .14f;
         moveForward = true;
         offset = new Vector3();
