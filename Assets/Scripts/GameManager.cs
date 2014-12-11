@@ -10,19 +10,23 @@ public class GameManager : MonoBehaviour
 	public List<Pawn> players = new List<Pawn>();
 
 	public int playerTurn = 0;
+	public int turnCount = 1;
+	public int playerCount = 2;
 
-	public Button btnUp;
-	public Button btnDown;
-	public Button btnRight;
-	public Button btnLeft;
+	[SerializeField]
+	private Button btnDice;
+
+	[SerializeField]
+	private Text lblDice;
+	[SerializeField]
+	private Text lblPlayerTurn;
+	[SerializeField]
+	private Text lblInfo;
 
 	// Use this for initialization
 	void Start ()
 	{
-		btnUp.interactable = false;
-		btnDown.interactable = false;
-		btnRight.interactable = false;
-		btnLeft.interactable = false;
+		lblPlayerTurn.text = "Player 1: turn " + turnCount;
 	}
 	
 	// Update is called once per frame
@@ -37,27 +41,82 @@ public class GameManager : MonoBehaviour
 
 	public void rollDice()
 	{
-		int diceRoll = Random.Range (1, 6);
+		if (!players[playerTurn].isFinished)
+		{
+			int diceRoll = Random.Range (1, 6);
 
-		players [playerTurn].setMovePawn (diceRoll);
+			btnDice.interactable = false;
+
+			lblDice.text = "Your rolled: " + diceRoll;
+
+			players [playerTurn].setMovePawn (diceRoll);
+		}
+		else
+		{
+			playerEndTurn();
+		}
 	}
 
 	public void clickRoute(string direction)
 	{
-		Debug.Log ("clickRoute: " + direction);
-		players [playerTurn].setMoveDir (direction);
+		Direction dir = Direction.Right;
+
+		switch (direction)
+		{
+		case "up":
+			dir = Direction.Up;
+			break;
+		case "down":
+			dir = Direction.Down;
+			break;
+		case "right":
+			dir = Direction.Right;
+			break;
+		case "left":
+			dir = Direction.Left;
+			break;
+		}
+
+		players [playerTurn].setMoveDir (dir);
 	}
 
+	public void playerEndTurn()
+	{
+		playerTurn++;
+		
+		if (playerTurn == playerCount)
+		{
+			playerTurn = 0;
+			turnCount++;
+		}
+		
+		btnDice.interactable = true;
+		lblPlayerTurn.text = "Player " + (playerTurn + 1) + ": turn " + turnCount;
+	}
 	public void playerFinish(int playerID)
 	{
+		lblInfo.text = "Player " + playerID + " has finished.";
 
+		bool allPlayersFinished = true;
+
+		for (int index = 0; index < players.Count; index++)
+		{
+			if (!players[index].isFinished)
+			{
+				allPlayersFinished = false;
+				break;
+			}
+		}
+
+		if (allPlayersFinished)
+		{
+			stopGame();
+		}
 	}
-
-	public void enableButtons(bool up, bool down, bool right, bool left)
+	private void stopGame()
 	{
-        btnUp.interactable = up;
-        btnDown.interactable = down;
-        btnRight.interactable = right;
-        btnLeft.interactable = left;
+		btnDice.interactable = false;
+
+		lblInfo.text = "All players have finished.";
 	}
 }

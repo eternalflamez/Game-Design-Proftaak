@@ -22,19 +22,19 @@ public class Pawn : MonoBehaviour
 	[SerializeField]
 	private int pawnID = 0;
 
-	public enum MoveDirection
-	{
-		Up,
-		Down,
-		Right,
-		Left
-	}
-	public MoveDirection moveDir;
+	//public enum MoveDirection
+	//{
+	//	Up,
+	//	Down,
+	//	Right,
+	//	Left
+	//}
+	public Direction moveDir;
 
 	// Use this for initialization
 	void Start ()
 	{
-		moveDir = MoveDirection.Right;
+		moveDir = Direction.Right;
 	}
 	
 	// Update is called once per frame
@@ -51,16 +51,16 @@ public class Pawn : MonoBehaviour
 						switch (currentTile.tileDirection)
 						{
 						case Tile.TileDirection.Down:
-							moveDir = MoveDirection.Down;
+							moveDir = Direction.Down;
 							break;
 						case Tile.TileDirection.Up:
-							moveDir = MoveDirection.Up;
+							moveDir = Direction.Up;
 							break;
 						case Tile.TileDirection.Left:
-							moveDir = MoveDirection.Left;
+							moveDir = Direction.Left;
 							break;
 						case Tile.TileDirection.Right:
-							moveDir = MoveDirection.Right;
+							moveDir = Direction.Right;
 							break;
 						}
 					}
@@ -77,100 +77,105 @@ public class Pawn : MonoBehaviour
 						{
 							pawnFinish();
 						}
+
 						Debug.Log ("CurTile: " + currentTile.getCoordinates());
 						Debug.Log ("DesTile: " + destinationTile.getCoordinates());
 					}
-					/*else
-					{
-						MoveDirection dir = currentTile.getMoveDirection();
-
-						if (currentTile.tileDirection == Tile.TileDirection.UpDown)
-						{
-							GameManager.instance.enableButtons(true, true, false, false);
-						}
-						if (dir == MoveDirection.RightLeft)
-						{
-							GameManager.instance.enableButtons(false, false, true, true);
-						}
-					}*/
+				}
+				else //crossroad
+				{
+					currentTile.enableButtons();
 				}
 			}
 			else
 			{
-				lastRolled = rolledNumber;
-				tilesMoved = 0;
-				rolledNumber = 0;
-				isMoving = false;
-				isDirection = false;
+				stopPawn();
+
+				if (currentTile.hasObject)
+				{
+
+				}
+				else
+				{
+					GameManager.instance.playerEndTurn();
+				}
 			}
 		}
 	}
 
 	void OnGUI()
 	{
-		if (!isMoving)
-		{
-			if (GUI.Button(new Rect(10, 10, 150, 100), "Roll Dice"))
+		//if (!isFinished)
+		//{
+			/*if (!isMoving)
 			{
-				rolledNumber = Random.Range(1,6);
-				isMoving = true;
-			}
-		}
+				if (GUI.Button(new Rect(10, 10, 150, 100), "Roll Dice"))
+				{
+					rolledNumber = Random.Range(1,6);
+					isMoving = true;
+				}
+			}*/
 
-		if (currentTile.isSpecial && !isDirection)
-		{
-			if (currentTile.tileDirection == Tile.TileDirection.UpDown)
+			/*if (currentTile.isSpecial && !isDirection)
 			{
-				if (GUI.Button(new Rect(10, 110, 150, 100), "Move Up"))
+				if (currentTile.tileDirection == Tile.TileDirection.UpDown)
 				{
-					moveDir = MoveDirection.Up;
-					isDirection = true;
+					if (GUI.Button(new Rect(10, 110, 150, 100), "Move Up"))
+					{
+						moveDir = Direction.Up;
+						isDirection = true;
+					}
+				//}
+				//if (currentTile.tileDirection == Tile.TileDirection.UpDown)
+				//{
+					if (GUI.Button(new Rect(10, 220, 150, 100), "Move Down"))
+					{
+						moveDir = Direction.Down;
+						isDirection = true;
+					}
 				}
-			//}
-			//if (currentTile.tileDirection == Tile.TileDirection.UpDown)
-			//{
-				if (GUI.Button(new Rect(10, 220, 150, 100), "Move Down"))
+				if (currentTile.tileDirection == Tile.TileDirection.RightLeft)
 				{
-					moveDir = MoveDirection.Down;
-					isDirection = true;
+					if (GUI.Button(new Rect(10, 110, 150, 100), "Move Left"))
+					{
+						moveDir = Direction.Left;;
+						isDirection = true;
+					}
+				//}
+				//if (currentTile.tileDirection == Tile.TileDirection.Right || currentTile.tileDirection == Tile.TileDirection.RightLeft)
+				//{
+					if (GUI.Button(new Rect(10, 220, 150, 100), "Move Right"))
+					{
+						moveDir = Direction.Right;
+						isDirection = true;
+					}
 				}
-			}
-			if (currentTile.tileDirection == Tile.TileDirection.RightLeft)
-			{
-				if (GUI.Button(new Rect(10, 110, 150, 100), "Move Left"))
-				{
-					moveDir = MoveDirection.Left;;
-					isDirection = true;
-				}
-			//}
-			//if (currentTile.tileDirection == Tile.TileDirection.Right || currentTile.tileDirection == Tile.TileDirection.RightLeft)
-			//{
-				if (GUI.Button(new Rect(10, 220, 150, 100), "Move Right"))
-				{
-					moveDir = MoveDirection.Right;
-					isDirection = true;
-				}
-			}
-		}
+			}*/
+		//}
 
-		if (isFinished)
-		{
-			GUI.Label(new Rect(10, 10, 500, 20), "You have finished");
-		}
+		//if (isFinished)
+		//{
+		//	GUI.Label(new Rect(10, 10, 500, 20), "You have finished");
+		//}
 	}
 
-	private void pawnFinish()
+	private void stopPawn()
 	{
-		Debug.Log ("Finished");
-
-		GameManager.instance.playerFinish (pawnID);
-
-		isFinished = true;
 		lastRolled = rolledNumber;
 		tilesMoved = 0;
 		rolledNumber = 0;
 		isMoving = false;
 		isDirection = false;
+	}
+
+	private void pawnFinish()
+	{
+		stopPawn ();
+
+		isFinished = true;
+
+		GameManager.instance.playerEndTurn ();
+		GameManager.instance.playerFinish (pawnID);
 	}
 
 	private Vector2 getNextCoordinates(Vector2 currentCoordinates)
@@ -179,16 +184,16 @@ public class Pawn : MonoBehaviour
 
 		switch(moveDir)
 		{
-		case MoveDirection.Up:
+		case Direction.Up:
 			nextCoord = new Vector2(currentTile.getCoordinates().x, currentTile.getCoordinates().y + 1);
 			break;
-		case MoveDirection.Down:
+		case Direction.Down:
 			nextCoord = new Vector2(currentTile.getCoordinates().x, currentTile.getCoordinates().y - 1);
 			break;
-		case MoveDirection.Left:
+		case Direction.Left:
 			nextCoord = new Vector2(currentTile.getCoordinates().x - 1, currentTile.getCoordinates().y);
 			break;
-		case MoveDirection.Right:
+		case Direction.Right:
 			nextCoord = new Vector2(currentTile.getCoordinates().x + 1, currentTile.getCoordinates().y);
 			break;
 		}
@@ -197,25 +202,11 @@ public class Pawn : MonoBehaviour
 	}
 
 
-	public void setMoveDir(string direction)
+	public void setMoveDir(Direction direction)
 	{
-		switch(direction)
-		{
-		case "up":
-			moveDir = MoveDirection.Up;
-			break;
-		case "down":
-			moveDir = MoveDirection.Down;
-			break;
-		case "right":
-			moveDir = MoveDirection.Right;
-			break;
-		case "left":
-			moveDir = MoveDirection.Left;
-			break;
-		}
+		moveDir = direction;
 
-		GameManager.instance.enableButtons(false, false, false, false);
+		currentTile.disableButtons ();
 
 		isDirection = true;
 	}
