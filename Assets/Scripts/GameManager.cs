@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 	public int playerTurn = 0;
 	public int turnCount = 1;
 	public int playerCount = 2;
+    public int maxTurns = 25;
 
 	[SerializeField]
 	private Button btnDice;
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
 		players.Add (player1);
 		players.Add (player2);
 
+        this.maxTurns = InformationManager.instance.getMaxTurns();
 		lblPlayerTurn.text = "Player 1: turn " + turnCount;
 	}
 	
@@ -110,11 +112,23 @@ public class GameManager : MonoBehaviour
 		{
 			playerTurn = 0;
 			turnCount++;
+
+            if (turnCount % (maxTurns / 8) == 0)
+            {
+                // TODO: Get values from the current player to fill in
+                ScoreManager.instance.createMeasurePoint("", 0);
+            }
+
+            if (turnCount == maxTurns)
+            {
+                // TODO: show endscreen
+            }
 		}
 		
 		btnDice.interactable = true;
 		lblPlayerTurn.text = "Player " + (playerTurn + 1) + ": turn " + turnCount;
 	}
+
 	public void playerFinish(int playerID)
 	{
 		lblInfo.text = "Player " + playerID + " has finished.";
