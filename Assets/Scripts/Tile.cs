@@ -26,8 +26,8 @@ public class Tile : MonoBehaviour
 		Up,
 		Down
 	}
-	
-	public TileDirection tileDirection = TileDirection.Right;
+	public Direction tileDirection = Direction.Right;
+	//public TileDirection tileDirection = TileDirection.Right;
 	//[SerializeField]
 	//private Pawn.MoveDirection tileDirection = Pawn.MoveDirection.Right;
 

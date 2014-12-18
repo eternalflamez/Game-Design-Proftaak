@@ -382,7 +382,7 @@ MonoBehaviour:
   y: 0
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -938,7 +938,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: tileDirection
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: tileType
@@ -996,7 +996,7 @@ MonoBehaviour:
   y: -3
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -1182,7 +1182,7 @@ MonoBehaviour:
   y: 1
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -1410,7 +1410,7 @@ MonoBehaviour:
   y: 0
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -1602,7 +1602,7 @@ Transform:
   m_PrefabInternal: {fileID: 1044228797}
   m_GameObject: {fileID: 282627185}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.53999996, y: .140000001, z: 10}
+  m_LocalPosition: {x: 7.8499999, y: .140000001, z: 10}
   m_LocalScale: {x: 1, y: 1, z: .100000001}
   m_Children: []
   m_Father: {fileID: 509804098}
@@ -1619,11 +1619,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cbd054d6ffaa324988de82fabf834e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 6
+  x: 8
   y: 0
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -1748,11 +1748,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.28987741
+      value: 3.28999996
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .138229653
+      value: .129999995
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1785,6 +1785,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: tileDirection
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
@@ -1838,7 +1842,7 @@ MonoBehaviour:
   y: 1
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -2221,7 +2225,7 @@ MonoBehaviour:
   y: -3
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 1
   isSpecial: 0
   hasObject: 0
@@ -2314,7 +2318,7 @@ MonoBehaviour:
   y: -3
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -2902,7 +2906,7 @@ MonoBehaviour:
   y: 1
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -2995,7 +2999,7 @@ MonoBehaviour:
   y: -1
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -3942,7 +3946,7 @@ MonoBehaviour:
   y: 0
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -4202,7 +4206,7 @@ MonoBehaviour:
   y: 2
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -4337,7 +4341,7 @@ MonoBehaviour:
   y: 0
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -4482,7 +4486,7 @@ MonoBehaviour:
   y: 1
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -4554,7 +4558,7 @@ Transform:
   m_PrefabInternal: {fileID: 1921186689}
   m_GameObject: {fileID: 939151947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.80000019, y: .140000001, z: 10}
+  m_LocalPosition: {x: 5.5, y: .150000006, z: 10}
   m_LocalScale: {x: 1, y: 1, z: .100000001}
   m_Children: []
   m_Father: {fileID: 509804098}
@@ -4571,11 +4575,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cbd054d6ffaa324988de82fabf834e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 8
+  x: 6
   y: 0
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 0
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -4724,7 +4728,7 @@ MonoBehaviour:
   y: 1
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -4985,7 +4989,7 @@ MonoBehaviour:
   y: 2
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 1
   isSpecial: 0
   hasObject: 0
@@ -5264,7 +5268,7 @@ MonoBehaviour:
   y: -2
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -5315,7 +5319,7 @@ MonoBehaviour:
   y: 2
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -5408,7 +5412,7 @@ MonoBehaviour:
   y: -2
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -5687,7 +5691,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.53999996
+      value: 7.8499999
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_LocalPosition.y
@@ -5719,7 +5723,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: x
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: isSpecial
@@ -5823,7 +5827,7 @@ MonoBehaviour:
   y: 0
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -7226,7 +7230,7 @@ MonoBehaviour:
   y: 2
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -7319,7 +7323,7 @@ MonoBehaviour:
   y: -3
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 8
+  tileDirection: 0
   tileType: 1
   isSpecial: 0
   hasObject: 0
@@ -8104,7 +8108,7 @@ MonoBehaviour:
   y: 0
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -8197,7 +8201,7 @@ MonoBehaviour:
   y: 2
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 9
+  tileDirection: 1
   tileType: 1
   isSpecial: 0
   hasObject: 0
@@ -8346,7 +8350,7 @@ MonoBehaviour:
   y: 1
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 1
   isSpecial: 0
   hasObject: 0
@@ -8439,7 +8443,7 @@ MonoBehaviour:
   y: 1
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 3
   isSpecial: 0
   hasObject: 0
@@ -8712,7 +8716,7 @@ MonoBehaviour:
   y: -3
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -8805,7 +8809,7 @@ MonoBehaviour:
   y: 0
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -9195,7 +9199,7 @@ MonoBehaviour:
   y: -1
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -9434,7 +9438,7 @@ MonoBehaviour:
   y: 1
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -9611,7 +9615,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1860780874}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.2799997, y: 0, z: -10}
+  m_LocalPosition: {x: 13.3000002, y: .800000012, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9663,7 +9667,7 @@ MonoBehaviour:
   y: 1
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 1
   isSpecial: 0
   hasObject: 0
@@ -10023,7 +10027,7 @@ Transform:
   m_PrefabInternal: {fileID: 349916234}
   m_GameObject: {fileID: 1908290662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.28987741, y: .138229653, z: 10}
+  m_LocalPosition: {x: 3.28999996, y: .129999995, z: 10}
   m_LocalScale: {x: 1, y: 1, z: .100000001}
   m_Children: []
   m_Father: {fileID: 509804098}
@@ -10044,7 +10048,7 @@ MonoBehaviour:
   y: 0
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 1
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -10057,11 +10061,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.80000019
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .140000001
+      value: .150000006
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -10089,10 +10093,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: x
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: tileDirection
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -10207,7 +10215,7 @@ MonoBehaviour:
   y: 1
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -10498,7 +10506,7 @@ MonoBehaviour:
   y: 1
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0
@@ -10848,7 +10856,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: tileDirection
-      value: 9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: tileType
@@ -11105,7 +11113,7 @@ MonoBehaviour:
   y: 1
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  tileDirection: 7
+  tileDirection: 2
   tileType: 0
   isSpecial: 0
   hasObject: 0

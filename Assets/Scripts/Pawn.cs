@@ -48,23 +48,10 @@ public class Pawn : MonoBehaviour
 				{
 					if (currentTile.tileType == Tile.TileType.Turn)
 					{
-						switch (currentTile.tileDirection)
-						{
-						case Tile.TileDirection.Down:
-							moveDir = Direction.Down;
-							break;
-						case Tile.TileDirection.Up:
-							moveDir = Direction.Up;
-							break;
-						case Tile.TileDirection.Left:
-							moveDir = Direction.Left;
-							break;
-						case Tile.TileDirection.Right:
-							moveDir = Direction.Right;
-							break;
-						}
+						moveDir = currentTile.tileDirection;
 					}
 
+					isDirection = false;
 					destinationTile = BoardController.instance.findTileWithCord(getNextCoordinates(currentTile.getCoordinates()));
 
 					if (destinationTile != null)
@@ -101,62 +88,6 @@ public class Pawn : MonoBehaviour
 				}
 			}
 		}
-	}
-
-	void OnGUI()
-	{
-		//if (!isFinished)
-		//{
-			/*if (!isMoving)
-			{
-				if (GUI.Button(new Rect(10, 10, 150, 100), "Roll Dice"))
-				{
-					rolledNumber = Random.Range(1,6);
-					isMoving = true;
-				}
-			}*/
-
-			/*if (currentTile.isSpecial && !isDirection)
-			{
-				if (currentTile.tileDirection == Tile.TileDirection.UpDown)
-				{
-					if (GUI.Button(new Rect(10, 110, 150, 100), "Move Up"))
-					{
-						moveDir = Direction.Up;
-						isDirection = true;
-					}
-				//}
-				//if (currentTile.tileDirection == Tile.TileDirection.UpDown)
-				//{
-					if (GUI.Button(new Rect(10, 220, 150, 100), "Move Down"))
-					{
-						moveDir = Direction.Down;
-						isDirection = true;
-					}
-				}
-				if (currentTile.tileDirection == Tile.TileDirection.RightLeft)
-				{
-					if (GUI.Button(new Rect(10, 110, 150, 100), "Move Left"))
-					{
-						moveDir = Direction.Left;;
-						isDirection = true;
-					}
-				//}
-				//if (currentTile.tileDirection == Tile.TileDirection.Right || currentTile.tileDirection == Tile.TileDirection.RightLeft)
-				//{
-					if (GUI.Button(new Rect(10, 220, 150, 100), "Move Right"))
-					{
-						moveDir = Direction.Right;
-						isDirection = true;
-					}
-				}
-			}*/
-		//}
-
-		//if (isFinished)
-		//{
-		//	GUI.Label(new Rect(10, 10, 500, 20), "You have finished");
-		//}
 	}
 
 	private void stopPawn()
