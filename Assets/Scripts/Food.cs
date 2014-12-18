@@ -1,60 +1,56 @@
-﻿using System;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine.UI;
 
-namespace Diabetes_Math_Model
+public class Food
 {
-    class Food
-    {
-        private string name;
-        private float carbohydrates;
-        private float absorbsionTime;
-        private float time;
-        private float carbConst;
+	private string name;
+	private float carbohydrates;
+	private float absorbsionTime;
+	private float time;
+	private float carbConst;
 
-        public Food(string name, float carbohydrates, float absorbsionTime)
-        {
-            this.name = name;
-            this.carbohydrates = carbohydrates;
-            this.absorbsionTime = absorbsionTime;
-            carbConst = carbohydrates / 4;
-        }
+	public Food(string name, float carbohydrates, float absorbsionTime)
+	{
+	    this.name = name;
+	    this.carbohydrates = carbohydrates;
+	    this.absorbsionTime = absorbsionTime;
+	    carbConst = carbohydrates / 4;
+	}
 
-        public string getName()
-        {
-            return name;
-        }
+	public string getName()
+	{
+	    return name;
+	}
 
-        public float getCarbs()
-        {
-            return carbohydrates;
-        }
+	public float getCarbs()
+	{
+	    return carbohydrates;
+	}
 
-        public void setCarbs(float carbs)
-        {
-            this.carbohydrates = carbs;
-        }
+	public void setCarbs(float carbs)
+	{
+	    this.carbohydrates = carbs;
+	}
 
-        public float getAbsorbionTime()
-        {
-            return absorbsionTime;
-        }
+	public float getAbsorbionTime()
+	{
+	    return absorbsionTime;
+	}
 
-        public float getTime()
-        {
-            return time;
-        }
+	public float getTime()
+	{
+	    return time;
+	}
 
-        public void setTime(float time)
-        {
-            this.time = time;
-        }
+	public void setTime(float time)
+	{
+	    this.time = time;
+	}
 
-        public float getCarbConst()
-        {
-            return this.carbConst;
-        }
-    }
+	public float getCarbConst()
+	{
+	    return this.carbConst;
+	}
 }
