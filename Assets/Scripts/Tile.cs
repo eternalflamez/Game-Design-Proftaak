@@ -42,7 +42,8 @@ public class Tile : MonoBehaviour
 	public TileType tileType = TileType.Straight;
 
 	public bool isSpecial = false;
-	public bool hasObject = false;
+	public bool hasFood = false;
+	public bool hasInsuline = false;
 
 	void Start()
 	{
@@ -68,9 +69,4 @@ public class Tile : MonoBehaviour
 	{
 		return new Vector2 (x, y);
 	}
-
-	//public Pawn.MoveDirection getMoveDirection()
-	//{
-	//	return tileDirection;
-	//}
 }

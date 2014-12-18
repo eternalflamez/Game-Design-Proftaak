@@ -292,7 +292,8 @@ MonoBehaviour:
   tileDirection: 9
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &56727935
 Renderer:
   m_ObjectHideFlags: 0
@@ -385,7 +386,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 1
 --- !u!23 &64650281
 Renderer:
   m_ObjectHideFlags: 0
@@ -999,7 +1001,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &233392343
 Renderer:
   m_ObjectHideFlags: 0
@@ -1092,7 +1095,8 @@ MonoBehaviour:
   tileDirection: 9
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &251619638
 Renderer:
   m_ObjectHideFlags: 0
@@ -1185,7 +1189,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &275032018
 Renderer:
   m_ObjectHideFlags: 0
@@ -1278,7 +1283,8 @@ MonoBehaviour:
   tileDirection: 6
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &275598987
 Renderer:
   m_ObjectHideFlags: 0
@@ -1413,7 +1419,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 1
+  hasInsuline: 0
 --- !u!1 &281333138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,7 +1633,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 1
 --- !u!1001 &295081756
 Prefab:
   m_ObjectHideFlags: 0
@@ -1679,6 +1687,72 @@ Prefab:
   m_RootGameObject: {fileID: 1021467615}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &336401065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 336401066}
+  - 222: {fileID: 336401068}
+  - 114: {fileID: 336401067}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &336401066
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 336401065}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1821295733}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &336401067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 336401065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .195999995, g: .195999995, b: .195999995, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Eat
+--- !u!222 &336401068
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 336401065}
 --- !u!1001 &345247235
 Prefab:
   m_ObjectHideFlags: 0
@@ -1790,6 +1864,14 @@ Prefab:
       propertyPath: tileDirection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasObject
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasFood
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
   m_RootGameObject: {fileID: 1908290662}
@@ -1845,7 +1927,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &355309830
 Renderer:
   m_ObjectHideFlags: 0
@@ -2173,6 +2256,14 @@ Prefab:
       propertyPath: y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasObject
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasFood
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
   m_RootGameObject: {fileID: 280710497}
@@ -2228,7 +2319,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 1
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &459827358
 Renderer:
   m_ObjectHideFlags: 0
@@ -2321,7 +2413,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &480867608
 Renderer:
   m_ObjectHideFlags: 0
@@ -2470,13 +2563,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504131d05778eab41a571f2fdd53d740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players:
+  pawns:
   - {fileID: 521825499}
   - {fileID: 1365100451}
   playerTurn: 0
   turnCount: 1
   playerCount: 2
   btnDice: {fileID: 2091713266}
+  btnEat: {fileID: 1821295732}
+  btnLeave: {fileID: 1010215172}
+  btnTake: {fileID: 708892569}
   lblDice: {fileID: 559316448}
   lblPlayerTurn: {fileID: 1313814837}
   lblInfo: {fileID: 990027002}
@@ -2619,6 +2715,14 @@ Prefab:
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasObject
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasInsuline
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
@@ -2909,7 +3013,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &607946500
 Renderer:
   m_ObjectHideFlags: 0
@@ -3002,7 +3107,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &656774009
 Renderer:
   m_ObjectHideFlags: 0
@@ -3077,6 +3183,9 @@ RectTransform:
   - {fileID: 559316449}
   - {fileID: 1313814838}
   - {fileID: 990027003}
+  - {fileID: 1821295733}
+  - {fileID: 1010215173}
+  - {fileID: 708892570}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
@@ -3241,7 +3350,8 @@ MonoBehaviour:
   tileDirection: 8
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &670460247
 Renderer:
   m_ObjectHideFlags: 0
@@ -3460,6 +3570,133 @@ Prefab:
   m_RootGameObject: {fileID: 1754509815}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &708892569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 708892570}
+  - 222: {fileID: 708892573}
+  - 114: {fileID: 708892572}
+  - 114: {fileID: 708892571}
+  m_Layer: 5
+  m_Name: btnTake
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &708892570
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 708892569}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1175630871}
+  m_Father: {fileID: 668939217}
+  m_RootOrder: 6
+  m_AnchorMin: {x: 0, y: .89176482}
+  m_AnchorMax: {x: .173000008, y: 1}
+  m_AnchoredPosition: {x: 219.5, y: -6}
+  m_SizeDelta: {x: -17, y: -16}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &708892571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 708892569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
+    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
+    m_ColorMultiplier: 1
+    m_FadeDuration: .100000001
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 708892572}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 509804100}
+        m_MethodName: clickTake
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: tyyytu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &708892572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 708892569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &708892573
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 708892569}
 --- !u!1 &716828953
 GameObject:
   m_ObjectHideFlags: 0
@@ -3510,7 +3747,8 @@ MonoBehaviour:
   tileDirection: 7
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &716828956
 Renderer:
   m_ObjectHideFlags: 0
@@ -3856,7 +4094,8 @@ MonoBehaviour:
   tileDirection: 7
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &757856245
 Renderer:
   m_ObjectHideFlags: 0
@@ -3949,7 +4188,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &759386659
 Renderer:
   m_ObjectHideFlags: 0
@@ -4209,7 +4449,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &842787327
 Renderer:
   m_ObjectHideFlags: 0
@@ -4344,7 +4585,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!1 &906032139
 GameObject:
   m_ObjectHideFlags: 0
@@ -4396,7 +4638,8 @@ MonoBehaviour:
   tileDirection: 3
   tileType: 0
   isSpecial: 1
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &906032142
 Renderer:
   m_ObjectHideFlags: 0
@@ -4489,7 +4732,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &923777645
 Renderer:
   m_ObjectHideFlags: 0
@@ -4582,7 +4826,8 @@ MonoBehaviour:
   tileDirection: 0
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 1
 --- !u!23 &939151950
 Renderer:
   m_ObjectHideFlags: 0
@@ -4731,7 +4976,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &973918186
 Renderer:
   m_ObjectHideFlags: 0
@@ -4992,7 +5238,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 1
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!1 &999721363
 GameObject:
   m_ObjectHideFlags: 0
@@ -5085,7 +5332,8 @@ MonoBehaviour:
   tileDirection: 7
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 1
+  hasInsuline: 0
 --- !u!1 &1003127724
 GameObject:
   m_ObjectHideFlags: 0
@@ -5136,7 +5384,8 @@ MonoBehaviour:
   tileDirection: 9
   tileType: 1
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1003127727
 Renderer:
   m_ObjectHideFlags: 0
@@ -5271,7 +5520,135 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
+--- !u!1 &1010215172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1010215173}
+  - 222: {fileID: 1010215176}
+  - 114: {fileID: 1010215175}
+  - 114: {fileID: 1010215174}
+  m_Layer: 5
+  m_Name: btnLeave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1010215173
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1010215172}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1686758737}
+  m_Father: {fileID: 668939217}
+  m_RootOrder: 5
+  m_AnchorMin: {x: 0, y: .89176482}
+  m_AnchorMax: {x: .173000008, y: 1}
+  m_AnchoredPosition: {x: 387.600006, y: -6}
+  m_SizeDelta: {x: -17, y: -16}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1010215174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1010215172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
+    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
+    m_ColorMultiplier: 1
+    m_FadeDuration: .100000001
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1010215175}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 509804100}
+        m_MethodName: clickLeave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: tyyytu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1010215175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1010215172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1010215176
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1010215172}
 --- !u!1 &1010442424
 GameObject:
   m_ObjectHideFlags: 0
@@ -5322,7 +5699,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1010442427
 Renderer:
   m_ObjectHideFlags: 0
@@ -5415,7 +5793,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1021467618
 Renderer:
   m_ObjectHideFlags: 0
@@ -5508,7 +5887,8 @@ MonoBehaviour:
   tileDirection: 8
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1025984075
 Renderer:
   m_ObjectHideFlags: 0
@@ -5733,6 +6113,14 @@ Prefab:
       propertyPath: y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasObject
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasInsuline
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
   m_RootGameObject: {fileID: 282627185}
@@ -5830,7 +6218,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 1
+  hasInsuline: 0
 --- !u!1 &1097773832
 GameObject:
   m_ObjectHideFlags: 0
@@ -6039,6 +6428,72 @@ Prefab:
   m_RootGameObject: {fileID: 1624098899}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1175630870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1175630871}
+  - 222: {fileID: 1175630873}
+  - 114: {fileID: 1175630872}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1175630871
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175630870}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 708892570}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1175630872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175630870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .195999995, g: .195999995, b: .195999995, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Take insuline
+--- !u!222 &1175630873
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175630870}
 --- !u!1001 &1205822838
 Prefab:
   m_ObjectHideFlags: 0
@@ -6098,6 +6553,14 @@ Prefab:
       propertyPath: tileType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasObject
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasFood
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
   m_RootGameObject: {fileID: 999721363}
@@ -6154,7 +6617,8 @@ MonoBehaviour:
   tileDirection: 8
   tileType: 0
   isSpecial: 1
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1213088789
 Renderer:
   m_ObjectHideFlags: 0
@@ -7233,7 +7697,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1436407109
 Renderer:
   m_ObjectHideFlags: 0
@@ -7326,7 +7791,8 @@ MonoBehaviour:
   tileDirection: 0
   tileType: 1
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1443361343
 Renderer:
   m_ObjectHideFlags: 0
@@ -8056,6 +8522,14 @@ Prefab:
       propertyPath: y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasObject
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasFood
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
   m_RootGameObject: {fileID: 1049184100}
@@ -8111,7 +8585,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1596198014
 Renderer:
   m_ObjectHideFlags: 0
@@ -8204,7 +8679,8 @@ MonoBehaviour:
   tileDirection: 1
   tileType: 1
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1616474182
 Renderer:
   m_ObjectHideFlags: 0
@@ -8353,7 +8829,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 1
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1624098902
 Renderer:
   m_ObjectHideFlags: 0
@@ -8446,7 +8923,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 3
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1637992096
 Renderer:
   m_ObjectHideFlags: 0
@@ -8719,7 +9197,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1679890654
 Renderer:
   m_ObjectHideFlags: 0
@@ -8762,6 +9241,72 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1373808474}
   m_GameObject: {fileID: 1679890651}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1686758736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1686758737}
+  - 222: {fileID: 1686758739}
+  - 114: {fileID: 1686758738}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1686758737
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1686758736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1010215173}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1686758738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1686758736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .195999995, g: .195999995, b: .195999995, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Leave
+--- !u!222 &1686758739
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1686758736}
 --- !u!1 &1729182147
 GameObject:
   m_ObjectHideFlags: 0
@@ -8812,7 +9357,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 1
 --- !u!23 &1729182150
 Renderer:
   m_ObjectHideFlags: 0
@@ -8905,7 +9451,8 @@ MonoBehaviour:
   tileDirection: 8
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1748396531
 Renderer:
   m_ObjectHideFlags: 0
@@ -9067,7 +9614,8 @@ MonoBehaviour:
   tileDirection: 7
   tileType: 3
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1754509818
 Renderer:
   m_ObjectHideFlags: 0
@@ -9202,7 +9750,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!1 &1763198770
 GameObject:
   m_ObjectHideFlags: 0
@@ -9254,7 +9803,8 @@ MonoBehaviour:
   tileDirection: 0
   tileType: 2
   isSpecial: 1
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1763198773
 Renderer:
   m_ObjectHideFlags: 0
@@ -9348,7 +9898,8 @@ MonoBehaviour:
   tileDirection: 3
   tileType: 0
   isSpecial: 1
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1765545034
 Renderer:
   m_ObjectHideFlags: 0
@@ -9441,7 +9992,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1769525572
 Renderer:
   m_ObjectHideFlags: 0
@@ -9536,6 +10088,133 @@ Prefab:
   m_RootGameObject: {fileID: 2025778810}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1821295732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1821295733}
+  - 222: {fileID: 1821295736}
+  - 114: {fileID: 1821295735}
+  - 114: {fileID: 1821295734}
+  m_Layer: 5
+  m_Name: btnEat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1821295733
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1821295732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 336401066}
+  m_Father: {fileID: 668939217}
+  m_RootOrder: 4
+  m_AnchorMin: {x: 0, y: .89176482}
+  m_AnchorMax: {x: .173000008, y: 1}
+  m_AnchoredPosition: {x: 219.5, y: -6}
+  m_SizeDelta: {x: -17, y: -16}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1821295734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1821295732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
+    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
+    m_ColorMultiplier: 1
+    m_FadeDuration: .100000001
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1821295735}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 509804100}
+        m_MethodName: clickEat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: tyyytu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1821295735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1821295732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1821295736
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1821295732}
 --- !u!1 &1860780874
 GameObject:
   m_ObjectHideFlags: 0
@@ -9670,7 +10349,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 1
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1870013403
 Renderer:
   m_ObjectHideFlags: 0
@@ -9763,7 +10443,8 @@ MonoBehaviour:
   tileDirection: 9
   tileType: 3
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1878362847
 Renderer:
   m_ObjectHideFlags: 0
@@ -9916,7 +10597,8 @@ MonoBehaviour:
   tileDirection: 6
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1904178440
 Renderer:
   m_ObjectHideFlags: 0
@@ -10051,7 +10733,8 @@ MonoBehaviour:
   tileDirection: 1
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 1
+  hasInsuline: 0
 --- !u!1001 &1921186689
 Prefab:
   m_ObjectHideFlags: 0
@@ -10102,6 +10785,14 @@ Prefab:
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: tileDirection
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasObject
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasInsuline
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
@@ -10218,7 +10909,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &1969238804
 Renderer:
   m_ObjectHideFlags: 0
@@ -10359,6 +11051,14 @@ Prefab:
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasObject
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasInsuline
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
@@ -10509,7 +11209,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!1 &2044698285
 GameObject:
   m_ObjectHideFlags: 0
@@ -10560,7 +11261,8 @@ MonoBehaviour:
   tileDirection: 9
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &2044698288
 Renderer:
   m_ObjectHideFlags: 0
@@ -11116,7 +11818,8 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasObject: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!23 &2132677538
 Renderer:
   m_ObjectHideFlags: 0

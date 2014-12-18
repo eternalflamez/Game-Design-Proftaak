@@ -64,12 +64,9 @@ public class Pawn : MonoBehaviour
 						{
 							pawnFinish();
 						}
-
-						Debug.Log ("CurTile: " + currentTile.getCoordinates());
-						Debug.Log ("DesTile: " + destinationTile.getCoordinates());
 					}
 				}
-				else //crossroad
+				else //crossroad//object
 				{
 					currentTile.enableButtons();
 				}
@@ -78,9 +75,13 @@ public class Pawn : MonoBehaviour
 			{
 				stopPawn();
 
-				if (currentTile.hasObject)
+				if (currentTile.hasFood)
 				{
-
+					GameManager.instance.showObjectButtons("food");
+				}
+				else if (currentTile.hasInsuline)
+				{
+					GameManager.instance.showObjectButtons("insuline");
 				}
 				else
 				{

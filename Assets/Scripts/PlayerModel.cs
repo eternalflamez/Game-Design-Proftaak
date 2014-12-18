@@ -3,13 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class PlayerModel : MonoBehaviour
+public class PlayerModel
 {
 	private List<Food> digesting;
-	private float insulinReserves;
 	private float insulin;
 	private float glucose;
-	private int age;
 	private const float glucosePerCarb = .007f;
 	private const float glucoseDropSpeed = 1.25f;
 
@@ -18,11 +16,9 @@ public class PlayerModel : MonoBehaviour
 	    return glucose;
 	}
 
-	public PlayerModel(int age, float insulin, float glucose)
+	public PlayerModel(float glucose)
 	{
 	    digesting = new List<Food>();
-	    this.age = age;
-	    this.insulinReserves = insulin;
 	    this.glucose = glucose;
 	}
 
@@ -31,14 +27,8 @@ public class PlayerModel : MonoBehaviour
 	    digesting.Add(f);
 	}
 
-	public void addInsulinReserves(float insulin)
+	public void useInsulin(float amount)
 	{
-	    this.insulinReserves += insulin;
-	}
-
-	public void useInsulinReserves(float amount)
-	{
-	    this.insulinReserves -= amount;
 	    this.insulin += amount;
 	}
 
