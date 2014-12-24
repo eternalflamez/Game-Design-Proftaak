@@ -11,9 +11,18 @@ class ScoreManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        scores = new List<ScoreModel>();
     }
 
-    public void addPlayer(string playerName)
+    public void addPlayers(List<Player> players)
+    {
+        for (int i = 0; i < players.Count; i++)
+        {
+            addPlayer(players[i].getName());
+        }
+    }
+
+    private void addPlayer(string playerName)
     {
         this.scores.Add(new ScoreModel(playerName));
     }

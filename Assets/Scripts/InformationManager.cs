@@ -7,25 +7,26 @@ class InformationManager : MonoBehaviour
 {
     public static InformationManager instance;
 
-    private int maxTurns;
+    private float maxTurns;
     private List<Player> players;
 
-    public int getMaxTurns()
+    public float getMaxTurns()
     {   
         return maxTurns;
     }
 
-    public void setMaxTurns(int max)
+    public void setMaxTurns(float max)
     {
         this.maxTurns = max;
     }
 
     /// <summary>
-    /// TODO: Adds a playerobject to the list, for later use.
+    /// Adds a playerobject to the list, for later use.
     /// </summary>
-    public void addPlayer()
+    public void addPlayer(string name, int age, int height, float weight, Gender gender)
     {
-
+        Player p = new Player();
+        p.setInfo(name, age, height, weight, gender);
     }
 
     public List<Player> getPlayers()
@@ -37,7 +38,7 @@ class InformationManager : MonoBehaviour
     {
         for (int i = 0; i < players.Count; i++)
         {
-            if (players[i].name == name)
+            if (players[i].getName() == name)
             {
                 return players[i];
             }
@@ -51,6 +52,7 @@ class InformationManager : MonoBehaviour
         DontDestroyOnLoad(transform.gameObject);
         instance = this;
         this.maxTurns = 25;
+        this.players = new List<Player>();
     }
 }
 

@@ -5,18 +5,53 @@ public class Player
 {
 	public float insulinReserves = 8;
 
-	public string name;
-	public int age = 0;
-	public int height;
-	public double weight;
-	public string gender;
+    private string name;
+    private int age = 0;
+    private int height;
+    private float weight;
+    private Gender gender;
 
-	public PlayerModel model;
-	public Pawn pawn;
+    private PlayerModel model;
+    private Pawn pawn;
 
 	public Food lastEaten;
 
-	public void setInfo(string name, int age, int height, double weight, string gender)
+    public string getName()
+    {
+        return name;
+    }
+
+    public int getAge()
+    {
+        return age;
+    }
+
+    public int getHeight()
+    {
+        return height;
+    }
+
+    public float getWeight()
+    {
+        return weight;
+    }
+
+    public Gender getGender()
+    {
+        return gender;
+    }
+
+    public PlayerModel getModel()
+    {
+        return model;
+    }
+
+    public Pawn getPawn()
+    {
+        return pawn;
+    }
+
+	public void setInfo(string name, int age, int height, float weight, Gender gender)
 	{
 		this.name = name;
 		this.age = age;
@@ -24,6 +59,7 @@ public class Player
 		this.weight = weight;
 		this.gender = gender;
 
+        // TODO: set pawn color
 		model = new PlayerModel(5);
 	}
 
