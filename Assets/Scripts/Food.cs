@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class Food
 {
 	private string name;
+	private string description;
 	private float carbohydrates;
 	private float absorbsionTime;
 	private float time;
 	private float carbConst;
 
-	public Food(string name, float carbohydrates, float absorbsionTime)
+	public Food(string name, string description, float carbohydrates, float absorbsionTime)
 	{
 	    this.name = name;
 	    this.carbohydrates = carbohydrates;
@@ -23,7 +24,10 @@ public class Food
 	{
 	    return name;
 	}
-
+	public string getDesciption()
+	{
+		return description;
+	}
 	public float getCarbs()
 	{
 	    return carbohydrates;

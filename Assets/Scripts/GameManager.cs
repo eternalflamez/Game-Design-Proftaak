@@ -35,8 +35,28 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        foods.Add(new Food("Pizza", 100, 10));
-        foods.Add(new Food("Cola", 10, 5));
+		foods.Add (new Food ("Cola", "", 88, 10));
+		foods.Add (new Food ("Melk halfvol", "", 92, 5));
+		foods.Add (new Food ("Forel", "", 132, 5));
+		foods.Add (new Food ("UNOX Rookworst", "", 340, 5));
+		foods.Add (new Food ("Ola Raket", "", 40, 5));
+		foods.Add (new Food ("Roomijs", "", 257, 5));
+		foods.Add (new Food ("Aardbeien", "", 36, 5));
+		foods.Add (new Food ("Banaan", "", 188, 5));
+		foods.Add (new Food ("Croissant", "", 239, 5));
+		foods.Add (new Food ("Brood brui", "", 64, 5));
+
+		//food types
+		//Cola(1, 88, "1 glas")
+		//Melk halfvol(1 beker, 92, "200 ml")
+		//Forel(100 gr, 132, "filet bereid")
+		//UNOX Rookworst(100 gr, 340, "")
+		//Ola Raket(1, 40, "")
+		//Roomijs(100 gr, 257, "")
+		//Aardbeien(100 gr, 36, "")
+		//Banaan(1, 188, "1 banaan")
+		//Croissant(50 gr, 239, "1")
+		//Brood bruin(25 gr, 64, "1 snee")
 
         Player player1 = new Player();
         Player player2 = new Player();
@@ -118,6 +138,7 @@ public class GameManager : MonoBehaviour
 
             if (turnCount == maxTurns)
             {
+				stopGame();
                 // TODO: show endscreen
             }
         }
@@ -126,6 +147,7 @@ public class GameManager : MonoBehaviour
         lblPlayerTurn.text = "Player " + (playerTurn + 1) + ": turn " + turnCount;
     }
 
+	//remove
     public void playerFinish(int playerID)
     {
         lblInfo.text = "Player " + playerID + " has finished.";
@@ -149,6 +171,9 @@ public class GameManager : MonoBehaviour
     private void stopGame()
     {
         btnDice.interactable = false;
+		btnEat.SetActive (false);
+		btnLeave.SetActive (false);
+		btnTake.SetActive (false);
 
         lblInfo.text = "All players have finished.";
     }
