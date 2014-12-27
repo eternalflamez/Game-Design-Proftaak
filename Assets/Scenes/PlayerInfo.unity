@@ -1521,6 +1521,12 @@ MonoBehaviour:
   weightError: {fileID: 1873640062}
   genderError: {fileID: 1558186261}
   colorError: {fileID: 1486550635}
+  colorButtons:
+  - {fileID: 300179977}
+  - {fileID: 418840513}
+  - {fileID: 1035488114}
+  - {fileID: 840551975}
+  - {fileID: 1440581484}
 --- !u!114 &420838366
 MonoBehaviour:
   m_ObjectHideFlags: 0

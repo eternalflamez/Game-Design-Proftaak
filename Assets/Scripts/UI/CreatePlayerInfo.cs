@@ -20,12 +20,15 @@ public class CreatePlayerInfo : MonoBehaviour {
     [SerializeField]
     private Text colorError;
 
+    [SerializeField]
+    private Button[] colorButtons;
+
     private string pname;
     private int age;
     private int height;
     private float weight;
     private Gender gender;
-    private Color color;
+    private PawnColor color;
 
     void Start()
     {
@@ -34,7 +37,7 @@ public class CreatePlayerInfo : MonoBehaviour {
         height = 0;
         weight = 0;
         gender = Gender.None;
-        color = Color.clear;
+        color = new PawnColor(Color.clear, "");
         playerHeader.text = "Player " + (InformationManager.instance.getPlayerCount() + 1);
 
         nameError.enabled = false;
@@ -43,6 +46,18 @@ public class CreatePlayerInfo : MonoBehaviour {
         weightError.enabled = false;
         genderError.enabled = false;
         colorError.enabled = false;
+
+        foreach (Button b in colorButtons)
+        {
+            List<PawnColor> usedColors = InformationManager.instance.getUsedColors();
+            for (int i = 0; i < usedColors.Count; i++)
+            {
+                if (b.name == "Button" + usedColors[i].getColorString())
+                {
+                    b.gameObject.SetActive(false);
+                }
+            }
+        }
     }
 
     public void setName(string name)
@@ -91,7 +106,7 @@ public class CreatePlayerInfo : MonoBehaviour {
         error = error || (heightError.enabled = (height == 0));
         error = error || (weightError.enabled = (weight == 0));
         error = error || (genderError.enabled = (gender == Gender.None));
-        error = error || (colorError.enabled = (color == Color.clear));
+        error = error || (colorError.enabled = (color.getColor() == Color.clear));
 
         if(!error)
         {
@@ -101,31 +116,31 @@ public class CreatePlayerInfo : MonoBehaviour {
 
     public void setColor(string color)
     {
+        Color temp = Color.clear;
         switch (color)
         {
             case "Red":
-                this.color = Color.red;
+                temp = Color.red;
                 break;
 
             case "Yellow":
-                this.color = Color.yellow;
+                temp = Color.yellow;
                 break;
 
             case "Green":
-                this.color = Color.green;
+                temp = Color.green;
                 break;
 
             case "Blue":
-                this.color = Color.blue;
+                temp = Color.blue;
                 break;
 
             case "Purple":
-                this.color = new Color(170, 0, 255);
+                temp = new Color(170, 0, 255);
                 break;
         }
-		else
-		{
-			//TODO: show error
-		}
+
+        PawnColor pc = new PawnColor(temp, color);
+        this.color = pc;
     }
 }

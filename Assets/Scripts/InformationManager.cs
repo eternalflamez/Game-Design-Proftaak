@@ -21,7 +21,8 @@ class InformationManager : MonoBehaviour
 
     private float maxTurns;
     private List<Player> players;
-    private float playerCount = 2;
+    private float playerCount;
+    private List<PawnColor> usedColors;
 
     /// <summary>
     /// Returns the current player number that we are adding.
@@ -42,14 +43,20 @@ class InformationManager : MonoBehaviour
         this.maxTurns = max;
     }
 
+    public List<PawnColor> getUsedColors()
+    {
+        return usedColors;
+    }
+
     /// <summary>
     /// Adds a playerobject to the list, for later use.
     /// </summary>
-    public void addPlayer(string name, int age, int height, float weight, Gender gender, Color c)
+    public void addPlayer(string name, int age, int height, float weight, Gender gender, PawnColor c)
     {
         Player p = new Player();
-        p.setInfo(name, age, height, weight, gender, c);
+        p.setInfo(name, age, height, weight, gender, c.getColor());
         players.Add(p);
+        usedColors.Add(c);
 
         if (players.Count == playerCount)
         {
@@ -87,8 +94,14 @@ class InformationManager : MonoBehaviour
             this.players = new List<Player>();
         }
 
+        if (this.usedColors == null)
+        {
+            this.usedColors = new List<PawnColor>();
+        }
+
         // TODO: Stahp using dummy data.
         this.maxTurns = 25;
+        this.playerCount = 2;
     }
 
     /// <summary>
