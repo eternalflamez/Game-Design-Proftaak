@@ -63,5 +63,9 @@ public class CreatePlayerInfo : MonoBehaviour {
         {
             InformationManager.instance.addPlayer(pname, age, height, weight, gender);
         }
+		else
+		{
+			//TODO: show error
+		}
     }
 }

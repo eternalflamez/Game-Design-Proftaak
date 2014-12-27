@@ -77,6 +77,9 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
+	/// <summary>
+	/// Rolls the dice for the current player as set by the playerTurn var
+	/// </summary>
     public void rollDice()
     {
         if (!pawns[playerTurn].isFinished)
@@ -96,6 +99,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+	/// <summary>
+	/// Click event for intersect buttons
+	/// </summary>
+	/// <param name="direction">Direction the player is taking on the intersection.</param>
     public void clickRoute(string direction)
     {
         Direction dir = Direction.Right;
