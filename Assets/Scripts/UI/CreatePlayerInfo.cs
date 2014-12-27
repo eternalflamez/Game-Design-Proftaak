@@ -123,5 +123,9 @@ public class CreatePlayerInfo : MonoBehaviour {
                 this.color = new Color(170, 0, 255);
                 break;
         }
+		else
+		{
+			//TODO: show error
+		}
     }
 }
