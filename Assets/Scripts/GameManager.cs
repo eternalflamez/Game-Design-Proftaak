@@ -60,8 +60,10 @@ public class GameManager : MonoBehaviour
 
         Player player1 = new Player();
         Player player2 = new Player();
-        player1.setInfo("Tom", 22, 180, 90.00f, Gender.Male);
-        player2.setInfo("Henk", 71, 178, 74.22f, Gender.Male);
+        player1.setInfo("Tom", 22, 180, 90.00f, Gender.Male, Color.white);
+        player1.setPawn(pawns[0]);
+        player2.setInfo("Henk", 71, 178, 74.22f, Gender.Male, Color.green);
+        player2.setPawn(pawns[1]);
 
         players.Add(player1);
         players.Add(player2);
@@ -79,7 +81,7 @@ public class GameManager : MonoBehaviour
 
     public void rollDice()
     {
-        if (!pawns[playerTurn].isFinished)
+        if (!ActivePlayer().getPawn().isFinished)
         {
             int diceRoll = Random.Range(1, 6);
 
@@ -88,7 +90,7 @@ public class GameManager : MonoBehaviour
             lblDice.text = "Your rolled: " + diceRoll;
 
             ActivePlayer().walk(diceRoll * 5);
-            pawns[playerTurn].setMovePawn(diceRoll);
+            ActivePlayer().getPawn().setMovePawn(diceRoll);
         }
         else
         {
@@ -116,7 +118,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-        pawns[playerTurn].setMoveDir(dir);
+        ActivePlayer().getPawn().setMoveDir(dir);
     }
 
     public void playerEndTurn()

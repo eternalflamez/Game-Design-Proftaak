@@ -142,10 +142,16 @@ public class Pawn : MonoBehaviour
 
 		isDirection = true;
 	}
+
 	public void setMovePawn(int move)
 	{
 		tilesMoved = 0;
 		rolledNumber = move;
 		isMoving = true;
 	}
+
+    public void setColor(Color c)
+    {
+        gameObject.renderer.material.color = c;
+    }
 }

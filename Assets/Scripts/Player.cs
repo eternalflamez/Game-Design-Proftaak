@@ -13,6 +13,7 @@ public class Player
 
     private PlayerModel model;
     private Pawn pawn;
+    private Color pawnColor;
 
 	public Food lastEaten;
 
@@ -46,20 +47,26 @@ public class Player
         return model;
     }
 
+    public void setPawn(Pawn p)
+    {
+        this.pawn = p;
+        this.pawn.setColor(pawnColor);
+    }
+
     public Pawn getPawn()
     {
         return pawn;
     }
 
-	public void setInfo(string name, int age, int height, float weight, Gender gender)
+	public void setInfo(string name, int age, int height, float weight, Gender gender, Color color)
 	{
 		this.name = name;
 		this.age = age;
 		this.height = height;
 		this.weight = weight;
 		this.gender = gender;
+        this.pawnColor = color;
 
-        // TODO: set pawn color
 		model = new PlayerModel(5);
 	}
 

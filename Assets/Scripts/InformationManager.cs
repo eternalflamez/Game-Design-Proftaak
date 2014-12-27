@@ -5,10 +5,32 @@ using System.Text;
 
 class InformationManager : MonoBehaviour
 {
-    public static InformationManager instance;
+    private static InformationManager _instance;
+    public static InformationManager instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = GameObject.FindObjectOfType<InformationManager>();
+            }
+
+            return _instance;
+        }
+    }
 
     private float maxTurns;
     private List<Player> players;
+    private float playerCount = 2;
+
+    /// <summary>
+    /// Returns the current player number that we are adding.
+    /// </summary>
+    /// <returns>The count of the players list.</returns>
+    public float getPlayerCount()
+    {
+        return players.Count;
+    }
 
     public float getMaxTurns()
     {   
@@ -23,10 +45,20 @@ class InformationManager : MonoBehaviour
     /// <summary>
     /// Adds a playerobject to the list, for later use.
     /// </summary>
-    public void addPlayer(string name, int age, int height, float weight, Gender gender)
+    public void addPlayer(string name, int age, int height, float weight, Gender gender, Color c)
     {
         Player p = new Player();
-        p.setInfo(name, age, height, weight, gender);
+        p.setInfo(name, age, height, weight, gender, c);
+        players.Add(p);
+
+        if (players.Count == playerCount)
+        {
+            Application.LoadLevel("BoardGame");
+        }
+        else
+        {
+            Application.LoadLevel("PlayerInfo");
+        }
     }
 
     public List<Player> getPlayers()
@@ -50,9 +82,21 @@ class InformationManager : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
-        instance = this;
+        if (this.players == null)
+        {
+            this.players = new List<Player>();
+        }
+
+        // TODO: Stahp using dummy data.
         this.maxTurns = 25;
-        this.players = new List<Player>();
+    }
+
+    /// <summary>
+    /// TODO: REMOVE, THIS IS FOR TESTING ONLY
+    /// </summary>
+    public void LoadPlayerInfoScene()
+    {
+        Application.LoadLevel("PlayerInfo");
     }
 }
 
