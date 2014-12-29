@@ -135,7 +135,10 @@ public class Pawn : MonoBehaviour
 		return nextCoord;
 	}
 
-
+	public void setCurrentTile(Tile tile)
+	{
+		currentTile = tile;
+	}
 	public void setMoveDir(Direction direction)
 	{
 		moveDir = direction;

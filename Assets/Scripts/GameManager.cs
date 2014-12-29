@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public List<Player> players = new List<Player>();
     public List<Food> foods = new List<Food>();
 
+	[SerializeField]
+	private GameObject pawnObject;
+
     public int playerTurn = 0;
     public int turnCount = 1;
     public int playerCount = 2;
@@ -58,15 +61,32 @@ public class GameManager : MonoBehaviour
 		//Croissant(50 gr, 239, "1")
 		//Brood bruin(25 gr, 64, "1 snee")
 
+		//players = InformationManager.instance.getPlayers ();
+
         Player player1 = new Player();
         Player player2 = new Player();
         player1.setInfo("Tom", 22, 180, 90.00f, Gender.Male, Color.yellow);
-        player1.setPawn(pawns[0]);
+        //player1.setPawn(pawns[0]);
         player2.setInfo("Henk", 71, 178, 74.22f, Gender.Male, Color.green);
-        player2.setPawn(pawns[1]);
+        //player2.setPawn(pawns[1]);
 
         players.Add(player1);
         players.Add(player2);
+
+		Tile startTile = BoardController.instance.getStartTile ();
+
+		Debug.Log ("StartTileCoords: " + startTile.getCoordinates());
+
+		for (int index = 0; index < players.Count; index++)
+		{
+			GameObject newPawn = (GameObject)Instantiate (pawnObject, startTile.transform.position, Quaternion.identity);
+			Pawn newPawnController = (Pawn)newPawn.GetComponent("Pawn");
+			newPawnController.setCurrentTile(startTile);
+
+			players[index].setPawn(newPawnController);
+
+			startTile.addPawnToTile(newPawnController);
+		}
 
         this.maxTurns = (int)InformationManager.instance.getMaxTurns();
         lblPlayerTurn.text = "Player 1: turn " + turnCount;
@@ -78,11 +98,6 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
     }
-
-	private void spawnNewPawn()
-	{
-		//todo spawn pawn
-	}
 
 	/// <summary>
 	/// Rolls the dice for the current player as set by the playerTurn var
