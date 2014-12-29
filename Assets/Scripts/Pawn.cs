@@ -109,7 +109,6 @@ public class Pawn : MonoBehaviour
 		isFinished = true;
 
 		GameManager.instance.playerEndTurn ();
-		GameManager.instance.playerFinish (pawnID);
 	}
 
 	private Vector2 getNextCoordinates(Vector2 currentCoordinates)

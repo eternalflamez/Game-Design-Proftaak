@@ -5,19 +5,51 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    private InformationManager informationManager;
     public static GameManager instance;
 
+    /// <summary>
+    /// The list of pawn gameobjects.
+    /// </summary>
     public List<Pawn> pawns = new List<Pawn>();
-    public List<Player> players = new List<Player>();
+
+    /// <summary>
+    /// The list of players. This list is generated from the information filled in at the start of the game.
+    /// </summary>
+    private List<Player> players = new List<Player>();
+
+    /// <summary>
+    /// A static list of food, added to at the beginning of the game.
+    /// </summary>
     public List<Food> foods = new List<Food>();
 
 	[SerializeField]
 	private GameObject pawnObject;
 
-    public int playerTurn = 0;
-    public int turnCount = 1;
-    public int playerCount = 2;
-    public int maxTurns = 25;
+    /// <summary>
+    /// The position of the player whose turn it currently is, in the list.
+    /// </summary>
+    private int playerTurn;
+
+    /// <summary>
+    /// The current turn number.
+    /// </summary>
+    private int turnCount = 1;
+
+    /// <summary>
+    /// The amount of players we have.
+    /// </summary>
+    private int playerCount;
+
+    /// <summary>
+    /// The amount of turns this game is going to run.
+    /// </summary>
+    private int maxTurns;
+
+    public int getMaxTurns()
+    {
+        return maxTurns;
+    }
 
     [SerializeField]
     private Button btnDice;
@@ -38,6 +70,17 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        informationManager = InformationManager.instance;
+        if (informationManager == null)
+        {
+            GameObject InformationObject = (GameObject)Instantiate(new GameObject("InformationManagerObject"));
+            InformationObject.AddComponent<InformationManager>();
+
+            informationManager = InformationManager.instance;
+            informationManager.addPlayer("Tom", 22, 180, 90.00f, Gender.Male, new PawnColor(Color.yellow, "Yellow"));
+            informationManager.addPlayer("Henk", 71, 178, 74.22f, Gender.Male, new PawnColor(Color.green, "Green"));
+        }
+
 		foods.Add (new Food ("Cola", "", 88, 10));
 		foods.Add (new Food ("Melk halfvol", "", 92, 5));
 		foods.Add (new Food ("Forel", "", 132, 5));
@@ -61,17 +104,21 @@ public class GameManager : MonoBehaviour
 		//Croissant(50 gr, 239, "1")
 		//Brood bruin(25 gr, 64, "1 snee")
 
-		//players = InformationManager.instance.getPlayers ();
+        players.AddRange(informationManager.getPlayers());
+        
+        int lowest = int.MaxValue;
+        int number = 0;
 
-        Player player1 = new Player();
-        Player player2 = new Player();
-        player1.setInfo("Tom", 22, 180, 90.00f, Gender.Male, Color.yellow);
-        //player1.setPawn(pawns[0]);
-        player2.setInfo("Henk", 71, 178, 74.22f, Gender.Male, Color.green);
-        //player2.setPawn(pawns[1]);
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (players[i].getAge() < lowest)
+            {
+                lowest = players[i].getAge();
+                number = i;
+            }
+        }
 
-        players.Add(player1);
-        players.Add(player2);
+        playerTurn = number;
 
 		Tile startTile = BoardController.instance.getStartTile ();
 
@@ -88,10 +135,12 @@ public class GameManager : MonoBehaviour
 			startTile.addPawnToTile(newPawnController);
 		}
 
-        this.maxTurns = (int)InformationManager.instance.getMaxTurns();
-        lblPlayerTurn.text = "Player 1: turn " + turnCount;
+        this.maxTurns = (int)informationManager.getMaxTurns();
+        lblPlayerTurn.text = "Player " + playerTurn + ": turn " + turnCount;
 
         ScoreManager.instance.addPlayers(players);
+
+        playerCount = players.Count;
     }
 
     void Awake()
@@ -148,17 +197,20 @@ public class GameManager : MonoBehaviour
         ActivePlayer().getPawn().setMoveDir(dir);
     }
 
+    /// <summary>
+    /// Ends the turn of the current player, saves scores when needed and gives the next player the turn.
+    /// </summary>
     public void playerEndTurn()
     {
         Debug.Log("Glucose: " + ActivePlayer().getModel().getGlucose());
 
         if (turnCount % (maxTurns / 8) == 0)
         {
-            ScoreManager.instance.createMeasurePoint(ActivePlayer().getName(), ActivePlayer().getModel().getGlucose());
+            ScoreManager.instance.createMeasurePoint(ActivePlayer().getId(), ActivePlayer().getModel().getGlucose());
             // TODO: Laat zien dat het gebeurd is.
         }
 
-        ScoreManager.instance.setScore(ActivePlayer().getName(), ActivePlayer().getModel().getGlucose());
+        ScoreManager.instance.setScore(ActivePlayer().getId(), ActivePlayer().getModel().getGlucose());
 
         if (++playerTurn == playerCount)
         {
@@ -167,8 +219,8 @@ public class GameManager : MonoBehaviour
 
             if (turnCount == maxTurns)
             {
-				stopGame();
-                // TODO: show endscreen
+                informationManager.SaveScores(ScoreManager.instance);
+                Application.LoadLevel("EndScreen");
             }
         }
 
@@ -176,37 +228,10 @@ public class GameManager : MonoBehaviour
         lblPlayerTurn.text = "Player " + (playerTurn + 1) + ": turn " + turnCount;
     }
 
-	//remove
-    public void playerFinish(int playerID)
-    {
-        lblInfo.text = "Player " + playerID + " has finished.";
-
-        bool allPlayersFinished = true;
-
-        for (int index = 0; index < pawns.Count; index++)
-        {
-            if (!pawns[index].isFinished)
-            {
-                allPlayersFinished = false;
-                break;
-            }
-        }
-
-        if (allPlayersFinished)
-        {
-            stopGame();
-        }
-    }
-    private void stopGame()
-    {
-        btnDice.interactable = false;
-		btnEat.SetActive (false);
-		btnLeave.SetActive (false);
-		btnTake.SetActive (false);
-
-        lblInfo.text = "All players have finished.";
-    }
-
+    /// <summary>
+    /// Shows the UI required to pick up items.
+    /// </summary>
+    /// <param name="type"></param>
     public void showObjectButtons(string type)
     {
         if (type == "food")
@@ -221,6 +246,9 @@ public class GameManager : MonoBehaviour
         btnLeave.SetActive(true);
     }
 
+    /// <summary>
+    /// Hides the UI required to pick up items.
+    /// </summary>
     public void hideObjectButtons()
     {
         btnEat.SetActive(false);
@@ -228,28 +256,41 @@ public class GameManager : MonoBehaviour
         btnLeave.SetActive(false);
     }
 
+    /// <summary>
+    /// The click event to eat a certain piece of food.
+    /// </summary>
     public void clickEat()
     {
         clickFood(1);
     }
 
+    /// <summary>
+    /// The click event to take insulin with you.
+    /// </summary>
     public void clickTake()
     {
         Debug.Log("Insuline before: " + ActivePlayer().insulinReserves);
-        players[playerTurn].addInsulinReserves(1);
+        ActivePlayer().addInsulinReserves(1);
         Debug.Log("Insuline after: " + ActivePlayer().insulinReserves);
     }
 
+    /// <summary>
+    /// The click event to leave a certain item.
+    /// </summary>
     public void clickLeave()
     {
         hideObjectButtons();
         playerEndTurn();
     }
 
+    /// <summary>
+    /// The click event to eat a piece of food.
+    /// </summary>
+    /// <param name="id">The id of the food to eat.</param>
     public void clickFood(int id)
     {
-        players[playerTurn].getModel().eat(foods[id]);
-        float newGlucose = players[playerTurn].getModel().getGlucose();
+        ActivePlayer().getModel().eat(foods[id]);
+        float newGlucose = ActivePlayer().getModel().getGlucose();
 
         Debug.Log("New Glucose: " + newGlucose);
 
@@ -257,6 +298,10 @@ public class GameManager : MonoBehaviour
         playerEndTurn();
     }
 
+    /// <summary>
+    /// Gets the active player.
+    /// </summary>
+    /// <returns>The player whose turn it is right now.</returns>
     private Player ActivePlayer()
     {
         return this.players[playerTurn];

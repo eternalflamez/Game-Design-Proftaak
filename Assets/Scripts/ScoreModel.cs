@@ -5,7 +5,7 @@ using System.Text;
 
 class ScoreModel
 {
-    private string playerName;
+    private int playerId;
     private float idealValue;
     private List<float> bloodSugars;
     private int hypoTurns;
@@ -15,6 +15,10 @@ class ScoreModel
     private float hypoThreshold = 3;
     private float hyperThreshold = 15;
 
+    /// <summary>
+    /// Gets the list of bloodsugars used for the graphs.
+    /// </summary>
+    /// <returns>A list of floats containing the bloodsugar values of the player per turn.</returns>
     public List<float> getBloodSugars()
     {
         return bloodSugars;
@@ -30,11 +34,15 @@ class ScoreModel
         return hyperTurns;
     }
 
-    public string getPlayerName()
+    public int getPlayerId()
     {
-        return playerName;
+        return playerId;
     }
 
+    /// <summary>
+    /// Gets the list of seven measure points that are created throughout the playthrough.
+    /// </summary>
+    /// <returns>A list of 7 bloodsugar values.</returns>
     public List<float> getMeasurePoints()
     {
         return measurePoints;
@@ -45,9 +53,9 @@ class ScoreModel
     /// </summary>
     /// <param name="playerName">The name of the player.</param>
     /// <param name="idealValue">The ideal value of the player. (Default is 6)</param>
-    public ScoreModel(string playerName, float idealValue = 6)
+    public ScoreModel(int playerId, float idealValue = 6)
     {
-        this.playerName = playerName;
+        this.playerId = playerId;
         this.bloodSugars = new List<float>();
         this.measurePoints = new List<float>();
         hyperTurns = 0;

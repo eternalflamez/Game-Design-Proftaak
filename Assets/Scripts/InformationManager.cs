@@ -5,6 +5,7 @@ using System.Text;
 
 class InformationManager : MonoBehaviour
 {
+    private ScoreManager scoreManager;
     private static InformationManager _instance;
     public static InformationManager instance
     {
@@ -23,6 +24,11 @@ class InformationManager : MonoBehaviour
     private List<Player> players;
     private float playerCount;
     private List<PawnColor> usedColors;
+
+    public ScoreManager getScoreManager()
+    {
+        return scoreManager;
+    }
 
     /// <summary>
     /// Returns the current player number that we are adding.
@@ -54,7 +60,7 @@ class InformationManager : MonoBehaviour
     public void addPlayer(string name, int age, int height, float weight, Gender gender, PawnColor c)
     {
         Player p = new Player();
-        p.setInfo(name, age, height, weight, gender, c.getColor());
+        p.setInfo(players.Count, name, age, height, weight, gender, c.getColor());
         players.Add(p);
         usedColors.Add(c);
 
@@ -89,6 +95,7 @@ class InformationManager : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
+        
         if (this.players == null)
         {
             this.players = new List<Player>();
@@ -100,8 +107,13 @@ class InformationManager : MonoBehaviour
         }
 
         // TODO: Stahp using dummy data.
-        this.maxTurns = 25;
+        this.maxTurns = 15;
         this.playerCount = 2;
+    }
+
+    public void SaveScores(ScoreManager sm)
+    {
+        this.scoreManager = sm;
     }
 
     /// <summary>

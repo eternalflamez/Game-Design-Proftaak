@@ -4254,7 +4254,6 @@ GameObject:
   - 4: {fileID: 509804098}
   - 114: {fileID: 509804099}
   - 114: {fileID: 509804100}
-  - 114: {fileID: 509804101}
   - 114: {fileID: 509804102}
   m_Layer: 0
   m_Name: Board
@@ -4397,6 +4396,9 @@ MonoBehaviour:
   turnCount: 1
   playerCount: 2
   maxTurns: 25
+  pawns:
+  - {fileID: 1365100451}
+  - {fileID: 521825499}
   btnDice: {fileID: 2091713266}
   btnEat: {fileID: 1821295732}
   btnLeave: {fileID: 1010215172}
@@ -4404,17 +4406,6 @@ MonoBehaviour:
   lblDice: {fileID: 559316448}
   lblPlayerTurn: {fileID: 1313814837}
   lblInfo: {fileID: 990027002}
---- !u!114 &509804101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 509804097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 796f1d0443214a34a98dd337ce91348a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &509804102
 MonoBehaviour:
   m_ObjectHideFlags: 0

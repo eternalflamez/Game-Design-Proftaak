@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Player
 {
+    private int id;
 	public float insulinReserves = 8;
 
     private string name;
@@ -16,6 +17,11 @@ public class Player
     private Color pawnColor;
 
 	public Food lastEaten;
+
+    public int getId()
+    {
+        return id;
+    }
 
     public string getName()
     {
@@ -58,8 +64,9 @@ public class Player
         return pawn;
     }
 
-	public void setInfo(string name, int age, int height, float weight, Gender gender, Color color)
+	public void setInfo(int id, string name, int age, int height, float weight, Gender gender, Color color)
 	{
+        this.id = id;
 		this.name = name;
 		this.age = age;
 		this.height = height;
