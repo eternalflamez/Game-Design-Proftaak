@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 		foods.Add (new Food ("Aardbeien", "", 36, 5));
 		foods.Add (new Food ("Banaan", "", 188, 5));
 		foods.Add (new Food ("Croissant", "", 239, 5));
-		foods.Add (new Food ("Brood brui", "", 64, 5));
+		foods.Add (new Food ("Brood bruin", "", 64, 5));
 
 		//food types
 		//Cola(1, 88, "1 glas")
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
 
         Player player1 = new Player();
         Player player2 = new Player();
-        player1.setInfo("Tom", 22, 180, 90.00f, Gender.Male, Color.white);
+        player1.setInfo("Tom", 22, 180, 90.00f, Gender.Male, Color.yellow);
         player1.setPawn(pawns[0]);
         player2.setInfo("Henk", 71, 178, 74.22f, Gender.Male, Color.green);
         player2.setPawn(pawns[1]);
@@ -78,6 +78,11 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
     }
+
+	private void spawnNewPawn()
+	{
+		//todo spawn pawn
+	}
 
 	/// <summary>
 	/// Rolls the dice for the current player as set by the playerTurn var

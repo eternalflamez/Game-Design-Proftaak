@@ -75,6 +75,8 @@ public class Pawn : MonoBehaviour
 			{
 				stopPawn();
 
+				currentTile.addPawnToTile(this);
+
 				if (currentTile.hasFood)
 				{
 					GameManager.instance.showObjectButtons("food");
@@ -145,6 +147,8 @@ public class Pawn : MonoBehaviour
 
 	public void setMovePawn(int move)
 	{
+		currentTile.removePawnFromTile (this);
+
 		tilesMoved = 0;
 		rolledNumber = move;
 		isMoving = true;

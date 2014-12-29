@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.10399997, y: .0270000007, z: -8}
-  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_LocalPosition: {x: -1.65847969, y: -.00361874956, z: -8}
+  m_LocalScale: {x: .400000006, y: .400000006, z: .400000006}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,7 +43,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 0a7d87bc6173cb244ab15c8be3ef76b5, type: 2}
+  - {fileID: 2100000, guid: 3f8b9903c923cfa45970eb3ce4693b2b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
   isMoving: 0
   isFinished: 0
   currentTile: {fileID: 0}
-  pawnID: 0
+  pawnID: 2
   moveDir: 2
 --- !u!135 &13500000
 SphereCollider:
