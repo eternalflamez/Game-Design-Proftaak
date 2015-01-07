@@ -44,6 +44,11 @@ class InformationManager : MonoBehaviour
         return maxTurns;
     }
 
+    public void setPlayerCount(float playerCount)
+    {
+        this.playerCount = playerCount;
+    }
+
     public void setMaxTurns(float max)
     {
         this.maxTurns = max;

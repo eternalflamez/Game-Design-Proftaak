@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -18,6 +19,12 @@ public class GraphGenerator : MonoBehaviour
     private float height;
     [SerializeField]
     private float margin;
+    [SerializeField]
+    private Text hyper;
+    [SerializeField]
+    private Text neutral;
+    [SerializeField]
+    private Text hypo;
 
     public int playerId
     {
@@ -27,13 +34,39 @@ public class GraphGenerator : MonoBehaviour
         }
     }
 
-    public void setPoints(List<float> values)
+    /// <summary>
+    /// Sets the score values.
+    /// Also generates the graphs, so only use this once per Generator!
+    /// </summary>
+    /// <param name="scoreModel">The scoremodel to display</param>
+    public void setPoints(ScoreModel scoreModel)
     {
-        this.values = values;
+        this.values = scoreModel.getBloodSugars();
+        float hyper = scoreModel.getHyperTurns();
+        float neutral = values.Count;
+        float hypo = scoreModel.getHypoTurns();
+        float total = hyper + neutral + hypo;
+
+        this.hyper.text = makePercent(hyper, total);
+        this.neutral.text = makePercent(neutral, total);
+        this.hypo.text = makePercent(hypo, total);
+
+        this.Generate();
+    }
+
+    /// <summary>
+    /// Returns how much % a is of b.
+    /// </summary>
+    /// <param name="a">The smaller amount.</param>
+    /// <param name="b">The total.</param>
+    /// <returns>c%</returns>
+    private string makePercent(float a, float b)
+    {
+        return Mathf.Floor(100 * (a / b)) + "%";
     }
 
     // Use this for initialization
-    public void Generate()
+    private void Generate()
     {
         offset = this.transform.position;
 

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject[] dices;
     private InformationManager informationManager;
     public static GameManager instance;
 
@@ -167,6 +168,15 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        Reset();
+    }
+
+    void Reset()
+    {
+        foreach (GameObject item in dices)
+        {
+            item.SetActive(false);
+        }
     }
 
 	/// <summary>
@@ -176,7 +186,20 @@ public class GameManager : MonoBehaviour
     {
         if (!ActivePlayer().getPawn().isFinished)
         {
-            int diceRoll = Random.Range(1, 6);
+            Reset();
+            int diceRoll1;
+            int diceRoll2;
+
+            diceRoll1 = Random.Range(1, 7);
+            dices[diceRoll1 - 1].SetActive(true);
+            Debug.Log("D1 is " + diceRoll1);
+
+            diceRoll2 = Random.Range(1, 7);
+            dices[diceRoll2 + 5].SetActive(true);
+            Debug.Log("D2 is " + diceRoll2);
+
+            int diceRoll = diceRoll1 + diceRoll2;
+            Debug.Log("Er is " + diceRoll + " gegooid.");
 
             btnDice.interactable = false;
 
