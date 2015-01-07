@@ -77,7 +77,6 @@ class ScoreManager : MonoBehaviour
             }
         }
 
-        // 'twas not found
-        throw new KeyNotFoundException("No ScoreModel was found attached to player " + playerId);
+        return null;
     }
 }

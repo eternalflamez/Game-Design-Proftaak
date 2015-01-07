@@ -103,8 +103,8 @@ public class CreatePlayerInfo : MonoBehaviour {
 
         error = error || (nameError.enabled = (pname == ""));
         error = error || (ageError.enabled = (age == 0));
-        error = error || (heightError.enabled = (height == 0));
         error = error || (weightError.enabled = (weight == 0));
+        error = error || (heightError.enabled = (height == 0));
         error = error || (genderError.enabled = (gender == Gender.None));
         error = error || (colorError.enabled = (color.getColor() == Color.clear));
 

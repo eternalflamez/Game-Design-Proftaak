@@ -16,8 +16,11 @@ public class GraphController : MonoBehaviour {
             GraphGenerator gg = graphs[i];
             int id = gg.playerId;
             ScoreModel points = sm.getScoreModel(id);
-            gg.setPoints(points.getBloodSugars());
-            gg.Generate();
+            if (points != null)
+            {
+                gg.setPoints(points.getBloodSugars());
+                gg.Generate();
+            }
         }
     }
 }

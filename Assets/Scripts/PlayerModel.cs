@@ -91,10 +91,11 @@ public class PlayerModel
 
 	        float used = old - insulin;
 	        glucose -= used * .2f;
-	        if (glucose < 0)
-	        {
-	            glucose = 0;
-	        }
 	    }
+
+        if (glucose < 0)
+        {
+            glucose = 0;
+        }
 	}
 }
