@@ -112,11 +112,11 @@ public class GameManager : MonoBehaviour
 		hideRouteButtons ();
 		hideFoodPnl ();
 
-		foods.Add (new Food ("Cola", "", 88, 10));
-		foods.Add (new Food ("Melk halfvol", "", 92, 5));
-		foods.Add (new Food ("Forel", "", 132, 5));
-		foods.Add (new Food ("UNOX Rookworst", "", 340, 5));
-		foods.Add (new Food ("Ola Raket", "", 40, 5));
+		foods.Add (new Food ("Cola", "Een glas Cola", 88, 10));
+		foods.Add (new Food ("Melk halfvol", "Een glas halfvolle melk", 92, 5));
+		foods.Add (new Food ("Forel", "Een gebraden Forel Filet", 132, 5));
+		foods.Add (new Food ("UNOX Rookworst", "Een portie UNOX Rookworst", 340, 5));
+		foods.Add (new Food ("Ola Raket", "Een Ola Raket waterijs", 40, 5));
 		foods.Add (new Food ("Roomijs", "", 257, 5));
 		foods.Add (new Food ("Aardbeien", "", 36, 5));
 		foods.Add (new Food ("Banaan", "", 188, 5));
