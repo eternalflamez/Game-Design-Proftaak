@@ -4,7 +4,7 @@ using System.Collections;
 public class Player
 {
     private int id;
-	public float insulinReserves = 8;
+	private float insulinReserves = 8;
 
     private string name;
     private int age = 0;
@@ -52,6 +52,10 @@ public class Player
     {
         return model;
     }
+	public float getInsulineReserve()
+	{
+		return insulinReserves;
+	}
 
     public void setPawn(Pawn p)
     {

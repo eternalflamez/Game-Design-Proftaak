@@ -41,6 +41,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private int playerCount;
 
+	/// <summary>
+	/// The food the player has selected
+	/// </summary>
+	public int selectedFood;
+
     /// <summary>
     /// The amount of turns this game is going to run.
     /// </summary>
@@ -60,12 +65,34 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject btnTake;
 
+	[SerializeField]
+	private Button btnUp;
+	[SerializeField]
+	private Button btnDown;
+	[SerializeField]
+	private Button btnLeft;
+	[SerializeField]
+	private Button btnRight;
+
     [SerializeField]
     private Text lblDice;
     [SerializeField]
     private Text lblPlayerTurn;
     [SerializeField]
     private Text lblInfo;
+	[SerializeField]
+	private Text lblGlucose;
+	[SerializeField]
+	private Text lblInsuline;
+	[SerializeField]
+	private Text lblFoodName;
+	[SerializeField]
+	private Text lblFoodDesciption;
+	[SerializeField]
+	private Text lblFoodCal;
+
+	[SerializeField]
+	private GameObject pnlFood;
 
     // Use this for initialization
     void Start()
@@ -81,6 +108,9 @@ public class GameManager : MonoBehaviour
             informationManager.addPlayer("Henk", 71, 178, 74.22f, Gender.Male, new PawnColor(Color.green, "Green"));
         }
 
+		hideRouteButtons ();
+		hideFoodPnl ();
+
 		foods.Add (new Food ("Cola", "", 88, 10));
 		foods.Add (new Food ("Melk halfvol", "", 92, 5));
 		foods.Add (new Food ("Forel", "", 132, 5));
@@ -91,18 +121,6 @@ public class GameManager : MonoBehaviour
 		foods.Add (new Food ("Banaan", "", 188, 5));
 		foods.Add (new Food ("Croissant", "", 239, 5));
 		foods.Add (new Food ("Brood bruin", "", 64, 5));
-
-		//food types
-		//Cola(1, 88, "1 glas")
-		//Melk halfvol(1 beker, 92, "200 ml")
-		//Forel(100 gr, 132, "filet bereid")
-		//UNOX Rookworst(100 gr, 340, "")
-		//Ola Raket(1, 40, "")
-		//Roomijs(100 gr, 257, "")
-		//Aardbeien(100 gr, 36, "")
-		//Banaan(1, 188, "1 banaan")
-		//Croissant(50 gr, 239, "1")
-		//Brood bruin(25 gr, 64, "1 snee")
 
         players.AddRange(informationManager.getPlayers());
         
@@ -136,11 +154,14 @@ public class GameManager : MonoBehaviour
 		}
 
         this.maxTurns = (int)informationManager.getMaxTurns();
-        lblPlayerTurn.text = "Player " + playerTurn + ": turn " + turnCount;
 
         ScoreManager.instance.addPlayers(players);
 
         playerCount = players.Count;
+
+		lblPlayerTurn.text = "Player " + playerTurn + ": turn " + turnCount;
+		lblGlucose.text = "Bloedsuiker: " + players[0].getModel().getGlucose();
+		lblInsuline.text = "Insuline: " + players[0].getInsulineReserve();
     }
 
     void Awake()
@@ -226,7 +247,62 @@ public class GameManager : MonoBehaviour
 
         btnDice.interactable = true;
         lblPlayerTurn.text = "Player " + (playerTurn + 1) + ": turn " + turnCount;
+		lblGlucose.text = "Bloedsuiker: " + ActivePlayer().getModel().getGlucose();
+		lblInsuline.text = "Insuline: " + ActivePlayer().getInsulineReserve();
+
+		setCameraPosition ();
     }
+
+	/// <summary>
+	/// Sets the camera position to the position of the active player.
+	/// </summary>
+	private void setCameraPosition()
+	{
+		Pawn playerPawn = (Pawn)ActivePlayer ().getPawn ();
+		Vector3 newPosition = playerPawn.gameObject.transform.position;
+		newPosition.z = -10;
+
+		Camera.main.transform.position = newPosition;
+	}
+
+	/// <summary>
+	/// Shows the route buttons.
+	/// </summary>
+	public void showRouteButtons(bool up, bool down, bool right, bool left)
+	{
+		btnUp.interactable = up;
+		btnDown.interactable = down;
+		btnRight.interactable = right;
+		btnLeft.interactable = left;
+	}
+
+	/// <summary>
+	/// Hides the route buttons.
+	/// </summary>
+	public void hideRouteButtons()
+	{
+		btnUp.interactable = false;
+		btnDown.interactable = false;
+		btnRight.interactable = false;
+		btnLeft.interactable = false;
+	}
+
+	/// <summary>
+	/// Hides the food pnl.
+	/// </summary>
+	public void hideFoodPnl ()
+	{
+		Debug.Log ("Hide");
+		pnlFood.SetActive (false);
+	}
+
+	/// <summary>
+	/// Shows the food pnl.
+	/// </summary>
+	public void showFoodPnl()
+	{
+		pnlFood.SetActive (true);
+	}
 
     /// <summary>
     /// Shows the UI required to pick up items.
@@ -236,14 +312,14 @@ public class GameManager : MonoBehaviour
     {
         if (type == "food")
         {
-            btnEat.SetActive(true);
+			pnlFood.SetActive(true);
+            //btnEat.SetActive(true);
         }
         else
         {
             btnTake.SetActive(true);
+			btnLeave.SetActive(true);
         }
-
-        btnLeave.SetActive(true);
     }
 
     /// <summary>
@@ -254,6 +330,8 @@ public class GameManager : MonoBehaviour
         btnEat.SetActive(false);
         btnTake.SetActive(false);
         btnLeave.SetActive(false);
+
+		hideFoodPnl ();
     }
 
     /// <summary>
@@ -261,7 +339,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void clickEat()
     {
-        clickFood(1);
+		clickFood(selectedFood);
+		hideFoodPnl ();
     }
 
     /// <summary>
@@ -269,9 +348,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void clickTake()
     {
-        Debug.Log("Insuline before: " + ActivePlayer().insulinReserves);
+        Debug.Log("Insuline before: " + ActivePlayer().getInsulineReserve());
         ActivePlayer().addInsulinReserves(1);
-        Debug.Log("Insuline after: " + ActivePlayer().insulinReserves);
+        Debug.Log("Insuline after: " + ActivePlayer().getInsulineReserve());
+		hideObjectButtons();
+		playerEndTurn();
     }
 
     /// <summary>
@@ -297,6 +378,18 @@ public class GameManager : MonoBehaviour
         hideObjectButtons();
         playerEndTurn();
     }
+
+	/// <summary>
+	/// Shows the food info.
+	/// </summary>
+	public void showFoodInfo(int foodId)
+	{
+		selectedFood = foodId;
+
+		lblFoodName.text = foods [foodId].getName ();
+		lblFoodDesciption.text = foods [foodId].getDesciption ();
+		lblFoodCal.text = foods [foodId].getCarbs ().ToString();
+	}
 
     /// <summary>
     /// Gets the active player.

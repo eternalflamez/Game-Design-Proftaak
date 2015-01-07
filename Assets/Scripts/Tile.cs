@@ -14,6 +14,15 @@ public class Tile : MonoBehaviour
 	[SerializeField]
 	private GameObject btn2;
 
+	[SerializeField]
+	private bool routeUp = false;
+	[SerializeField]
+	private bool routeDown = false;
+	[SerializeField]
+	private bool routeRight = false;
+	[SerializeField]
+	private bool routeLeft = false;
+
 	public List<Pawn> pawnsOnTile = new List<Pawn>();
 	
 	public enum TileDirection
@@ -30,9 +39,6 @@ public class Tile : MonoBehaviour
 		Down
 	}
 	public Direction tileDirection = Direction.Right;
-	//public TileDirection tileDirection = TileDirection.Right;
-	//[SerializeField]
-	//private Pawn.MoveDirection tileDirection = Pawn.MoveDirection.Right;
 
 	public enum TileType
 	{
@@ -108,11 +114,13 @@ public class Tile : MonoBehaviour
 
 	public void enableButtons()
 	{
-		btn1.SetActive(true);
-		btn2.SetActive(true);
+		GameManager.instance.showRouteButtons (routeUp, routeDown, routeRight, routeLeft);
+		//btn1.SetActive(true);
+		//btn2.SetActive(true);
 	}
 	public void disableButtons()
 	{
+		GameManager.instance.hideRouteButtons ();
 		btn1.SetActive(false);
 		btn2.SetActive(false);
 	}

@@ -22,13 +22,6 @@ public class Pawn : MonoBehaviour
 	[SerializeField]
 	private int pawnID = 0;
 
-	//public enum MoveDirection
-	//{
-	//	Up,
-	//	Down,
-	//	Right,
-	//	Left
-	//}
 	public Direction moveDir;
 
 	// Use this for initialization
