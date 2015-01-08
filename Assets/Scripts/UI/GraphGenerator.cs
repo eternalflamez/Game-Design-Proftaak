@@ -114,6 +114,12 @@ public class GraphGenerator : MonoBehaviour
                 float top = height - margin;
                 float low = margin;
                 float y = low + ((current - min) / (high - min)) * (top - low);
+
+                if (y == float.NaN)
+                {
+                    y = 0;
+                }
+
                 Debug.Log(current);
                 Vector3 position = new Vector3(x, y, 0f);
                 GameObject go = (GameObject)Instantiate(pointPrefab);
