@@ -20,6 +20,10 @@ public class GraphGenerator : MonoBehaviour
     [SerializeField]
     private float margin;
     [SerializeField]
+    private Text playername;
+    [SerializeField]
+    private Text score;
+    [SerializeField]
     private Text hyper;
     [SerializeField]
     private Text neutral;
@@ -50,6 +54,7 @@ public class GraphGenerator : MonoBehaviour
         this.hyper.text = makePercent(hyper, total);
         this.neutral.text = makePercent(neutral, total);
         this.hypo.text = makePercent(hypo, total);
+        this.playername.text = scoreModel.getPlayerName();
 
         this.Generate();
     }

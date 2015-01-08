@@ -29,7 +29,7 @@ class ScoreManager : MonoBehaviour
     {
         for (int i = 0; i < players.Count; i++)
         {
-            addPlayer(players[i].getId());
+            addPlayer(players[i].getId(), players[i].getName());
         }
     }
 
@@ -37,9 +37,9 @@ class ScoreManager : MonoBehaviour
     /// Adds a score for one player.
     /// </summary>
     /// <param name="playerName"></param>
-    private void addPlayer(int playerId)
+    private void addPlayer(int playerId, string name)
     {
-        this.scores.Add(new ScoreModel(playerId));
+        this.scores.Add(new ScoreModel(playerId, name));
     }
 
     /// <summary>

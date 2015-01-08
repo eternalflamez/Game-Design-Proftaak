@@ -6,6 +6,7 @@ using System.Text;
 public class ScoreModel
 {
     private int playerId;
+    private string playerName;
     private float idealValue;
     private List<float> bloodSugars;
     private int hypoTurns;
@@ -22,6 +23,11 @@ public class ScoreModel
     public List<float> getBloodSugars()
     {
         return bloodSugars;
+    }
+
+    public string getPlayerName()
+    {
+        return playerName;
     }
 
     public int getHypoTurns()
@@ -53,8 +59,9 @@ public class ScoreModel
     /// </summary>
     /// <param name="playerName">The name of the player.</param>
     /// <param name="idealValue">The ideal value of the player. (Default is 6)</param>
-    public ScoreModel(int playerId, float idealValue = 6)
+    public ScoreModel(int playerId, string playerName, float idealValue = 6)
     {
+        this.playerName = playerName;
         this.playerId = playerId;
         this.bloodSugars = new List<float>();
         this.measurePoints = new List<float>();
