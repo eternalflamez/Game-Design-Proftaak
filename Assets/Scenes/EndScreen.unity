@@ -410,15 +410,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a36ba5d307d18a438a4b85eb0b6554d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointPrefab: {fileID: 0}
-  width: 0
-  _playerId: 0
-  maxPoints: 0
-  height: 0
-  margin: 0
-  hyper: {fileID: 0}
-  neutral: {fileID: 0}
-  hypo: {fileID: 0}
+  pointPrefab: {fileID: 1935137570}
+  width: 2
+  _playerId: 1
+  maxPoints: 30
+  height: 5
+  margin: 1
+  hyper: {fileID: 1433063794}
+  neutral: {fileID: 1361298807}
+  hypo: {fileID: 946963411}
 --- !u!4 &217360460
 Transform:
   m_ObjectHideFlags: 0
@@ -849,15 +849,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a36ba5d307d18a438a4b85eb0b6554d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointPrefab: {fileID: 0}
-  width: 0
-  _playerId: 0
-  maxPoints: 0
-  height: 0
-  margin: 0
-  hyper: {fileID: 0}
-  neutral: {fileID: 0}
-  hypo: {fileID: 0}
+  pointPrefab: {fileID: 1935137570}
+  width: 2
+  _playerId: 2
+  maxPoints: 30
+  height: 5
+  margin: 1
+  hyper: {fileID: 648792014}
+  neutral: {fileID: 1979731960}
+  hypo: {fileID: 1892147847}
 --- !u!4 &389852308
 Transform:
   m_ObjectHideFlags: 0
@@ -1435,15 +1435,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a36ba5d307d18a438a4b85eb0b6554d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointPrefab: {fileID: 0}
-  width: 0
-  _playerId: 0
-  maxPoints: 0
-  height: 0
-  margin: 0
-  hyper: {fileID: 0}
-  neutral: {fileID: 0}
-  hypo: {fileID: 0}
+  pointPrefab: {fileID: 1935137570}
+  width: 2
+  _playerId: 3
+  maxPoints: 30
+  height: 5
+  margin: 1
+  hyper: {fileID: 699630888}
+  neutral: {fileID: 193058068}
+  hypo: {fileID: 1218271261}
 --- !u!4 &539324358
 Transform:
   m_ObjectHideFlags: 0
@@ -2867,15 +2867,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a36ba5d307d18a438a4b85eb0b6554d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointPrefab: {fileID: 0}
-  width: 0
+  pointPrefab: {fileID: 1935137570}
+  width: 2
   _playerId: 0
-  maxPoints: 0
-  height: 0
-  margin: 0
-  hyper: {fileID: 0}
-  neutral: {fileID: 0}
-  hypo: {fileID: 0}
+  maxPoints: 30
+  height: 5
+  margin: 1
+  hyper: {fileID: 1875932741}
+  neutral: {fileID: 425268888}
+  hypo: {fileID: 1081125216}
 --- !u!1 &1000943334
 GameObject:
   m_ObjectHideFlags: 0
@@ -3980,7 +3980,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe9e77420f3f1e4e8c6cb44702e706c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graphs: []
+  graphs:
+  - {fileID: 957298581}
+  - {fileID: 217360459}
+  - {fileID: 389852307}
+  - {fileID: 539324357}
 --- !u!114 &1447041387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4017,7 +4021,7 @@ RectTransform:
   m_GameObject: {fileID: 1451116712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .99999994, y: .99999994, z: .99999994}
   m_Children: []
   m_Father: {fileID: 1440905599}
   m_RootOrder: 3
