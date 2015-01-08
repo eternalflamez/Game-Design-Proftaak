@@ -10,13 +10,13 @@ public class SceneSwitcher : MonoBehaviour {
 	
 	public void GoToScene(string changeScene)
 	{
-		Application.LoadLevel (changeScene);
-		//audio.PlayOneShot("buttonclick"); 
-
         if (changeScene == "BoardGame")
         {
             TitleMusic.Instance.Destroy();
         }
+
+		Application.LoadLevel (changeScene);
+		//audio.PlayOneShot("buttonclick"); 
 	}
 
     public void SetTurnSlider(float turns)

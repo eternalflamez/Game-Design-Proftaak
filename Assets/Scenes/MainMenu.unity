@@ -208,6 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796f1d0443214a34a98dd337ce91348a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxTurns: 0
+  playerCount: 0
 --- !u!4 &528465374
 Transform:
   m_ObjectHideFlags: 0
@@ -277,16 +279,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 528465373}
-        m_MethodName: LoadPlayerInfoScene
-        m_Mode: 1
+      - m_Target: {fileID: 1040475895}
+        m_MethodName: GoToScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: aantalBeurtenScreen
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -348,6 +350,8 @@ GameObject:
   - 92: {fileID: 1040475892}
   - 124: {fileID: 1040475891}
   - 81: {fileID: 1040475890}
+  - 114: {fileID: 1040475895}
+  - 114: {fileID: 1040475896}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -420,6 +424,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1040475895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1040475889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df354ab995e7b24aa042c5f3d66ad61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftButton: {fileID: 0}
+  rightButton: {fileID: 0}
+  playerCount: {fileID: 0}
+--- !u!114 &1040475896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1040475889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df354ab995e7b24aa042c5f3d66ad61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftButton: {fileID: 0}
+  rightButton: {fileID: 0}
+  playerCount: {fileID: 0}
 --- !u!1 &1053506715
 GameObject:
   m_ObjectHideFlags: 0

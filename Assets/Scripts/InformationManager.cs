@@ -102,6 +102,15 @@ class InformationManager : MonoBehaviour
 
     void Awake()
     {
+        if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+
         DontDestroyOnLoad(transform.gameObject);
         
         if (this.players == null)
@@ -122,14 +131,6 @@ class InformationManager : MonoBehaviour
     public void SaveScores(ScoreManager sm)
     {
         this.scoreManager = sm;
-    }
-
-    /// <summary>
-    /// TODO: REMOVE, THIS IS FOR TESTING ONLY
-    /// </summary>
-    public void LoadPlayerInfoScene()
-    {
-        Application.LoadLevel("AantalBeurtenScreen");
     }
 }
 
