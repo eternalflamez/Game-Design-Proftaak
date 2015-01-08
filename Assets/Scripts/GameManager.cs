@@ -115,11 +115,11 @@ public class GameManager : MonoBehaviour
 		foods.Add (new Food ("Forel", "Een gebraden Forel Filet", 132, 5));
 		foods.Add (new Food ("UNOX Rookworst", "Een portie UNOX Rookworst", 340, 5));
 		foods.Add (new Food ("Ola Raket", "Een Ola Raket waterijs", 40, 5));
-		foods.Add (new Food ("Roomijs", "", 257, 5));
-		foods.Add (new Food ("Aardbeien", "", 36, 5));
-		foods.Add (new Food ("Banaan", "", 188, 5));
-		foods.Add (new Food ("Croissant", "", 239, 5));
-		foods.Add (new Food ("Brood bruin", "", 64, 5));
+		foods.Add (new Food ("Roomijs", "Een portie ijs", 257, 5));
+		foods.Add (new Food ("Aardbeien", "100 gram aardbeien", 36, 5));
+		foods.Add (new Food ("Banaan", "1 banaan", 188, 5));
+		foods.Add (new Food ("Croissant", "1 Croissant", 239, 5));
+		foods.Add (new Food ("Brood bruin", "1 snee belegd brood", 64, 5));
 
         players.AddRange(informationManager.getPlayers());
         
