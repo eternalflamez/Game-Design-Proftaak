@@ -18,7 +18,7 @@ public class Food
 	    this.carbohydrates = carbohydrates;
 	    this.absorbsionTime = absorbsionTime;
         this.time = absorbsionTime;
-	    carbConst = carbohydrates / 4;
+	    carbConst = carbohydrates;
 	}
 
 	public string getName()
