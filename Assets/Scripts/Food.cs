@@ -17,6 +17,7 @@ public class Food
 	    this.name = name;
 	    this.carbohydrates = carbohydrates;
 	    this.absorbsionTime = absorbsionTime;
+        this.time = absorbsionTime;
 	    carbConst = carbohydrates / 4;
 	}
 

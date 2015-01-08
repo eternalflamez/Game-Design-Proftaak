@@ -282,6 +282,7 @@ public class GameManager : MonoBehaviour
 		Pawn playerPawn = (Pawn)ActivePlayer ().getPawn ();
 		Vector3 newPosition = playerPawn.gameObject.transform.position;
 		newPosition.z = -10;
+        newPosition.y -= 10;
 
 		Camera.main.transform.position = newPosition;
 	}

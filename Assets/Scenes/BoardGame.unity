@@ -7437,7 +7437,6 @@ MonoBehaviour:
   pawnObject: {fileID: 100000, guid: 0935f0ddb02aaba46999770b9cca4d70, type: 2}
   selectedFood: 0
   btnDice: {fileID: 2091713266}
-  btnEat: {fileID: 1821295732}
   btnLeave: {fileID: 1010215172}
   btnTake: {fileID: 708892569}
   btnUp: {fileID: 1691037106}
@@ -10359,6 +10358,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -13586,15 +13586,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: b5bf3bc9e607cfb4ca6b01e06b599561, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 12.5965433
+      value: 12.6000004
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b5bf3bc9e607cfb4ca6b01e06b599561, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.28320646
+      value: 5.28299999
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b5bf3bc9e607cfb4ca6b01e06b599561, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b5bf3bc9e607cfb4ca6b01e06b599561, type: 2}
       propertyPath: m_LocalRotation.x
@@ -20272,6 +20272,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -21483,6 +21484,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -23380,6 +23382,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -24038,7 +24041,7 @@ Transform:
   m_PrefabInternal: {fileID: 918234371}
   m_GameObject: {fileID: 1663285029}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.5965433, y: 5.28320646, z: 20}
+  m_LocalPosition: {x: 12.6000004, y: 5.28299999, z: 10}
   m_LocalScale: {x: 1, y: 1, z: .100000001}
   m_Children:
   - {fileID: 1914219623}
@@ -26662,7 +26665,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1860780874}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -.258819044, y: 0, z: 0, w: .965925813}
   m_LocalPosition: {x: 8.56999969, y: -.0700000003, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -27398,6 +27401,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:

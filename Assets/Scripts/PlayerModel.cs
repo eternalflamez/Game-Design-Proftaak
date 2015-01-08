@@ -51,7 +51,7 @@ public class PlayerModel
 
 	        if (itemTime + time > duration)
 	        {
-	            itemTime = duration - time;
+	            itemTime = duration;
 	        }
 	        else
 	        {
