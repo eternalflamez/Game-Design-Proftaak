@@ -28,5 +28,6 @@ public class SceneSwitcher : MonoBehaviour {
     public void SetPlayerCount(int players)
     {
         InformationManager.instance.setPlayerCount(players);
+        GoToScene("PlayerInfo");
     }
 }
