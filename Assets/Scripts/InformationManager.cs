@@ -20,8 +20,11 @@ class InformationManager : MonoBehaviour
         }
     }
 
+    [SerializeField]
     private float maxTurns;
+    [SerializeField]
     private List<Player> players;
+    [SerializeField]
     private float playerCount;
     private List<PawnColor> usedColors;
 
@@ -112,7 +115,7 @@ class InformationManager : MonoBehaviour
         }
 
         // TODO: Stahp using dummy data.
-        this.maxTurns = 15;
+        this.maxTurns = 10;
         this.playerCount = 2;
     }
 
@@ -126,7 +129,7 @@ class InformationManager : MonoBehaviour
     /// </summary>
     public void LoadPlayerInfoScene()
     {
-        Application.LoadLevel("PlayerInfo");
+        Application.LoadLevel("AantalBeurtenScreen");
     }
 }
 
