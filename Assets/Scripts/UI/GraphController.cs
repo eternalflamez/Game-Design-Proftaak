@@ -6,11 +6,13 @@ using System.Collections.Generic;
 public class GraphController : MonoBehaviour {
     [SerializeField]
     private List<GraphGenerator> graphs;
+    [SerializeField]
+    private GameObject[] PlayerUI;
 
 	// Use this for initialization
 	void Start () {
         ScoreManager sm = InformationManager.instance.getScoreManager();
-        
+
         for (int i = 0; i < graphs.Count; i++)
         {
             GraphGenerator gg = graphs[i];
@@ -20,6 +22,11 @@ public class GraphController : MonoBehaviour {
             {
                 gg.setPoints(points);
             }
+        }
+
+        for (float i = InformationManager.instance.getPlayerCount(); i < PlayerUI.Length; i++)
+        {
+            PlayerUI[(int)i].SetActive(false);
         }
     }
 }

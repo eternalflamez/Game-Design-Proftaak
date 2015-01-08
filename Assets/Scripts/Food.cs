@@ -24,7 +24,7 @@ public class Food
 	{
 	    return name;
 	}
-	public string getDesciption()
+	public string getDescription()
 	{
 		return description;
 	}

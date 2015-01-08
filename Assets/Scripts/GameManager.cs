@@ -60,8 +60,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Button btnDice;
     [SerializeField]
-    private GameObject btnEat;
-    [SerializeField]
     private GameObject btnLeave;
     [SerializeField]
     private GameObject btnTake;
@@ -350,7 +348,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void hideObjectButtons()
     {
-        btnEat.SetActive(false);
         btnTake.SetActive(false);
         btnLeave.SetActive(false);
 
@@ -410,7 +407,7 @@ public class GameManager : MonoBehaviour
 		selectedFood = foodId;
 
 		lblFoodName.text = foods [foodId].getName ();
-		lblFoodDesciption.text = foods [foodId].getDesciption ();
+		lblFoodDesciption.text = foods [foodId].getDescription ();
 		lblFoodCal.text = foods [foodId].getCarbs ().ToString();
 	}
 

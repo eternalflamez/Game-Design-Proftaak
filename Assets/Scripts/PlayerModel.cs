@@ -24,7 +24,9 @@ public class PlayerModel
 
 	public void eat(Food f)
 	{
-	    digesting.Add(f);
+        Food newF = new Food(f.getName(), f.getDescription(), f.getCarbs(), f.getAbsorbionTime());
+
+        digesting.Add(newF);
 	}
 
 	public void useInsulin(float amount)
