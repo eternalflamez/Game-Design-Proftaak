@@ -206,7 +206,7 @@ RectTransform:
   m_GameObject: {fileID: 60170581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.70000005, y: 1.70000005, z: 1}
   m_Children:
   - {fileID: 1407681297}
   - {fileID: 787157508}
@@ -214,7 +214,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .410366386, y: .701818228}
   m_AnchorMax: {x: .596362114, y: .761363685}
-  m_AnchoredPosition: {x: 7.54098511, y: 95.3829498}
+  m_AnchoredPosition: {x: 8, y: 176}
   m_SizeDelta: {x: 156.838165, y: 30.1404495}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &60170583
@@ -343,8 +343,8 @@ RectTransform:
   - {fileID: 662087160}
   - {fileID: 592081843}
   - {fileID: 504746827}
-  - {fileID: 1532712626}
   - {fileID: 1046049458}
+  - {fileID: 130316040}
   m_Father: {fileID: 222871509}
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
@@ -383,8 +383,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 51.5999985, y: -64}
-  m_SizeDelta: {x: 200, y: 30}
+  m_AnchoredPosition: {x: 193.250015, y: -77}
+  m_SizeDelta: {x: 386.5, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &83932774
 MonoBehaviour:
@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f930f92c0e34fdb46b5ca2e94a5f195c, type: 3}
-    m_FontSize: 14
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -411,13 +411,79 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Fill in you length to continue
+  m_Text: Gelieve eerst uw lengte in vullen
 --- !u!222 &83932775
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 83932772}
+--- !u!1 &130316039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 130316040}
+  - 222: {fileID: 130316042}
+  - 114: {fileID: 130316041}
+  m_Layer: 5
+  m_Name: PawnText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &130316040
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 130316039}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 75285639}
+  m_RootOrder: 5
+  m_AnchorMin: {x: .317459315, y: .543272734}
+  m_AnchorMax: {x: .406000018, y: .611000001}
+  m_AnchoredPosition: {x: 14, y: -149.589996}
+  m_SizeDelta: {x: 118, y: 27.8129997}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &130316041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 130316039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: f930f92c0e34fdb46b5ca2e94a5f195c, type: 3}
+    m_FontSize: 28
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 2
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: Pion kleur
+--- !u!222 &130316042
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 130316039}
 --- !u!1 &143163777
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +590,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &156956686
 MonoBehaviour:
@@ -579,7 +645,7 @@ RectTransform:
   m_GameObject: {fileID: 169722538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.70000005, y: 1.70000005, z: 1}
   m_Children:
   - {fileID: 1918142758}
   - {fileID: 445989214}
@@ -587,7 +653,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .410366386, y: .62227273}
   m_AnchorMax: {x: .596362114, y: .686000049}
-  m_AnchoredPosition: {x: 7.54098511, y: 63.4803848}
+  m_AnchoredPosition: {x: 8, y: 112}
   m_SizeDelta: {x: 156.838165, y: 29.9762955}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &169722540
@@ -746,7 +812,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Tik hier!
 --- !u!222 &185847100
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -812,7 +878,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Tik hier!
 --- !u!222 &188029340
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1180,7 +1246,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -80.1999969}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &354739069
@@ -1288,8 +1354,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .317459315, y: .692727327}
   m_AnchorMax: {x: .406000018, y: .75454551}
-  m_AnchoredPosition: {x: -116, y: 75}
-  m_SizeDelta: {x: 98.5669403, y: 23.956356}
+  m_AnchoredPosition: {x: -170, y: 156}
+  m_SizeDelta: {x: 99.2834702, y: 23.6875}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &403787013
 MonoBehaviour:
@@ -1306,7 +1372,7 @@ MonoBehaviour:
   m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f930f92c0e34fdb46b5ca2e94a5f195c, type: 3}
-    m_FontSize: 14
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1316,7 +1382,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Name:'
+  m_Text: 'Naam:'
 --- !u!222 &403787014
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1624,8 +1690,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 2.63303518e-05, y: -.000286252151}
-  m_SizeDelta: {x: 984.169983, y: 830.77002}
+  m_AnchoredPosition: {x: -24, y: 0}
+  m_SizeDelta: {x: 1280, y: 830.77002}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &469619242
 MonoBehaviour:
@@ -1683,10 +1749,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 75285639}
   m_RootOrder: 3
-  m_AnchorMin: {x: .317459315, y: .472727299}
-  m_AnchorMax: {x: .406000018, y: .529545486}
-  m_AnchoredPosition: {x: -116.099998, y: -4.30000019}
-  m_SizeDelta: {x: 98.5669403, y: 24.261364}
+  m_AnchorMin: {x: 0, y: .5}
+  m_AnchorMax: {x: 0, y: .5}
+  m_AnchoredPosition: {x: -335, y: -10}
+  m_SizeDelta: {x: 508, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &504746828
 MonoBehaviour:
@@ -1703,7 +1769,7 @@ MonoBehaviour:
   m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f930f92c0e34fdb46b5ca2e94a5f195c, type: 3}
-    m_FontSize: 14
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1713,7 +1779,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Length:'
+  m_Text: 'Lengte(in centimeters):'
 --- !u!222 &504746829
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1901,8 +1967,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .317459315, y: .543272734}
   m_AnchorMax: {x: .406000018, y: .611000001}
-  m_AnchoredPosition: {x: -116.800003, y: 22.2000008}
-  m_SizeDelta: {x: 99.5669403, y: 22.9595413}
+  m_AnchoredPosition: {x: -171, y: 46}
+  m_SizeDelta: {x: 98.2834702, y: 22.9595413}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &592081844
 MonoBehaviour:
@@ -1919,7 +1985,7 @@ MonoBehaviour:
   m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f930f92c0e34fdb46b5ca2e94a5f195c, type: 3}
-    m_FontSize: 14
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1929,7 +1995,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Weight:'
+  m_Text: 'Gewicht:'
 --- !u!222 &592081845
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2073,8 +2139,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .317459315, y: .62227273}
   m_AnchorMax: {x: .406000018, y: .686000049}
-  m_AnchoredPosition: {x: -114.401443, y: 49.5522423}
-  m_SizeDelta: {x: 96.5669403, y: 23.6035652}
+  m_AnchoredPosition: {x: -169, y: 99}
+  m_SizeDelta: {x: 101.083473, y: 23.6035652}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &662087161
 MonoBehaviour:
@@ -2091,7 +2157,7 @@ MonoBehaviour:
   m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f930f92c0e34fdb46b5ca2e94a5f195c, type: 3}
-    m_FontSize: 14
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -2101,7 +2167,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Age:'
+  m_Text: 'Leeftijd:'
 --- !u!222 &662087162
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2239,7 +2305,7 @@ RectTransform:
   m_GameObject: {fileID: 684322920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.70000005, y: 1.70000005, z: 1}
   m_Children:
   - {fileID: 185847098}
   - {fileID: 516175664}
@@ -2247,7 +2313,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .410366386, y: .479454577}
   m_AnchorMax: {x: .596362114, y: .538636386}
-  m_AnchoredPosition: {x: 7.54098511, y: -2.01451111}
+  m_AnchoredPosition: {x: 8, y: -14}
   m_SizeDelta: {x: 156.838165, y: 29.9808159}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &684322922
@@ -2445,8 +2511,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -10}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: -11.8999996, y: -10}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &798199187
 MonoBehaviour:
@@ -2634,7 +2700,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &870677725
 MonoBehaviour:
@@ -2884,10 +2950,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 75285639}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: .344366401, y: .79518187}
   m_AnchorMax: {x: .655658543, y: .961545467}
-  m_AnchoredPosition: {x: 1.1099472, y: 128.565292}
+  m_AnchoredPosition: {x: 1, y: 206}
   m_SizeDelta: {x: 192.099838, y: 43.3972549}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1046049459
@@ -2905,8 +2971,8 @@ MonoBehaviour:
   m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: dfa519198d33b4844a67fad9306a38e0, type: 3}
-    m_FontSize: 40
-    m_FontStyle: 0
+    m_FontSize: 50
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -2915,7 +2981,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Player 1
+  m_Text: 'Speler 1
 
 '
 --- !u!222 &1046049460
@@ -3035,7 +3101,7 @@ RectTransform:
   m_GameObject: {fileID: 1265146092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.70000005, y: 1.70000005, z: 1}
   m_Children:
   - {fileID: 188029338}
   - {fileID: 978152497}
@@ -3043,7 +3109,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .410366386, y: .552272737}
   m_AnchorMax: {x: .596362114, y: .611000001}
-  m_AnchoredPosition: {x: 7.54098511, y: 31.052887}
+  m_AnchoredPosition: {x: 8, y: 50}
   m_SizeDelta: {x: 156.838165, y: 29.7812691}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1265146094
@@ -3244,7 +3310,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Tik hier!
 --- !u!222 &1407681299
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3282,8 +3348,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 51.5999985, y: 0}
-  m_SizeDelta: {x: 200, y: 30}
+  m_AnchoredPosition: {x: 193, y: 52}
+  m_SizeDelta: {x: 387, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1436355329
 MonoBehaviour:
@@ -3300,7 +3366,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f930f92c0e34fdb46b5ca2e94a5f195c, type: 3}
-    m_FontSize: 14
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -3310,7 +3376,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Fill in your age to continue
+  m_Text: Gelieve eerst uw leeftijd in vullen
 --- !u!222 &1436355330
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3476,7 +3542,7 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 33.5999985, y: -38.9000015}
+  m_AnchoredPosition: {x: 33.5999985, y: -70.9000015}
   m_SizeDelta: {x: 40, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1444037031
@@ -3686,8 +3752,8 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 51.5999985, y: -253}
-  m_SizeDelta: {x: 200, y: 30}
+  m_AnchoredPosition: {x: 40, y: -317}
+  m_SizeDelta: {x: 470, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1486550635
 MonoBehaviour:
@@ -3704,7 +3770,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f930f92c0e34fdb46b5ca2e94a5f195c, type: 3}
-    m_FontSize: 14
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -3714,79 +3780,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Please choose a pawn color
+  m_Text: Gelieve eerst uw pion kleur te selecteren
 --- !u!222 &1486550636
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1486550633}
---- !u!1 &1532712625
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 1532712626}
-  - 222: {fileID: 1532712628}
-  - 114: {fileID: 1532712627}
-  m_Layer: 5
-  m_Name: PawnText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1532712626
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1532712625}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 75285639}
-  m_RootOrder: 4
-  m_AnchorMin: {x: .185183436, y: .185130432}
-  m_AnchorMax: {x: .185183436, y: .185130432}
-  m_AnchoredPosition: {x: 31, y: -40}
-  m_SizeDelta: {x: 132, y: 36}
-  m_Pivot: {x: .5, y: .5}
---- !u!114 &1532712627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1532712625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: f930f92c0e34fdb46b5ca2e94a5f195c, type: 3}
-    m_FontSize: 24
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 2
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Pawn Color
---- !u!222 &1532712628
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1532712625}
 --- !u!1 &1551929707
 GameObject:
   m_ObjectHideFlags: 0
@@ -3819,7 +3819,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -49.0999985, y: -38.9000015}
+  m_AnchoredPosition: {x: -52.5999985, y: -80}
   m_SizeDelta: {x: 40, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1551929709
@@ -3910,8 +3910,8 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 51.5999985, y: -105.900002}
-  m_SizeDelta: {x: 200, y: 30}
+  m_AnchoredPosition: {x: 193.249954, y: -137}
+  m_SizeDelta: {x: 386.5, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1558186261
 MonoBehaviour:
@@ -3928,7 +3928,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f930f92c0e34fdb46b5ca2e94a5f195c, type: 3}
-    m_FontSize: 14
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -3938,7 +3938,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Fill in your gender to continue
+  m_Text: Gelieve eerst uw geslacht in vullen
 --- !u!222 &1558186262
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3976,8 +3976,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 51.5999985, y: 32}
-  m_SizeDelta: {x: 200, y: 30}
+  m_AnchoredPosition: {x: 193.250015, y: 117}
+  m_SizeDelta: {x: 386.5, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1697057796
 MonoBehaviour:
@@ -3994,7 +3994,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f930f92c0e34fdb46b5ca2e94a5f195c, type: 3}
-    m_FontSize: 14
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -4004,7 +4004,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Fill in your name to continue
+  m_Text: Gelieve eerst uw naam in vullen
 --- !u!222 &1697057797
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4161,8 +4161,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 28.2000008, y: -.5}
-  m_SizeDelta: {x: 40, y: 17}
+  m_AnchoredPosition: {x: 21.7000008, y: -.5}
+  m_SizeDelta: {x: 60, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1726417574
 MonoBehaviour:
@@ -4179,7 +4179,7 @@ MonoBehaviour:
   m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f930f92c0e34fdb46b5ca2e94a5f195c, type: 3}
-    m_FontSize: 14
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -4189,7 +4189,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Male
+  m_Text: Man
 --- !u!222 &1726417575
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4227,8 +4227,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 38.7000008, y: -.5}
-  m_SizeDelta: {x: 60, y: 17}
+  m_AnchoredPosition: {x: 53, y: -7.9000001}
+  m_SizeDelta: {x: 90, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1762702322
 MonoBehaviour:
@@ -4245,7 +4245,7 @@ MonoBehaviour:
   m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f930f92c0e34fdb46b5ca2e94a5f195c, type: 3}
-    m_FontSize: 14
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -4255,7 +4255,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Female
+  m_Text: Vrouw
 --- !u!222 &1762702323
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4405,8 +4405,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 51.5999985, y: -32}
-  m_SizeDelta: {x: 200, y: 30}
+  m_AnchoredPosition: {x: 193.250015, y: -13}
+  m_SizeDelta: {x: 386.5, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1873640062
 MonoBehaviour:
@@ -4423,7 +4423,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f930f92c0e34fdb46b5ca2e94a5f195c, type: 3}
-    m_FontSize: 14
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -4433,7 +4433,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Fill in your weight to continue
+  m_Text: Gelieve eerst uw gewicht in vullen
 --- !u!222 &1873640063
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4472,8 +4472,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -10}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: 5.19999981, y: -15.6999998}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1875688165
 MonoBehaviour:
@@ -4561,7 +4561,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Tik hier!
 --- !u!222 &1918142760
 CanvasRenderer:
   m_ObjectHideFlags: 0

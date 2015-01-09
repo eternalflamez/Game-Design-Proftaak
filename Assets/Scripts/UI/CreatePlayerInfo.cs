@@ -38,7 +38,7 @@ public class CreatePlayerInfo : MonoBehaviour {
         weight = 0;
         gender = Gender.None;
         color = new PawnColor(Color.clear, "");
-        playerHeader.text = "Player " + (InformationManager.instance.getPlayerCount() + 1);
+        playerHeader.text = "Speler " + (InformationManager.instance.getPlayerCount() + 1);
 
         nameError.enabled = false;
         ageError.enabled = false;
