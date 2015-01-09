@@ -8,8 +8,8 @@ public class PlayerModel
 	private List<Food> digesting;
 	private float insulin;
 	private float glucose;
-	private const float glucosePerCarb = .007f;
-	private const float glucoseDropSpeed = 1.25f;
+	private const float glucosePerCarb = .012f;
+	private const float glucoseDropSpeed = 0.8f;
 
 	public float getGlucose()
 	{
@@ -59,7 +59,11 @@ public class PlayerModel
 	        }
 
 	        float carbsLeft = carbConst * (-Mathf.Log10(itemTime / duration));
-	        float carbsAbsorbed = carbs - carbsLeft;
+            if (carbsLeft > carbs)
+            {
+                carbsLeft = carbs;
+            }
+            float carbsAbsorbed = carbs - carbsLeft;
 
 	        glucose += carbsAbsorbed * glucosePerCarb;
 

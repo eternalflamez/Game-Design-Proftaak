@@ -72,6 +72,10 @@ public class CreatePlayerInfo : MonoBehaviour {
         {
             this.age = result;
         }
+        else
+        {
+            this.age = 0;
+        }
     }
 
     public void setHeight(string height)
@@ -81,6 +85,10 @@ public class CreatePlayerInfo : MonoBehaviour {
         {
             this.height = result;
         }
+        else
+        {
+            this.height = 0;
+        }
     }
 
     public void setWeight(string weight)
@@ -89,6 +97,10 @@ public class CreatePlayerInfo : MonoBehaviour {
         if (float.TryParse(weight, out result))
         {
             this.weight = result;
+        }
+        else
+        {
+            this.weight = 0;
         }
     }
 
@@ -101,12 +113,12 @@ public class CreatePlayerInfo : MonoBehaviour {
     {
         bool error = false;
 
-        error = error || (nameError.enabled = (pname == ""));
-        error = error || (ageError.enabled = (age == 0));
-        error = error || (weightError.enabled = (weight == 0));
-        error = error || (heightError.enabled = (height == 0));
-        error = error || (genderError.enabled = (gender == Gender.None));
-        error = error || (colorError.enabled = (color.getColor() == Color.clear));
+        error = (nameError.enabled = (pname == "")) || error;
+        error = (ageError.enabled = (age == 0)) || error;
+        error = (weightError.enabled = (weight == 0)) || error;
+        error = (heightError.enabled = (height == 0)) || error;
+        error = (genderError.enabled = (gender == Gender.None)) || error;
+        error = (colorError.enabled = (color.getColor() == Color.clear)) || error;
 
         if(!error)
         {
