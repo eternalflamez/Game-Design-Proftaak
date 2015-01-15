@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
+using System.IO;
 
 class InformationManager : MonoBehaviour
 {
@@ -65,12 +67,20 @@ class InformationManager : MonoBehaviour
     /// <summary>
     /// Adds a playerobject to the list, for later use.
     /// </summary>
-    public void addPlayer(string name, int age, int height, float weight, Gender gender, PawnColor c)
+    public void addPlayer(string name, int age, int height, float weight, Gender gender, PawnColor c, bool save)
     {
         Player p = new Player();
         p.setInfo(players.Count, name, age, height, weight, gender, c.getColor());
         players.Add(p);
         usedColors.Add(c);
+
+        if (save)
+        {
+            XmlSerializer ser = new XmlSerializer(typeof(Player));
+            StreamWriter file = new StreamWriter(Path.Combine(Application.persistentDataPath, p.getFileName() + ".xml"));
+            ser.Serialize(file, p);
+            file.Close();
+        }
 
         if (players.Count == playerCount)
         {

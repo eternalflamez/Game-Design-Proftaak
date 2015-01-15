@@ -2,15 +2,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
 
 public class Food
 {
-	private string name;
-	private string description;
-	private float carbohydrates;
-	private float absorbsionTime;
+    public string name;
+    public string description;
+    public float carbohydrates;
+    public float absorbsionTime;
 	private float time;
 	private float carbConst;
+
+    public Food()
+    {
+
+    }
 
 	public Food(string name, string description, float carbohydrates, float absorbsionTime)
 	{

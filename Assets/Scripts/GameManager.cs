@@ -103,8 +103,8 @@ public class GameManager : MonoBehaviour
             InformationObject.AddComponent<InformationManager>();
 
             informationManager = InformationManager.instance;
-            informationManager.addPlayer("Tom", 22, 180, 90.00f, Gender.Male, new PawnColor(Color.yellow, "Yellow"));
-            informationManager.addPlayer("Henk", 71, 178, 74.22f, Gender.Male, new PawnColor(Color.green, "Green"));
+            informationManager.addPlayer("Tom", 22, 180, 90.00f, Gender.Male, new PawnColor(Color.yellow, "Yellow"), false);
+            informationManager.addPlayer("Henk", 71, 178, 74.22f, Gender.Male, new PawnColor(Color.green, "Green"), false);
         }
 
 		hideRouteButtons ();

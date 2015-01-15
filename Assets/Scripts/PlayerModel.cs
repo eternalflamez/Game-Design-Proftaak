@@ -7,7 +7,7 @@ public class PlayerModel
 {
 	private List<Food> digesting;
 	private float insulin;
-	private float glucose;
+    private float glucose;
 	private const float glucosePerCarb = .012f;
 	private const float glucoseDropSpeed = 0.8f;
 

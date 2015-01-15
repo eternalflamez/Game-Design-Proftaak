@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Xml.Serialization;
 
 public class Player
 {
     private int id;
-	private float insulinReserves = 8;
+    private float insulinReserves = 8;
 
-    private string name;
-    private int age = 0;
-    private int height;
-    private float weight;
-    private Gender gender;
+    public string name;
+    public int age = 0;
+    public int height;
+    public float weight;
+    public Gender gender;
 
     private PlayerModel model;
     private Pawn pawn;
@@ -52,6 +53,7 @@ public class Player
     {
         return model;
     }
+
 	public float getInsulineReserve()
 	{
 		return insulinReserves;
@@ -66,6 +68,11 @@ public class Player
     public Pawn getPawn()
     {
         return pawn;
+    }
+
+    public string getFileName()
+    {
+        return this.name + "-" + this.age + "-" + this.gender.ToString().ToCharArray()[0];
     }
 
 	public void setInfo(int id, string name, int age, int height, float weight, Gender gender, Color color)

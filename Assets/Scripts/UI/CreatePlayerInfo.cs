@@ -19,6 +19,8 @@ public class CreatePlayerInfo : MonoBehaviour {
     private Text genderError;
     [SerializeField]
     private Text colorError;
+    [SerializeField]
+    private Toggle saveToggle;
 
     [SerializeField]
     private Button[] colorButtons;
@@ -29,6 +31,13 @@ public class CreatePlayerInfo : MonoBehaviour {
     private float weight;
     private Gender gender;
     private PawnColor color;
+
+    public static CreatePlayerInfo instance;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -122,7 +131,7 @@ public class CreatePlayerInfo : MonoBehaviour {
 
         if(!error)
         {
-            InformationManager.instance.addPlayer(pname, age, height, weight, gender, color);
+            InformationManager.instance.addPlayer(pname, age, height, weight, gender, color, saveToggle.isOn);
         }
     }
 
