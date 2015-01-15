@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioListener))]
 [RequireComponent(typeof(AudioSource))]
-class TitleMusic : MonoBehaviour
+class titleMusic : MonoBehaviour
 {
-	private static TitleMusic instance = null;
-	public static TitleMusic Instance
+	private static titleMusic instance = null;
+	public static titleMusic Instance
 	{
 		get
 		{
 			if (instance == null)
 			{
-				instance = (TitleMusic)FindObjectOfType(typeof(TitleMusic));
+				instance = (titleMusic)FindObjectOfType(typeof(titleMusic));
 			}
 			return instance;
 		}
@@ -29,8 +30,8 @@ class TitleMusic : MonoBehaviour
 		}
 	}
 
-    public void Destroy()
-    {
-        Destroy(gameObject);
-    }
+	public void Destroy()
+	{
+		Destroy (gameObject);
+	}
 }

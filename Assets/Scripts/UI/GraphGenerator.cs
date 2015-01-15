@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class GraphGenerator : MonoBehaviour
 {
+	[SerializeField]
+	private Sprite pointPre;
     [SerializeField]
     private GameObject pointPrefab;
     private Vector3 offset;

@@ -12,10 +12,13 @@ public class Player
     public int height;
     public float weight;
     public Gender gender;
+	private int usedSugar = 0;
 
     private PlayerModel model;
     private Pawn pawn;
     private Color pawnColor;
+
+	public bool skipsTurn = false;
 
 	public Food lastEaten;
 
@@ -86,6 +89,15 @@ public class Player
         this.pawnColor = color;
 
 		model = new PlayerModel(5);
+	}
+
+	public int getUsedSugar()
+	{
+		return usedSugar;
+	}
+	public void useSugar()
+	{
+		usedSugar++;
 	}
 
 	public void eat(Food food)

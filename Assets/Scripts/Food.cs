@@ -21,6 +21,7 @@ public class Food
 	public Food(string name, string description, float carbohydrates, float absorbsionTime)
 	{
 	    this.name = name;
+		this.description = description;
 	    this.carbohydrates = carbohydrates;
 	    this.absorbsionTime = absorbsionTime;
         this.time = absorbsionTime;

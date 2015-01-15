@@ -9,10 +9,8 @@ public class GameManager : MonoBehaviour
     private InformationManager informationManager;
     public static GameManager instance;
 
-    /// <summary>
-    /// The list of pawn gameobjects.
-    /// </summary>
-    public List<Pawn> pawns = new List<Pawn>();
+	[SerializeField]
+	private Image HUDBackground;
 
     /// <summary>
     /// The list of players. This list is generated from the information filled in at the start of the game.
@@ -57,12 +55,11 @@ public class GameManager : MonoBehaviour
         return maxTurns;
     }
 
+	[SerializeField]
+	private AudioSource audioSource;
+
     [SerializeField]
     private Button btnDice;
-    [SerializeField]
-    private GameObject btnLeave;
-    [SerializeField]
-    private GameObject btnTake;
 
 	[SerializeField]
 	private Button btnUp;
@@ -74,11 +71,7 @@ public class GameManager : MonoBehaviour
 	private Button btnRight;
 
     [SerializeField]
-    private Text lblDice;
-    [SerializeField]
     private Text lblPlayerTurn;
-    [SerializeField]
-    private Text lblInfo;
 	[SerializeField]
 	private Text lblGlucose;
 	[SerializeField]
@@ -89,9 +82,13 @@ public class GameManager : MonoBehaviour
 	private Text lblFoodDesciption;
 	[SerializeField]
 	private Text lblFoodCal;
+	[SerializeField]
+	private Text lblSound;
 
 	[SerializeField]
 	private GameObject pnlFood;
+	[SerializeField]
+	private GameObject pnlMenu;
 
     // Use this for initialization
     void Start()
@@ -120,6 +117,7 @@ public class GameManager : MonoBehaviour
 		foods.Add (new Food ("Banaan", "1 banaan", 188, 5));
 		foods.Add (new Food ("Croissant", "1 Croissant", 239, 5));
 		foods.Add (new Food ("Brood bruin", "1 snee belegd brood", 64, 5));
+		foods.Add (new Food ("Druivensuiker", "Nodig voor Hypo", 400, 5));
 
         players.AddRange(informationManager.getPlayers());
         
@@ -139,8 +137,6 @@ public class GameManager : MonoBehaviour
 
 		Tile startTile = BoardController.instance.getStartTile ();
 
-		Debug.Log ("StartTileCoords: " + startTile.getCoordinates());
-
 		for (int index = 0; index < players.Count; index++)
 		{
 			GameObject newPawn = (GameObject)Instantiate (pawnObject, startTile.transform.position, Quaternion.identity);
@@ -158,9 +154,11 @@ public class GameManager : MonoBehaviour
 
         playerCount = players.Count;
 
-		lblPlayerTurn.text = "Player " + playerTurn + ": turn " + turnCount;
+		lblPlayerTurn.text = "Speler " + ActivePlayer().getName() + System.Environment.NewLine + "Beurt " + turnCount;
 		lblGlucose.text = "Bloedsuiker: " + players[0].getModel().getGlucose();
 		lblInsuline.text = "Insuline: " + players[0].getInsulineReserve();
+
+		HUDBackground.color = ActivePlayer ().getPawn ().getColor ();
     }
 
     void Awake()
@@ -190,18 +188,13 @@ public class GameManager : MonoBehaviour
 
             diceRoll1 = Random.Range(1, 7);
             dices[diceRoll1 - 1].SetActive(true);
-            Debug.Log("D1 is " + diceRoll1);
 
             diceRoll2 = Random.Range(1, 7);
             dices[diceRoll2 + 5].SetActive(true);
-            Debug.Log("D2 is " + diceRoll2);
 
             int diceRoll = diceRoll1 + diceRoll2;
-            Debug.Log("Er is " + diceRoll + " gegooid.");
 
             btnDice.interactable = false;
-
-            lblDice.text = "Your rolled: " + diceRoll;
 
             ActivePlayer().walk(diceRoll * 5);
             ActivePlayer().getPawn().setMovePawn(diceRoll);
@@ -244,8 +237,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void playerEndTurn()
     {
-        Debug.Log("Glucose: " + ActivePlayer().getModel().getGlucose());
-
         if (turnCount % (maxTurns / 8) == 0)
         {
             ScoreManager.instance.createMeasurePoint(ActivePlayer().getId(), ActivePlayer().getModel().getGlucose());
@@ -267,9 +258,11 @@ public class GameManager : MonoBehaviour
         }
 
         btnDice.interactable = true;
-        lblPlayerTurn.text = "Player " + (playerTurn + 1) + ": turn " + turnCount;
+		lblPlayerTurn.text = "Speler " + ActivePlayer().getName() + System.Environment.NewLine + "Beurt " + turnCount;
 		lblGlucose.text = "Bloedsuiker: " + ActivePlayer().getModel().getGlucose();
 		lblInsuline.text = "Insuline: " + ActivePlayer().getInsulineReserve();
+
+		HUDBackground.color = ActivePlayer ().getPawn ().getColor ();
 
 		setCameraPosition ();
     }
@@ -314,7 +307,6 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void hideFoodPnl ()
 	{
-		Debug.Log ("Hide");
 		pnlFood.SetActive (false);
 	}
 
@@ -327,35 +319,6 @@ public class GameManager : MonoBehaviour
 	}
 
     /// <summary>
-    /// Shows the UI required to pick up items.
-    /// </summary>
-    /// <param name="type"></param>
-    public void showObjectButtons(string type)
-    {
-        if (type == "food")
-        {
-			pnlFood.SetActive(true);
-            //btnEat.SetActive(true);
-        }
-        else
-        {
-            btnTake.SetActive(true);
-			btnLeave.SetActive(true);
-        }
-    }
-
-    /// <summary>
-    /// Hides the UI required to pick up items.
-    /// </summary>
-    public void hideObjectButtons()
-    {
-        btnTake.SetActive(false);
-        btnLeave.SetActive(false);
-
-		hideFoodPnl ();
-    }
-
-    /// <summary>
     /// The click event to eat a certain piece of food.
     /// </summary>
     public void clickEat()
@@ -365,23 +328,11 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// The click event to take insulin with you.
-    /// </summary>
-    public void clickTake()
-    {
-        Debug.Log("Insuline before: " + ActivePlayer().getInsulineReserve());
-        ActivePlayer().addInsulinReserves(1);
-        Debug.Log("Insuline after: " + ActivePlayer().getInsulineReserve());
-		hideObjectButtons();
-		playerEndTurn();
-    }
-
-    /// <summary>
     /// The click event to leave a certain item.
     /// </summary>
     public void clickLeave()
     {
-        hideObjectButtons();
+        hideFoodPnl();
         playerEndTurn();
     }
 
@@ -391,12 +342,15 @@ public class GameManager : MonoBehaviour
     /// <param name="id">The id of the food to eat.</param>
     public void clickFood(int id)
     {
-        ActivePlayer().getModel().eat(foods[id]);
-        float newGlucose = ActivePlayer().getModel().getGlucose();
+		ActivePlayer().getModel().eat(foods[id]);
 
-        Debug.Log("New Glucose: " + newGlucose);
+		if (id == (foods.Count - 1))
+		{
+			ActivePlayer().useSugar();
+			ActivePlayer().skipsTurn = true;
+		}
 
-        hideObjectButtons();
+        hideFoodPnl();
         playerEndTurn();
     }
 
@@ -409,14 +363,57 @@ public class GameManager : MonoBehaviour
 
 		lblFoodName.text = foods [foodId].getName ();
 		lblFoodDesciption.text = foods [foodId].getDescription ();
-		lblFoodCal.text = foods [foodId].getCarbs ().ToString();
+		lblFoodCal.text = "Cal: " + foods [foodId].getCarbs ().ToString();
+	}
+
+	/// <summary>
+	/// Opens the menu.
+	/// </summary>
+	public void openMenu()
+	{
+		pnlMenu.SetActive (true);
+	}
+
+	/// <summary>
+	/// Closes the menu.
+	/// </summary>
+	public void closeMenu()
+	{
+		pnlMenu.SetActive (false);
+	}
+
+	/// <summary>
+	/// Loads the aantalbeurtenScreen scene(start new game).
+	/// </summary>
+	public void clickNewGame()
+	{
+		Application.LoadLevel ("aantalBeurtenScreen");
+	}
+
+	/// <summary>
+	/// Turns the sound on or off depending on current state.
+	/// </summary>
+	public void clickSound()
+	{
+		if (lblSound.text == "Geluid aan")
+		{
+			audioSource.mute = false;
+
+			lblSound.text = "Geluid uit";
+		}
+		else
+		{
+			audioSource.mute = true;
+
+			lblSound.text = "Geluid aan";
+		}
 	}
 
     /// <summary>
     /// Gets the active player.
     /// </summary>
     /// <returns>The player whose turn it is right now.</returns>
-    private Player ActivePlayer()
+    public Player ActivePlayer()
     {
         return this.players[playerTurn];
     }

@@ -5,14 +5,14 @@ using System.Collections;
 public class SceneSwitcher : MonoBehaviour {
 
 	public GameObject leftButton;
-	public GameObject rightButton;
+	public Button rightButton;
     public Text playerCount;
 	
 	public void GoToScene(string changeScene)
 	{
         if (changeScene == "BoardGame")
         {
-            TitleMusic.Instance.Destroy();
+			titleMusic.Instance.Destroy();
         }
 
 		Application.LoadLevel (changeScene);
@@ -28,6 +28,7 @@ public class SceneSwitcher : MonoBehaviour {
     public void SetPlayerCount(int players)
     {
         InformationManager.instance.setPlayerCount(players);
-        GoToScene("PlayerInfo");
+        
+		rightButton.interactable = true;
     }
 }

@@ -33,56 +33,65 @@ public class Pawn : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (isMoving && rolledNumber > 0)
+		if (!GameManager.instance.ActivePlayer().skipsTurn)
 		{
-			if (rolledNumber > tilesMoved)
+			if (isMoving && rolledNumber > 0)
 			{
-				if (!currentTile.isSpecial || isDirection)
+				if (rolledNumber > tilesMoved)
 				{
-					if (currentTile.tileType == Tile.TileType.Turn)
+					if (!currentTile.isSpecial || isDirection)
 					{
-						moveDir = currentTile.tileDirection;
-					}
-
-					isDirection = false;
-					destinationTile = BoardController.instance.findTileWithCord(getNextCoordinates(currentTile.getCoordinates()));
-
-					if (destinationTile != null)
-					{
-						this.transform.position = destinationTile.transform.position;
-						currentTile = destinationTile;
-						tilesMoved++;
-
-						if (destinationTile.tileType == Tile.TileType.Finish)
+						if (currentTile.tileType == Tile.TileType.Turn)
 						{
-							pawnFinish();
+							moveDir = currentTile.tileDirection;
+						}
+
+						isDirection = false;
+						destinationTile = BoardController.instance.findTileWithCord(getNextCoordinates(currentTile.getCoordinates()));
+
+						if (destinationTile != null)
+						{
+							this.transform.position = destinationTile.transform.position;
+							currentTile = destinationTile;
+							tilesMoved++;
+
+							if (destinationTile.tileType == Tile.TileType.Finish)
+							{
+								pawnFinish();
+							}
 						}
 					}
-				}
-				else //crossroad//object
-				{
-					currentTile.enableButtons();
-				}
-			}
-			else
-			{
-				stopPawn();
-
-				currentTile.addPawnToTile(this);
-
-				if (currentTile.hasFood)
-				{
-					GameManager.instance.showObjectButtons("food");
-				}
-				else if (currentTile.hasInsuline)
-				{
-					GameManager.instance.showObjectButtons("insuline");
+					else //crossroad//object
+					{
+						currentTile.enableButtons();
+					}
 				}
 				else
 				{
-					GameManager.instance.playerEndTurn();
+					stopPawn();
+
+					currentTile.addPawnToTile(this);
+
+					if (currentTile.hasFood)
+					{
+						GameManager.instance.showFoodPnl();
+					}
+					else if (currentTile.hasInsuline)
+					{
+						GameManager.instance.ActivePlayer().addInsulinReserves(1);
+						GameManager.instance.playerEndTurn();
+					}
+					else
+					{
+						GameManager.instance.playerEndTurn();
+					}
 				}
 			}
+		}
+		else
+		{
+			GameManager.instance.ActivePlayer().skipsTurn = false;
+			GameManager.instance.playerEndTurn();
 		}
 	}
 
@@ -153,4 +162,8 @@ public class Pawn : MonoBehaviour
     {
         gameObject.renderer.material.color = c;
     }
+	public Color getColor()
+	{
+		return gameObject.renderer.material.color;
+	}
 }
