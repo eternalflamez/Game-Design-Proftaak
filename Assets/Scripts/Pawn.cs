@@ -162,6 +162,12 @@ public class Pawn : MonoBehaviour
     {
         gameObject.renderer.material.color = c;
     }
+
+    public Vector3 getPosition()
+    {
+        return this.transform.position;
+    }
+
 	public Color getColor()
 	{
 		return gameObject.renderer.material.color;

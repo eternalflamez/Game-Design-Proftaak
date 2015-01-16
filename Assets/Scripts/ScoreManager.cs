@@ -52,6 +52,11 @@ class ScoreManager : MonoBehaviour
         getScoreModel(playerId).setScore(bloodSugar);
     }
 
+    public void setUsedSugar(int playerId, int usedSugar)
+    {
+        getScoreModel(playerId).setUsedSugar(usedSugar);
+    }
+
     /// <summary>
     /// Creates a new measure point (one of the seven).
     /// </summary>

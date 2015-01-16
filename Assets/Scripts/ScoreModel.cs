@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 public class ScoreModel
 {
     private int playerId;
     private string playerName;
     private float idealValue;
+    private float idealValueMargin;
     private List<float> bloodSugars;
     private int hypoTurns;
     private int hyperTurns;
@@ -15,6 +17,7 @@ public class ScoreModel
 
     private float hypoThreshold = 3;
     private float hyperThreshold = 15;
+    private int usedSugar = 0;
 
     /// <summary>
     /// Gets the list of bloodsugars used for the graphs.
@@ -45,6 +48,39 @@ public class ScoreModel
         return playerId;
     }
 
+    public void setUsedSugar(int usedSugar)
+    {
+        this.usedSugar = usedSugar;
+    }
+
+    public float getScore()
+    {
+        float score = 0;
+
+        for (int i = 0; i < measurePoints.Count; i++)
+        {
+            float measurePoint = measurePoints[i];
+            if (measurePoint > idealValue + idealValueMargin)
+            {
+                score += 10 - ((measurePoint - 7) * (11 / 7.5f));
+            }
+
+            if (measurePoint < idealValue - idealValueMargin)
+            {
+                score += 10 - ((5 - measurePoint) * 1.5f);
+            }
+        }
+
+        score -= 5 * usedSugar;
+
+        if (score < 0)
+        {
+            score = 0;
+        }
+
+        return score * (0.7f);
+    }
+
     /// <summary>
     /// Gets the list of seven measure points that are created throughout the playthrough.
     /// </summary>
@@ -59,12 +95,14 @@ public class ScoreModel
     /// </summary>
     /// <param name="playerName">The name of the player.</param>
     /// <param name="idealValue">The ideal value of the player. (Default is 6)</param>
-    public ScoreModel(int playerId, string playerName, float idealValue = 6)
+    public ScoreModel(int playerId, string playerName, float idealValue = 6, float idealValueMargin = 1)
     {
         this.playerName = playerName;
         this.playerId = playerId;
         this.bloodSugars = new List<float>();
         this.measurePoints = new List<float>();
+        this.idealValue = idealValue;
+        this.idealValueMargin = idealValueMargin;
         hyperTurns = 0;
         hypoTurns = 0;
     }

@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // TODO: Maybe remove? Hotfix for testing without filling in info.
         informationManager = InformationManager.instance;
         if (informationManager == null)
         {
@@ -252,6 +253,11 @@ public class GameManager : MonoBehaviour
 
             if (turnCount == maxTurns)
             {
+                for (int i = 0; i < players.Count; i++)
+                {
+                    ScoreManager.instance.setUsedSugar(players[i].getId(), players[i].getUsedSugar());
+                }
+
                 informationManager.SaveScores(ScoreManager.instance);
                 Application.LoadLevel("EndScreen");
             }
@@ -416,5 +422,10 @@ public class GameManager : MonoBehaviour
     public Player ActivePlayer()
     {
         return this.players[playerTurn];
+    }
+
+    public Vector3 getActivePawnPosition()
+    {
+        return ActivePlayer().getPawn().getPosition();
     }
 }
