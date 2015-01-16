@@ -444,7 +444,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -213, y: 106}
+  m_AnchoredPosition: {x: 4, y: 30}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &83932772
@@ -506,7 +506,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Gelieve eerst uw lengte in vullen
+  m_Text: 'vul uw lengte in '
 --- !u!222 &83932775
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -544,7 +544,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 69, y: 0}
+  m_AnchoredPosition: {x: 69, y: -5}
   m_SizeDelta: {x: 156, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &85709952
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: f930f92c0e34fdb46b5ca2e94a5f195c, type: 3}
-    m_FontSize: 26
+    m_FontSize: 21
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -572,7 +572,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Opslaan?
+  m_Text: Profiel opslaan
 --- !u!222 &85709953
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -610,7 +610,7 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: .317459315, y: .543272734}
   m_AnchorMax: {x: .406000018, y: .611000001}
-  m_AnchoredPosition: {x: 14, y: -149.589996}
+  m_AnchoredPosition: {x: 14, y: -232}
   m_SizeDelta: {x: 118, y: 27.8129997}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &130316041
@@ -1080,7 +1080,7 @@ RectTransform:
   m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1072.80005, y: 511.200012}
+  m_AnchoredPosition: {x: 1073, y: 351}
   m_SizeDelta: {x: 193.199997, y: 224.100006}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &222161901
@@ -1151,6 +1151,7 @@ RectTransform:
   - {fileID: 1871329621}
   - {fileID: 908139577}
   - {fileID: 222161900}
+  - {fileID: 1322224033}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -1169,7 +1170,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -1580,7 +1580,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -213, y: 26}
+  m_AnchoredPosition: {x: 4, y: -118}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &331612690
@@ -1615,7 +1615,7 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -53, y: -319}
+  m_AnchoredPosition: {x: 263, y: -370}
   m_SizeDelta: {x: 40, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &331612692
@@ -2132,14 +2132,14 @@ RectTransform:
   m_GameObject: {fileID: 469619240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.30058968, y: .96244818, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 222871509}
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -24, y: 0}
-  m_SizeDelta: {x: 1280, y: 830.77002}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1280, y: 800}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &469619242
 MonoBehaviour:
@@ -2154,7 +2154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 0167302492c91e14e879d6738d9df973, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab734c37bfe79e0419555eb3f1ec1d2a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2227,7 +2227,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Lengte(in centimeters):'
+  m_Text: 'Lengte(in cm):'
 --- !u!222 &504746829
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2388,7 +2388,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 615551372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -218, y: 111, z: 0}
+  m_LocalPosition: {x: -1, y: 35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 60170582}
@@ -2819,11 +2819,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22434004, guid: 5df773af9ae306a42ad62f7b5e7c61cc, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 1072.80005
+      value: 1073
       objectReference: {fileID: 0}
     - target: {fileID: 22434004, guid: 5df773af9ae306a42ad62f7b5e7c61cc, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 511.200012
+      value: 351
       objectReference: {fileID: 0}
     - target: {fileID: 22434004, guid: 5df773af9ae306a42ad62f7b5e7c61cc, type: 2}
       propertyPath: m_SizeDelta.x
@@ -3276,7 +3276,7 @@ RectTransform:
   m_RootOrder: 7
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 512.799988, y: 362.230011}
+  m_AnchoredPosition: {x: 513, y: 202}
   m_SizeDelta: {x: 160, y: 54}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &908139578
@@ -3690,7 +3690,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .344366401, y: .79518187}
   m_AnchorMax: {x: .655658543, y: .961545467}
-  m_AnchoredPosition: {x: 1, y: 206}
+  m_AnchoredPosition: {x: -34, y: 238}
   m_SizeDelta: {x: 192.099838, y: 43.3972549}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1046049459
@@ -4189,6 +4189,67 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1265146092}
+--- !u!1 &1322224032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1322224033}
+  - 222: {fileID: 1322224035}
+  - 114: {fileID: 1322224034}
+  m_Layer: 5
+  m_Name: Logo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1322224033
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1322224032}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3.3429451, y: .663431525, z: .663431525}
+  m_Children: []
+  m_Father: {fileID: 222871509}
+  m_RootOrder: 9
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 439, y: 309}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1322224034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1322224032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: dbe2688e40d5d364cb336308a36e7ce6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1322224035
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1322224032}
 --- !u!1 &1361488435
 GameObject:
   m_ObjectHideFlags: 0
@@ -4356,7 +4417,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Gelieve eerst uw leeftijd in vullen
+  m_Text: 'vul uw leeftijd in '
 --- !u!222 &1436355330
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4522,7 +4583,7 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 33.5999985, y: -70.9000015}
+  m_AnchoredPosition: {x: -136, y: -89}
   m_SizeDelta: {x: 40, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1444037031
@@ -4613,7 +4674,7 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 81, y: -317}
+  m_AnchoredPosition: {x: -64, y: -374}
   m_SizeDelta: {x: 551, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1486550635
@@ -4641,7 +4702,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Gelieve eerst uw pion kleur te selecteren
+  m_Text: Selecteer uw pion kleur
 --- !u!222 &1486550636
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4680,7 +4741,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -52.5999985, y: -80}
+  m_AnchoredPosition: {x: -222, y: -98}
   m_SizeDelta: {x: 40, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1551929709
@@ -4771,7 +4832,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 234.749985, y: -137}
+  m_AnchoredPosition: {x: 235, y: -159}
   m_SizeDelta: {x: 469.5, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1558186261
@@ -4799,7 +4860,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Gelieve eerst uw geslacht in vullen
+  m_Text: 'vul uw geslacht in '
 --- !u!222 &1558186262
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4899,7 +4960,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Gelieve eerst uw naam in vullen
+  m_Text: vul uw naam in
 --- !u!222 &1697057797
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5192,7 +5253,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -47, y: 171}
+  m_AnchoredPosition: {x: 175, y: 92}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1846620004
@@ -5447,7 +5508,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Gelieve eerst uw gewicht in vullen
+  m_Text: vul uw gewicht in
 --- !u!222 &1873640063
 CanvasRenderer:
   m_ObjectHideFlags: 0
