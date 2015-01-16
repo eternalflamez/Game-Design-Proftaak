@@ -6,8 +6,6 @@ public class Pawn : MonoBehaviour
 	[SerializeField]
 	private int rolledNumber = 0;
 	[SerializeField]
-	private int lastRolled = 0;
-	[SerializeField]
 	private int tilesMoved = 0;
 
 	[SerializeField]
@@ -18,9 +16,6 @@ public class Pawn : MonoBehaviour
 	[SerializeField]
 	private Tile currentTile;
 	private Tile destinationTile;
-
-	[SerializeField]
-	private int pawnID = 0;
 
 	public Direction moveDir;
 
@@ -97,7 +92,6 @@ public class Pawn : MonoBehaviour
 
 	private void stopPawn()
 	{
-		lastRolled = rolledNumber;
 		tilesMoved = 0;
 		rolledNumber = 0;
 		isMoving = false;
