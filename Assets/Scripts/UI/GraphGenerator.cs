@@ -125,7 +125,7 @@ public class GraphGenerator : MonoBehaviour
 
                 Debug.Log(current);
                 Vector3 position = new Vector3(x, y, 0f);
-                GameObject go = (GameObject)Instantiate(pointPrefab);
+                GameObject go = (GameObject)Instantiate(pointPre);
                 go.transform.parent = this.transform;
                 go.transform.position = position + offset;
             }
