@@ -273,23 +273,8 @@ public class GameManager : MonoBehaviour
 		lblGlucose.text = "Bloedsuiker: " + ActivePlayer().getModel().getGlucose();
 		lblInsuline.text = "Insuline: " + ActivePlayer().getInsulineReserve();
 
-		HUDBackground.color = ActivePlayer ().getPawn ().getColor ();
-
-		setCameraPosition ();
+        HUDBackground.color = ActivePlayer().getPawn().getColor();
     }
-
-	/// <summary>
-	/// Sets the camera position to the position of the active player.
-	/// </summary>
-	private void setCameraPosition()
-	{
-		Pawn playerPawn = (Pawn)ActivePlayer ().getPawn ();
-		Vector3 newPosition = playerPawn.gameObject.transform.position;
-		newPosition.z = -10;
-        newPosition.y -= 7;
-
-		Camera.main.transform.position = newPosition;
-	}
 
 	/// <summary>
 	/// Shows the route buttons.

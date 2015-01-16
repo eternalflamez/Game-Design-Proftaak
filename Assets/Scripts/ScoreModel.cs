@@ -78,7 +78,7 @@ public class ScoreModel
             score = 0;
         }
 
-        return score * (0.7f);
+        return Mathf.Round(score * (0.7f));
     }
 
     /// <summary>

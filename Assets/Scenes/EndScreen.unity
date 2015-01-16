@@ -379,7 +379,7 @@ MonoBehaviour:
   width: 2
   _playerId: 1
   maxPoints: 30
-  height: 5
+  height: 3.79999995
   margin: 1
   playername: {fileID: 2025558477}
   score: {fileID: 366520504}
@@ -824,7 +824,7 @@ MonoBehaviour:
   width: 2
   _playerId: 2
   maxPoints: 30
-  height: 5
+  height: 3.79999995
   margin: 1
   playername: {fileID: 1469130005}
   score: {fileID: 1533986470}
@@ -1482,7 +1482,7 @@ MonoBehaviour:
   width: 2
   _playerId: 3
   maxPoints: 30
-  height: 5
+  height: 3.79999995
   margin: 1
   playername: {fileID: 1336681604}
   score: {fileID: 1578431910}
@@ -2916,7 +2916,7 @@ MonoBehaviour:
   width: 2
   _playerId: 0
   maxPoints: 30
-  height: 5
+  height: 3.79999995
   margin: 1
   playername: {fileID: 327474303}
   score: {fileID: 1451116714}
