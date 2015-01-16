@@ -16,7 +16,7 @@ public class ScoreModel
     private List<float> measurePoints;
 
     private float hypoThreshold = 3;
-    private float hyperThreshold = 15;
+    private float hyperThreshold = 12;
     private int usedSugar = 0;
 
     /// <summary>
@@ -27,6 +27,15 @@ public class ScoreModel
     {
         return bloodSugars;
     }
+
+	public float getIdealValue()
+	{
+		return idealValue;
+	}
+	public float getIdealValueMargin()
+	{
+		return idealValueMargin;
+	}
 
     public string getPlayerName()
     {
@@ -47,6 +56,16 @@ public class ScoreModel
     {
         return playerId;
     }
+
+	public float getHyperThreshold()
+	{
+		return hyperThreshold;
+	}
+
+	public float getHypoThreshold()
+	{
+		return hypoThreshold;
+	}
 
     public void setUsedSugar(int usedSugar)
     {

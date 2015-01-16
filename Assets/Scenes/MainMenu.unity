@@ -209,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTurns: 0
   playerCount: 0
+  maxInsulin: 10
 --- !u!4 &528465374
 Transform:
   m_ObjectHideFlags: 0

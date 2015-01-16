@@ -30,6 +30,9 @@ class InformationManager : MonoBehaviour
     private float playerCount;
     private List<PawnColor> usedColors;
 
+	[SerializeField]
+	private int maxInsulin;
+
     public ScoreManager getScoreManager()
     {
         return scoreManager;
@@ -70,7 +73,7 @@ class InformationManager : MonoBehaviour
     public void addPlayer(string name, int age, int height, float weight, Gender gender, PawnColor c, bool save)
     {
         Player p = new Player();
-        p.setInfo(players.Count, name, age, height, weight, gender, c.getColor());
+		p.setInfo(players.Count, name, age, height, weight, gender, c.getColor(), maxInsulin);
         players.Add(p);
         usedColors.Add(c);
 

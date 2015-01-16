@@ -13,6 +13,7 @@ public class Player
     public float weight;
     public Gender gender;
 	private int usedSugar = 0;
+	private int maxInsulin = 10;
 
     private PlayerModel model;
     private Pawn pawn;
@@ -78,7 +79,7 @@ public class Player
         return this.name + "-" + this.age + "-" + this.gender.ToString().ToCharArray()[0];
     }
 
-	public void setInfo(int id, string name, int age, int height, float weight, Gender gender, Color color)
+	public void setInfo(int id, string name, int age, int height, float weight, Gender gender, Color color, int maxInsulin)
 	{
         this.id = id;
 		this.name = name;
@@ -87,6 +88,7 @@ public class Player
 		this.weight = weight;
 		this.gender = gender;
         this.pawnColor = color;
+		this.maxInsulin = maxInsulin;
 
 		model = new PlayerModel(5);
 	}
@@ -112,12 +114,22 @@ public class Player
 
 	public void addInsulinReserves(float insulin)
 	{
-		this.insulinReserves += insulin;
+		if (this.insulinReserves < maxInsulin)
+		{
+			this.insulinReserves += insulin;
+		}
 	}
 	
-	public void useInsulinReserves(float amount)
+	public bool useInsulinReserves(float amount)
 	{
-		this.insulinReserves -= amount;
-		model.useInsulin (amount);
+		if ((this.insulinReserves - amount) > 0)
+		{
+			this.insulinReserves -= amount;
+			model.useInsulin (amount);
+
+			return true;
+		}
+
+		return false;
 	}
 }

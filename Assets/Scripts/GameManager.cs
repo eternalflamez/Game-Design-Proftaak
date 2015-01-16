@@ -159,12 +159,12 @@ public class GameManager : MonoBehaviour
         playerCount = players.Count;
 
 		lblPlayerTurn.text = "Speler " + ActivePlayer().getName() + System.Environment.NewLine + "Beurt " + turnCount;
-		lblGlucose.text = "Bloedsuiker: " + players[0].getModel().getGlucose();
 		lblInsuline.text = "Insuline: " + players[0].getInsulineReserve();
 
 		HUDBackground.color = ActivePlayer ().getPawn ().getColor ();
 
 		setInsulinMeter ();
+		setBloodSugarMeter ();
     }
 
     void Awake()
@@ -270,10 +270,12 @@ public class GameManager : MonoBehaviour
 
         btnDice.interactable = true;
 		lblPlayerTurn.text = "Speler " + ActivePlayer().getName() + System.Environment.NewLine + "Beurt " + turnCount;
-		lblGlucose.text = "Bloedsuiker: " + ActivePlayer().getModel().getGlucose();
 		lblInsuline.text = "Insuline: " + ActivePlayer().getInsulineReserve();
 
         HUDBackground.color = ActivePlayer().getPawn().getColor();
+
+		setInsulinMeter ();
+		setBloodSugarMeter ();
     }
 
 	/// <summary>
@@ -413,7 +415,36 @@ public class GameManager : MonoBehaviour
 		insulinMeter.size = ActivePlayer ().getInsulineReserve ()/100f;
 	}
 
-    /// <summary>
+	public void setBloodSugarMeter()
+	{
+		lblGlucose.text = "" + ActivePlayer ().getModel ().getGlucose ();
+
+		ScoreModel model = ScoreManager.instance.getScoreModel (ActivePlayer ().getId ());
+		float idealValueMin = model.getIdealValue() - model.getIdealValueMargin();
+		float idealValueMax = model.getIdealValue() + model.getIdealValueMargin();
+
+		Color textColor = Color.black;
+
+		//check if hyper/hypo
+		if (ActivePlayer().getModel().getGlucose() > model.getHyperThreshold())
+		{
+			textColor = Color.red;
+		}
+		else if (ActivePlayer ().getModel().getGlucose() < model.getHypoThreshold())
+		{
+			textColor = Color.red;
+		}
+
+		//check ideal value
+		if (ActivePlayer().getModel().getGlucose() < idealValueMax && ActivePlayer().getModel().getGlucose() > idealValueMin)
+		{
+			textColor = Color.green;
+		}
+		
+		lblGlucose.color = textColor;
+	}
+	
+	/// <summary>
     /// Gets the active player.
     /// </summary>
     /// <returns>The player whose turn it is right now.</returns>
