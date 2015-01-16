@@ -55,6 +55,7 @@ public class ScoreModel
 
     public float getScore()
     {
+        float maxPointsPTurn = 7.5f;
         float score = 0;
 
         for (int i = 0; i < measurePoints.Count; i++)
@@ -62,12 +63,12 @@ public class ScoreModel
             float measurePoint = measurePoints[i];
             if (measurePoint > idealValue + idealValueMargin)
             {
-                score += 10 - ((measurePoint - 7) * (11 / 7.5f));
+                score += 10 - ((measurePoint - (idealValue + idealValueMargin)) * ((hyperThreshold - idealValue) / maxPointsPTurn));
             }
 
             if (measurePoint < idealValue - idealValueMargin)
             {
-                score += 10 - ((5 - measurePoint) * 1.5f);
+                score += 10 - (((idealValue - idealValueMargin) - measurePoint) * (idealValue - idealValueMargin / maxPointsPTurn));
             }
         }
 
