@@ -374,6 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a36ba5d307d18a438a4b85eb0b6554d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointPre: {fileID: 0}
   pointPrefab: {fileID: 1935137570}
   width: 2
   _playerId: 1
@@ -682,7 +683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &355073405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,6 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a36ba5d307d18a438a4b85eb0b6554d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointPre: {fileID: 0}
   pointPrefab: {fileID: 0}
   width: 0
   _playerId: 0
@@ -817,6 +819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a36ba5d307d18a438a4b85eb0b6554d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointPre: {fileID: 0}
   pointPrefab: {fileID: 1935137570}
   width: 2
   _playerId: 2
@@ -1095,7 +1098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &476883861
 Transform:
   m_ObjectHideFlags: 0
@@ -1126,6 +1129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a36ba5d307d18a438a4b85eb0b6554d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointPre: {fileID: 0}
   pointPrefab: {fileID: 0}
   width: 0
   _playerId: 0
@@ -1473,6 +1477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a36ba5d307d18a438a4b85eb0b6554d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointPre: {fileID: 0}
   pointPrefab: {fileID: 1935137570}
   width: 2
   _playerId: 3
@@ -2906,6 +2911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a36ba5d307d18a438a4b85eb0b6554d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointPre: {fileID: 0}
   pointPrefab: {fileID: 1935137570}
   width: 2
   _playerId: 0
@@ -2932,7 +2938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1000943335
 Transform:
   m_ObjectHideFlags: 0
@@ -2963,6 +2969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a36ba5d307d18a438a4b85eb0b6554d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointPre: {fileID: 0}
   pointPrefab: {fileID: 0}
   width: 0
   _playerId: 0
@@ -4452,7 +4459,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -5719,7 +5725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1971931085
 Transform:
   m_ObjectHideFlags: 0
@@ -5750,6 +5756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a36ba5d307d18a438a4b85eb0b6554d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointPre: {fileID: 0}
   pointPrefab: {fileID: 0}
   width: 0
   _playerId: 0

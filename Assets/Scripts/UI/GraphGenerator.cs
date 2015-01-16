@@ -57,6 +57,7 @@ public class GraphGenerator : MonoBehaviour
         this.neutral.text = makePercent(neutral, total);
         this.hypo.text = makePercent(hypo, total);
         this.playername.text = scoreModel.getPlayerName();
+        this.score.text = scoreModel.getScore().ToString();
 
         this.Generate();
     }
