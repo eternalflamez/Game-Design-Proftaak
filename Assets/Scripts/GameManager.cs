@@ -162,6 +162,8 @@ public class GameManager : MonoBehaviour
 		lblInsuline.text = "Insuline: " + players[0].getInsulineReserve();
 
 		HUDBackground.color = ActivePlayer ().getPawn ().getColor ();
+
+		setInsulinMeter ();
     }
 
     void Awake()
@@ -412,6 +414,9 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Sets the insulin meter.
+	/// </summary>
 	public void setInsulinMeter()
 	{
 		insulinMeter.size = ActivePlayer ().getInsulineReserve ()/100f;

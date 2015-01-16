@@ -25,9 +25,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: -4.37113883e-08}
   m_LocalPosition: {x: 5.53841734, y: 2.3406949, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: .100000001}
+  m_LocalScale: {x: 7.75, y: 7.75, z: 7.75}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,7 +57,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300002, guid: 2b468f7ddd914cc46826b3703c82e1a2, type: 3}
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -68,7 +68,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: .129999995, y: .129999995, z: .129999995}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -83,7 +83,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 5
   y: -2
+  btn1: {fileID: 0}
+  btn2: {fileID: 0}
+  routeUp: 0
+  routeDown: 0
+  routeRight: 0
+  routeLeft: 0
+  pawnsOnTile: []
+  tileDirection: 2
+  tileType: 0
   isSpecial: 0
+  hasFood: 0
+  hasInsuline: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
