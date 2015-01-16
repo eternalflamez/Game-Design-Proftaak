@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private Image HUDBackground;
 
+	[SerializeField]
+	private Scrollbar insulinMeter;
+
     /// <summary>
     /// The list of players. This list is generated from the information filled in at the start of the game.
     /// </summary>
@@ -160,6 +163,8 @@ public class GameManager : MonoBehaviour
 		lblInsuline.text = "Insuline: " + players[0].getInsulineReserve();
 
 		HUDBackground.color = ActivePlayer ().getPawn ().getColor ();
+
+		setInsulinMeter ();
     }
 
     void Awake()
@@ -369,7 +374,7 @@ public class GameManager : MonoBehaviour
 
 		lblFoodName.text = foods [foodId].getName ();
 		lblFoodDesciption.text = foods [foodId].getDescription ();
-		lblFoodCal.text = "Cal: " + foods [foodId].getCarbs ().ToString();
+		lblFoodCal.text = "Kcal: " + foods [foodId].getCarbs ().ToString();
 	}
 
 	/// <summary>
@@ -413,6 +418,14 @@ public class GameManager : MonoBehaviour
 
 			lblSound.text = "Geluid aan";
 		}
+	}
+
+	/// <summary>
+	/// Sets the insulin meter.
+	/// </summary>
+	public void setInsulinMeter()
+	{
+		insulinMeter.size = ActivePlayer ().getInsulineReserve ()/100f;
 	}
 
     /// <summary>

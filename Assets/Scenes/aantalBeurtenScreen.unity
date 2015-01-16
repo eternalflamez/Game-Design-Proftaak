@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftButton: {fileID: 2139319527}
-  rightButton: {fileID: 1216400471}
+  rightButton: {fileID: 0}
   playerCount: {fileID: 840937255}
 --- !u!114 &488766874
 MonoBehaviour:
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 72bae0d89f4eec347be46635e1c91e2d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bf2ef0728a18d7d4d9d66f6df3f02d0f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -914,7 +914,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -1, y: 144.611252}
+  m_AnchoredPosition: {x: -1, y: 334}
   m_SizeDelta: {x: 1100, y: 130.777496}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1641050649
@@ -933,7 +933,7 @@ MonoBehaviour:
   m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: dfa519198d33b4844a67fad9306a38e0, type: 3}
-    m_FontSize: 120
+    m_FontSize: 110
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10

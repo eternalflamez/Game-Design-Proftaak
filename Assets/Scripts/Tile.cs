@@ -58,8 +58,8 @@ public class Tile : MonoBehaviour
 	{
 		if (isSpecial)
 		{
-			btn1.SetActive(false);
-			btn2.SetActive(false);
+			//btn1.SetActive(false);
+			//btn2.SetActive(false);
 		}
 	}
 
@@ -121,8 +121,8 @@ public class Tile : MonoBehaviour
 	public void disableButtons()
 	{
 		GameManager.instance.hideRouteButtons ();
-		btn1.SetActive(false);
-		btn2.SetActive(false);
+		//btn1.SetActive(false);
+		//btn2.SetActive(false);
 	}
 
 	public Vector2 getCoordinates()
