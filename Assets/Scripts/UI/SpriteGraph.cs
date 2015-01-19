@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class SpriteGraph : MonoBehaviour
 {
 	[SerializeField]
-	private Sprite pointPre;
-	[SerializeField]
 	private GameObject pointPrefab;
 	private Vector3 offset;
 	private List<float> values;
@@ -31,6 +29,11 @@ public class SpriteGraph : MonoBehaviour
 	private Text neutral;
 	[SerializeField]
 	private Text hypo;
+
+	[SerializeField]
+	private int offsetWidth = 50;
+	[SerializeField]
+	private int offsetHeight = 50;
 	
 	public int playerId
 	{
@@ -130,7 +133,7 @@ public class SpriteGraph : MonoBehaviour
 			// precisely the points we want it to.
 			if ((cull && i % (values.Count / maxPoints) == 0) || !cull)
 			{
-				float x = i * increment;
+				float x = (i * increment) - offsetWidth;
 				/* 
                  *       (  current - min  )
                  * low + ( --------------- ) * ( top - low )
@@ -141,7 +144,7 @@ public class SpriteGraph : MonoBehaviour
 				float current = values[i];
 				float top = height - margin;
 				float low = margin;
-				float y = low + ((current - min) / (high - min)) * (top - low);
+				float y = (low - offsetHeight) + ((current - min) / (high - min)) * (top - low);
 				
 				if (y == float.NaN)
 				{
