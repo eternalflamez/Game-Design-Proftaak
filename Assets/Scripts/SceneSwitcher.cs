@@ -10,11 +10,6 @@ public class SceneSwitcher : MonoBehaviour {
 	
 	public void GoToScene(string changeScene)
 	{
-        if (changeScene == "BoardGame")
-        {
-			titleMusic.Instance.Destroy();
-        }
-
 		Application.LoadLevel (changeScene);
 		//audio.PlayOneShot("buttonclick"); 
 	}

@@ -87,6 +87,7 @@ class InformationManager : MonoBehaviour
 
         if (players.Count == playerCount)
         {
+            TitleMusic.Instance.Destroy();
             Application.LoadLevel("BoardGame");
         }
         else

@@ -1,18 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(AudioListener))]
 [RequireComponent(typeof(AudioSource))]
-class titleMusic : MonoBehaviour
+class TitleMusic : MonoBehaviour
 {
-	private static titleMusic instance = null;
-	public static titleMusic Instance
+	private static TitleMusic instance = null;
+	public static TitleMusic Instance
 	{
 		get
 		{
 			if (instance == null)
 			{
-				instance = (titleMusic)FindObjectOfType(typeof(titleMusic));
+				instance = (TitleMusic)FindObjectOfType(typeof(TitleMusic));
 			}
 			return instance;
 		}
