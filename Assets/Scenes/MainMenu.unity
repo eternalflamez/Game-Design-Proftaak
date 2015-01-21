@@ -390,7 +390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 052194d865503494095c597b9ffbe03a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 54de6b17c6e3d1842b64c74e679ced0d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -419,8 +419,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 18, y: -65}
-  m_SizeDelta: {x: 225, y: 100}
+  m_AnchoredPosition: {x: 14, y: -65.5999985}
+  m_SizeDelta: {x: 225, y: 56.7000008}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1040475889
 GameObject:
