@@ -7414,6 +7414,13 @@ MonoBehaviour:
   pnlGrey: {fileID: 645514808}
   pnlFood: {fileID: 1717443036}
   pnlMenu: {fileID: 1014685279}
+  btnDextro: {fileID: 791568117}
+  btnUseInsulin: {fileID: 1489999542}
+  sprBlue: {fileID: 21300000, guid: 27bf8c4e6a2429f4fbbfa591440e2891, type: 3}
+  sprYellow: {fileID: 21300000, guid: f647f2b61068146498fde75825a98457, type: 3}
+  sprGreen: {fileID: 21300000, guid: 1632d48518847ee44a3719aaaffa22d6, type: 3}
+  sprPurple: {fileID: 21300000, guid: a52afec0752976f4c91aa15a1804ee5f, type: 3}
+  sprRed: {fileID: 21300000, guid: 2449b95789d186846b24d8940fd37cb8, type: 3}
 --- !u!114 &509804102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9692,8 +9699,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -131.100006, y: 0}
-  m_SizeDelta: {x: 756.900024, y: 520}
+  m_AnchoredPosition: {x: -190, y: 0}
+  m_SizeDelta: {x: 638, y: 520}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &645514810
 MonoBehaviour:
@@ -12238,7 +12245,7 @@ GameObject:
   - 114: {fileID: 791568120}
   - 114: {fileID: 791568119}
   m_Layer: 5
-  m_Name: imgFoodBread
+  m_Name: imgFoodDextro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

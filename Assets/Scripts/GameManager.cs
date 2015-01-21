@@ -99,6 +99,21 @@ public class GameManager : MonoBehaviour
     private GameObject pnlFood;
     [SerializeField]
     private GameObject pnlMenu;
+    [SerializeField]
+    private GameObject btnDextro;
+    [SerializeField]
+    private GameObject btnUseInsulin;
+
+    [SerializeField]
+    private Sprite sprBlue;
+    [SerializeField]
+    private Sprite sprYellow;
+    [SerializeField]
+    private Sprite sprGreen;
+    [SerializeField]
+    private Sprite sprPurple;
+    [SerializeField]
+    private Sprite sprRed;
 
     // Use this for initialization
     void Start()
@@ -168,7 +183,27 @@ public class GameManager : MonoBehaviour
 
         lblPlayerTurn.text = "Speler " + ActivePlayer().getName() + System.Environment.NewLine + "Beurt " + turnCount;
 
-        HUDBackground.color = ActivePlayer().getPawn().getColor();
+        Color color = ActivePlayer().getPawn().getColor();
+        if (color == Color.red)
+        {
+            HUDBackground.sprite = sprRed;
+        }
+        else if (color == Color.yellow)
+        {
+            HUDBackground.sprite = sprYellow;
+        }
+        else if (color == Color.green)
+        {
+            HUDBackground.sprite = sprGreen;
+        }
+        else if (color == Color.blue)
+        {
+            HUDBackground.sprite = sprBlue;
+        }
+        else if (color == new Color(170, 0, 255))
+        {
+            HUDBackground.sprite = sprPurple;
+        }
 
         setInsulinMeter();
         setBloodSugarMeter();
@@ -329,10 +364,15 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void clickEat()
     {
-        eatSelectedFood = true;
-
-        if (selectedFood >= 0 && selectedFood != (foods.Count - 1))
+        if (selectedFood == foods.Count - 1)
         {
+            btnUseInsulin.SetActive(false);
+        }
+        
+        if (selectedFood >= 0 )
+        {
+            btnDextro.SetActive(false);
+            eatSelectedFood = true;
             showFoodPnl(false);
         }
     }
@@ -342,7 +382,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void clickLeave()
     {
-        if (eatSelectedFood)
+        if (eatSelectedFood && selectedFood != -1)
         {
             ActivePlayer().getModel().eat(foods[selectedFood]);
 
@@ -351,12 +391,14 @@ public class GameManager : MonoBehaviour
                 ActivePlayer().useSugar();
                 ActivePlayer().skipsTurn = true;
             }
-
-            eatSelectedFood = false;
-            selectedFood = -1;
         }
 
+        eatSelectedFood = false;
+        selectedFood = -1;
+        showFoodInfo();
         hideFoodPnl();
+        btnDextro.SetActive(true);
+        btnUseInsulin.SetActive(true);
         playerEndTurn();
     }
 
@@ -370,6 +412,13 @@ public class GameManager : MonoBehaviour
         lblFoodName.text = foods[foodId].getName();
         lblFoodDesciption.text = foods[foodId].getDescription();
         lblFoodCal.text = "Kcal: " + foods[foodId].getCarbs().ToString();
+    }
+
+    public void showFoodInfo()
+    {
+        lblFoodName.text = "";
+        lblFoodDesciption.text = "";
+        lblFoodCal.text = "";
     }
 
     /// <summary>
@@ -428,6 +477,7 @@ public class GameManager : MonoBehaviour
 
     public void useInsulin()
     {
+        btnDextro.SetActive(false);
         ActivePlayer().useInsulinReserves(1f);
         
         setInsulinMeter();
