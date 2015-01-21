@@ -83,8 +83,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text lblGlucose;
     [SerializeField]
-    private Text lblInsuline;
-    [SerializeField]
     private Text lblFoodName;
     [SerializeField]
     private Text lblFoodDesciption;
@@ -118,6 +116,7 @@ public class GameManager : MonoBehaviour
         }
 
         hideRouteButtons();
+        selectedFood = -1;
         //hideFoodPnl ();
 
         foods.Add(new Food("Cola", "Een glas Cola", 88, 10));
@@ -322,8 +321,7 @@ public class GameManager : MonoBehaviour
     {
         pnlFood.SetActive(true);
         pnlGrey.SetActive(!onFoodTile);
-        btnEatFood.SetActive(onFoodTile);
-
+        btnEatFood.SetActive(!eatSelectedFood);
     }
 
     /// <summary>
@@ -332,6 +330,11 @@ public class GameManager : MonoBehaviour
     public void clickEat()
     {
         eatSelectedFood = true;
+
+        if (selectedFood >= 0 && selectedFood != (foods.Count - 1))
+        {
+            showFoodPnl(false);
+        }
     }
 
     /// <summary>
@@ -350,6 +353,7 @@ public class GameManager : MonoBehaviour
             }
 
             eatSelectedFood = false;
+            selectedFood = -1;
         }
 
         hideFoodPnl();
@@ -389,7 +393,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void clickNewGame()
     {
-        Application.LoadLevel("aantalBeurtenScreen");
+        Application.LoadLevel("MainMenu");
     }
 
     /// <summary>
@@ -416,12 +420,17 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void setInsulinMeter()
     {
-        lblInsuline.text = "Insuline: " + players[0].getInsulineReserve();
-
         float newSize = 1 - (0.075f * ActivePlayer().getInsulineReserve());
         Debug.Log("new insulin size: " + newSize);
 
         insulinMeter.size = newSize;
+    }
+
+    public void useInsulin()
+    {
+        ActivePlayer().useInsulinReserves(1f);
+        
+        setInsulinMeter();
     }
 
     public void setBloodSugarMeter()
