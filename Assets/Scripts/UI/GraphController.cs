@@ -6,8 +6,12 @@ using System.Collections.Generic;
 public class GraphController : MonoBehaviour {
     [SerializeField]
     private List<SpriteGraph> graphs;
+	[SerializeField]
+	private List<ShowScore> journals;
     [SerializeField]
-    private GameObject[] PlayerUI;
+    private GameObject[] PlayerGraph;
+	[SerializeField]
+	private GameObject[] PlayerJournal;
 
 	// Use this for initialization
 	void Start () {
@@ -24,9 +28,21 @@ public class GraphController : MonoBehaviour {
             }
         }
 
-        for (float i = InformationManager.instance.getPlayerCount(); i < PlayerUI.Length; i++)
+		for (int i = 0; i < journals.Count; i++)
+		{
+			ShowScore ss = journals[i];
+			int id = ss.playerId;
+			ScoreModel points = sm.getScoreModel(id);
+			if (points != null)
+			{
+				ss.setPoints(points);
+			}
+		}
+
+		for (float i = InformationManager.instance.getPlayerCount(); i < PlayerGraph.Length; i++)
         {
-            PlayerUI[(int)i].SetActive(false);
+			PlayerGraph[(int)i].SetActive(false);
+			PlayerJournal[(int)i].SetActive(false);
         }
     }
 }
