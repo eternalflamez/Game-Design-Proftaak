@@ -85,17 +85,13 @@ public class Pawn : MonoBehaviour
 
 					currentTile.addPawnToTile(this);
 					
-					if (currentTile.hasFood)
-					{
-						GameManager.instance.showFoodPnl();
-					}
-					else if (currentTile.hasInsuline)
+                    if (currentTile.hasInsuline)
 					{
 						GameManager.instance.ActivePlayer().addInsulinReserves(1);
 						StartCoroutine("waitBeforeEndTurn");
 						//GameManager.instance.playerEndTurn();
 					}
-					else
+					else if(!currentTile.hasFood)
 					{
 						StartCoroutine("waitBeforeEndTurn");
 						//GameManager.instance.playerEndTurn();
@@ -110,10 +106,12 @@ public class Pawn : MonoBehaviour
 			//GameManager.instance.playerEndTurn();
 		}
 	}
+
 	private void pawnStopOnTile()
 	{
-		GameManager.instance.playerEndTurn ();
+		GameManager.instance.showFoodPnl(currentTile.hasFood);
 	}
+
 	public void startCoroutine(string routine)
 	{
 		StartCoroutine("waitBeforeEndTurn");

@@ -148,9 +148,9 @@ class InformationManager : MonoBehaviour
             this.usedColors = new List<PawnColor>();
         }
 
-        // TODO: Stahp using dummy data.
         this.maxTurns = 10;
         this.playerCount = 2;
+        Application.targetFrameRate = 100;
     }
 
     public void SaveScores(ScoreManager sm)

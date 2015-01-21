@@ -49,6 +49,11 @@ public class GameManager : MonoBehaviour
 	public int selectedFood;
 
     /// <summary>
+    /// Indicates the player actually wants to eat the selected food.
+    /// </summary>
+    public bool eatSelectedFood;
+
+    /// <summary>
     /// The amount of turns this game is going to run.
     /// </summary>
     private int maxTurns;
@@ -88,6 +93,10 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private Text lblSound;
 
+    [SerializeField]
+    private GameObject btnEatFood;
+    [SerializeField]
+    private GameObject pnlGrey;
 	[SerializeField]
 	private GameObject pnlFood;
 	[SerializeField]
@@ -304,16 +313,17 @@ public class GameManager : MonoBehaviour
 	public void hideFoodPnl ()
 	{
 		pnlFood.SetActive (false);
-
-		ActivePlayer ().getPawn ().startCoroutine ("waitBeforeEndTurn");
 	}
 
 	/// <summary>
 	/// Shows the food pnl.
 	/// </summary>
-	public void showFoodPnl()
+	public void showFoodPnl(bool onFoodTile)
 	{
 		pnlFood.SetActive (true);
+        pnlGrey.SetActive(!onFoodTile);
+        btnEatFood.SetActive(onFoodTile);
+        
 	}
 
     /// <summary>
@@ -321,8 +331,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void clickEat()
     {
-		clickFood(selectedFood);
-		hideFoodPnl ();
+        eatSelectedFood = true;
     }
 
     /// <summary>
@@ -330,26 +339,21 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void clickLeave()
     {
-        hideFoodPnl();
-        //playerEndTurn();
-    }
+        if (eatSelectedFood)
+        {
+            ActivePlayer().getModel().eat(foods[selectedFood]);
 
-    /// <summary>
-    /// The click event to eat a piece of food.
-    /// </summary>
-    /// <param name="id">The id of the food to eat.</param>
-    public void clickFood(int id)
-    {
-		ActivePlayer().getModel().eat(foods[id]);
+            if (selectedFood == (foods.Count - 1))
+            {
+                ActivePlayer().useSugar();
+                ActivePlayer().skipsTurn = true;
+            }
 
-		if (id == (foods.Count - 1))
-		{
-			ActivePlayer().useSugar();
-			ActivePlayer().skipsTurn = true;
-		}
+            eatSelectedFood = false;
+        }
 
         hideFoodPnl();
-        //playerEndTurn();
+        playerEndTurn();
     }
 
 	/// <summary>
