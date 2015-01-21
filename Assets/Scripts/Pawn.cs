@@ -84,18 +84,13 @@ public class Pawn : MonoBehaviour
 					stopPawn();
 
 					currentTile.addPawnToTile(this);
-					
+
                     if (currentTile.hasInsuline)
 					{
-						GameManager.instance.ActivePlayer().addInsulinReserves(1);
-						StartCoroutine("waitBeforeEndTurn");
-						//GameManager.instance.playerEndTurn();
+                        GameManager.instance.ActivePlayer().addInsulinReserves(1);
 					}
-					else if(!currentTile.hasFood)
-					{
-						StartCoroutine("waitBeforeEndTurn");
-						//GameManager.instance.playerEndTurn();
-					}
+
+					StartCoroutine("waitBeforeEndTurn");
 				}
 			}
 		}
