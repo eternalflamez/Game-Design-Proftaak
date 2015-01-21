@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 public class Player
 {
     private int id;
-    private float insulinReserves = 8;
+    private float insulinReserves = 3;
 
     public string name;
     public int age = 0;

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class GraphController : MonoBehaviour {
     [SerializeField]
-    private List<GraphGenerator> graphs;
+    private List<SpriteGraph> graphs;
     [SerializeField]
     private GameObject[] PlayerUI;
 
@@ -15,7 +15,7 @@ public class GraphController : MonoBehaviour {
 
         for (int i = 0; i < graphs.Count; i++)
         {
-            GraphGenerator gg = graphs[i];
+			SpriteGraph gg = graphs[i];
             int id = gg.playerId;
             ScoreModel points = sm.getScoreModel(id);
             if (points != null)

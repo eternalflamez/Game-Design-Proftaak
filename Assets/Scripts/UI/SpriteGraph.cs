@@ -43,20 +43,15 @@ public class SpriteGraph : MonoBehaviour
 		}
 	}
 
-	void Start()
-	{
-		setPoints ();
-	}
-
 	/// <summary>
 	/// Sets the score values.
 	/// Also generates the graphs, so only use this once per Generator!
 	/// </summary>
 	/// <param name="scoreModel">The scoremodel to display</param>
-	public void setPoints()
+	public void setPoints(ScoreModel scoreModel)
 	{
-		//this.values = scoreModel.getBloodSugars();
-		values = new List<float> ();
+		this.values = scoreModel.getBloodSugars();
+		/*values = new List<float> ();
 		values.Add (5.0f);
 		values.Add (6.0f);
 		values.Add (7.0f);
@@ -71,21 +66,21 @@ public class SpriteGraph : MonoBehaviour
 		values.Add (2.0f);
 		values.Add (3.0f);
 		values.Add (8.0f);
-		values.Add (9.0f);
+		values.Add (9.0f);*/
 
-		//float hyper = scoreModel.getHyperTurns();
-		//float neutral = values.Count;
-		//float hypo = scoreModel.getHypoTurns();
-		float hyper = 2;
-		float hypo = 1;
-		float neutral = 12;
+		float hyper = scoreModel.getHyperTurns();
+		float neutral = values.Count;
+		float hypo = scoreModel.getHypoTurns();
+		//float hyper = 2;
+		//float hypo = 1;
+		//float neutral = 12;
 		float total = hyper + neutral + hypo;
 		
-		//this.hyper.text = makePercent(hyper, total);
-		//this.neutral.text = makePercent(neutral, total);
-		//this.hypo.text = makePercent(hypo, total);
-		//this.playername.text = scoreModel.getPlayerName();
-		//this.score.text = scoreModel.getScore().ToString();
+		this.hyper.text = makePercent(hyper, total);
+		this.neutral.text = makePercent(neutral, total);
+		this.hypo.text = makePercent(hypo, total);
+		this.playername.text = scoreModel.getPlayerName();
+		this.score.text = scoreModel.getScore().ToString();
 		
 		this.Generate();
 	}

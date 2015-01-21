@@ -159,7 +159,6 @@ public class GameManager : MonoBehaviour
         playerCount = players.Count;
 
 		lblPlayerTurn.text = "Speler " + ActivePlayer().getName() + System.Environment.NewLine + "Beurt " + turnCount;
-		lblInsuline.text = "Insuline: " + players[0].getInsulineReserve();
 
 		HUDBackground.color = ActivePlayer ().getPawn ().getColor ();
 
@@ -270,7 +269,6 @@ public class GameManager : MonoBehaviour
 
         btnDice.interactable = true;
 		lblPlayerTurn.text = "Speler " + ActivePlayer().getName() + System.Environment.NewLine + "Beurt " + turnCount;
-		lblInsuline.text = "Insuline: " + ActivePlayer().getInsulineReserve();
 
         HUDBackground.color = ActivePlayer().getPawn().getColor();
 
@@ -412,7 +410,12 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void setInsulinMeter()
 	{
-		insulinMeter.size = ActivePlayer ().getInsulineReserve ()/100f;
+		lblInsuline.text = "Insuline: " + players[0].getInsulineReserve();
+
+		float newSize = 1 - (0.075f * ActivePlayer ().getInsulineReserve ());
+		Debug.Log ("new insulin size: " + newSize);
+
+		insulinMeter.size = newSize;
 	}
 
 	public void setBloodSugarMeter()
