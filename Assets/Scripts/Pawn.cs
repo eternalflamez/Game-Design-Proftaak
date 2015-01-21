@@ -24,7 +24,25 @@ public class Pawn : MonoBehaviour
 	{
 		moveDir = Direction.Right;
 	}
-	
+
+	//IEnumerator moveToTile()
+	//{
+	//	Debug.Log ("about to yield return WaitForSeconds(1)");
+	//	yield return new WaitForSeconds(5);
+
+		//stopPawn();
+
+	//	yield break;
+	//}
+	IEnumerator waitBeforeEndTurn()
+	{
+		yield return new WaitForSeconds(InformationManager.instance.getPlayerWait());
+
+		pawnStopOnTile ();
+
+		yield break;
+	}
+
 	// Update is called once per frame
 	void Update ()
 	{
@@ -66,7 +84,7 @@ public class Pawn : MonoBehaviour
 					stopPawn();
 
 					currentTile.addPawnToTile(this);
-
+					
 					if (currentTile.hasFood)
 					{
 						GameManager.instance.showFoodPnl();
@@ -74,11 +92,13 @@ public class Pawn : MonoBehaviour
 					else if (currentTile.hasInsuline)
 					{
 						GameManager.instance.ActivePlayer().addInsulinReserves(1);
-						GameManager.instance.playerEndTurn();
+						StartCoroutine("waitBeforeEndTurn");
+						//GameManager.instance.playerEndTurn();
 					}
 					else
 					{
-						GameManager.instance.playerEndTurn();
+						StartCoroutine("waitBeforeEndTurn");
+						//GameManager.instance.playerEndTurn();
 					}
 				}
 			}
@@ -86,8 +106,17 @@ public class Pawn : MonoBehaviour
 		else
 		{
 			GameManager.instance.ActivePlayer().skipsTurn = false;
-			GameManager.instance.playerEndTurn();
+			StartCoroutine("waitBeforeEndTurn");
+			//GameManager.instance.playerEndTurn();
 		}
+	}
+	private void pawnStopOnTile()
+	{
+		GameManager.instance.playerEndTurn ();
+	}
+	public void startCoroutine(string routine)
+	{
+		StartCoroutine("waitBeforeEndTurn");
 	}
 
 	private void stopPawn()

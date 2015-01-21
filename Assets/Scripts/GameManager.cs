@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         }
 
 		hideRouteButtons ();
-		hideFoodPnl ();
+		//hideFoodPnl ();
 
 		foods.Add (new Food ("Cola", "Een glas Cola", 88, 10));
 		foods.Add (new Food ("Melk halfvol", "Een glas halfvolle melk", 92, 5));
@@ -304,6 +304,8 @@ public class GameManager : MonoBehaviour
 	public void hideFoodPnl ()
 	{
 		pnlFood.SetActive (false);
+
+		ActivePlayer ().getPawn ().startCoroutine ("waitBeforeEndTurn");
 	}
 
 	/// <summary>
@@ -329,7 +331,7 @@ public class GameManager : MonoBehaviour
     public void clickLeave()
     {
         hideFoodPnl();
-        playerEndTurn();
+        //playerEndTurn();
     }
 
     /// <summary>
@@ -347,7 +349,7 @@ public class GameManager : MonoBehaviour
 		}
 
         hideFoodPnl();
-        playerEndTurn();
+        //playerEndTurn();
     }
 
 	/// <summary>

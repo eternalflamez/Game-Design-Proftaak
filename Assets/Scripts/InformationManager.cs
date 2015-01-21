@@ -33,6 +33,9 @@ class InformationManager : MonoBehaviour
 	[SerializeField]
 	private int maxInsulin;
 
+	[SerializeField]
+	private int playerEndTurnWait = 2;
+
     public ScoreManager getScoreManager()
     {
         return scoreManager;
@@ -66,6 +69,11 @@ class InformationManager : MonoBehaviour
     {
         return usedColors;
     }
+
+	public int getPlayerWait()
+	{
+		return playerEndTurnWait;
+	}
 
     /// <summary>
     /// Adds a playerobject to the list, for later use.

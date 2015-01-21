@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +13,15 @@ public class GraphController : MonoBehaviour {
     private GameObject[] PlayerGraph;
 	[SerializeField]
 	private GameObject[] PlayerJournal;
+
+	[SerializeField]
+	private Image player1Trophy;
+	[SerializeField]
+	private Image player2Trophy;
+	[SerializeField]
+	private Image player3Trophy;
+	[SerializeField]
+	private Image player4Trophy;
 
 	// Use this for initialization
 	void Start () {
@@ -38,6 +48,9 @@ public class GraphController : MonoBehaviour {
 				ss.setPoints(points);
 			}
 		}
+
+		//calc ranking
+
 
 		for (float i = InformationManager.instance.getPlayerCount(); i < PlayerGraph.Length; i++)
         {

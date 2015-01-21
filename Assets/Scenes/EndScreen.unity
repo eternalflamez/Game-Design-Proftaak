@@ -6400,6 +6400,10 @@ MonoBehaviour:
   - {fileID: 1994139586}
   - {fileID: 2064182402}
   - {fileID: 632393401}
+  player1Trophy: {fileID: 0}
+  player2Trophy: {fileID: 0}
+  player3Trophy: {fileID: 0}
+  player4Trophy: {fileID: 0}
 --- !u!114 &1447041387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8227,7 +8231,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Graphiek
+  m_Text: Grafiek
 --- !u!222 &1801136403
 CanvasRenderer:
   m_ObjectHideFlags: 0
