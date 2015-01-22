@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System;
@@ -47,7 +47,7 @@ public class CreatePlayerInfo : MonoBehaviour {
         weight = 0;
         gender = Gender.None;
         color = new PawnColor(Color.clear, "");
-        playerHeader.text = "Speler " + (InformationManager.instance.getPlayerCount() + 1);
+        playerHeader.text = "Speler " + (InformationManager.instance.getPlayerSize() + 1);
 
         nameError.enabled = false;
         ageError.enabled = false;

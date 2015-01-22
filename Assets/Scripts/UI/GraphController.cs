@@ -23,6 +23,8 @@ public class GraphController : MonoBehaviour {
 	[SerializeField]
 	private Image player4Trophy;
 
+	public List<Player> sortedList;
+
 	// Use this for initialization
 	void Start () {
         ScoreManager sm = InformationManager.instance.getScoreManager();
@@ -49,10 +51,9 @@ public class GraphController : MonoBehaviour {
 			}
 		}
 
-		//calc ranking
+		List<ScoreModel> rankings = ScoreManager.instance.getRanking ();
 
-
-		for (float i = InformationManager.instance.getPlayerCount(); i < PlayerGraph.Length; i++)
+		for (float i = InformationManager.instance.getPlayerSize(); i < PlayerGraph.Length; i++)
         {
 			PlayerGraph[(int)i].SetActive(false);
 			PlayerJournal[(int)i].SetActive(false);

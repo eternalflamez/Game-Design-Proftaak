@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 class ScoreManager : MonoBehaviour 
@@ -14,12 +14,24 @@ class ScoreManager : MonoBehaviour
     /// The list of scores of players.
     /// </summary>
     private List<ScoreModel> scores;
+	private List<ScoreModel> ranking;
 
     void Awake()
     {
         instance = this;
         scores = new List<ScoreModel>();
     }
+
+	public List<ScoreModel> getRanking()
+	{
+		//ranking = scores.OrderBy(go=>go.getScore).ToList();
+		
+		//for (int index = 0; index < ranking.Count; index++)
+		//{
+		//	Debug.Log ("Rank: " + index + "   Score: " + ranking[index].getScore());
+		//}
+		return scores;
+	}
 
     /// <summary>
     /// Adds points for a list of players.

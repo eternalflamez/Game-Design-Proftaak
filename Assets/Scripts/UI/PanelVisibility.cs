@@ -8,6 +8,7 @@ public class PanelVisibility : MonoBehaviour {
     void Start()
     {
         image = this.transform.GetComponent<Image>();
+
         PanelVisibilityController.instance.addPanel(image);
     }
 

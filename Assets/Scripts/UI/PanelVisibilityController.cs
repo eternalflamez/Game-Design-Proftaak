@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class PanelVisibilityController : MonoBehaviour {
-    private List<Image> images;
+    public List<Image> images;
 
     public static PanelVisibilityController instance;
 
@@ -13,13 +13,21 @@ public class PanelVisibilityController : MonoBehaviour {
         images = new List<Image>();
     }
 
-    public void addPanel(Image i)
+    public void addPanel(Image i) //setup
     {
         this.images.Add(i);
         i.enabled = false;
+
+		if (Application.loadedLevelName == "aantalSpelersScreen")
+		{
+			if (images.Count == 4)
+			{
+				DataLoad.instance.setPlayers();
+			}
+		}
     }
 
-    public void setVisible(Image i)
+    public void setVisible(Image i) //hides panel
     {
         foreach (Image image in images)
         {

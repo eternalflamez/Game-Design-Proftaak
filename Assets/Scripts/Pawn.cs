@@ -12,6 +12,7 @@ public class Pawn : MonoBehaviour
     private bool isMoving = false;
     private bool isDirection = false;
     public bool isFinished = false;
+	private bool pawnWalking = false;
 
     [SerializeField]
     private Tile currentTile;
@@ -25,15 +26,6 @@ public class Pawn : MonoBehaviour
         moveDir = Direction.Right;
     }
 
-    //IEnumerator moveToTile()
-    //{
-    //	Debug.Log ("about to yield return WaitForSeconds(1)");
-    //	yield return new WaitForSeconds(5);
-
-    //stopPawn();
-
-    //	yield break;
-    //}
     IEnumerator waitBeforeEndTurn()
     {
         yield return new WaitForSeconds(InformationManager.instance.getPlayerWait());
@@ -46,6 +38,20 @@ public class Pawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (pawnWalking)
+		{
+			this.transform.position = Vector3.Lerp (this.transform.position, destinationTile.transform.position, 0.25f);
+
+			if (0.1 > Vector3.Distance(this.transform.position, destinationTile.transform.position))
+			{
+				this.transform.position = destinationTile.transform.position;
+				currentTile = destinationTile;
+				tilesMoved++;
+				pawnWalking = false;
+			}
+		}
+		else
+		{
         if (!GameManager.instance.ActivePlayer().skipsTurn)
         {
             if (isMoving && rolledNumber > 0)
@@ -64,14 +70,20 @@ public class Pawn : MonoBehaviour
 
                         if (destinationTile != null)
                         {
-                            this.transform.position = destinationTile.transform.position;
-                            currentTile = destinationTile;
-                            tilesMoved++;
+                            //this.transform.position = destinationTile.transform.position;
+                            //currentTile = destinationTile;
+                            //tilesMoved++;
 
                             if (destinationTile.tileType == Tile.TileType.Finish)
                             {
                                 pawnFinish();
                             }
+							else
+							{
+								pawnWalking = true;
+								//lerpToTile();
+								//StartCoroutine("moveToTile");
+							}
                         }
                     }
                     else //crossroad//object
@@ -100,6 +112,7 @@ public class Pawn : MonoBehaviour
             StartCoroutine("waitBeforeEndTurn");
             //GameManager.instance.playerEndTurn();
         }
+		}
     }
 
     private void pawnStopOnTile()

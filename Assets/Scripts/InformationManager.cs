@@ -45,10 +45,15 @@ class InformationManager : MonoBehaviour
     /// Returns the current player number that we are adding.
     /// </summary>
     /// <returns>The count of the players list.</returns>
-    public float getPlayerCount()
+    public float getPlayerSize()
     {
         return players.Count;
     }
+
+	public float getPlayerCount()
+	{
+		return playerCount;
+	}
 
     public float getMaxTurns()
     {   
@@ -149,7 +154,7 @@ class InformationManager : MonoBehaviour
         }
 
         this.maxTurns = 10;
-        this.playerCount = 2;
+        this.playerCount = 2; //original 2
         Application.targetFrameRate = 100;
     }
 
