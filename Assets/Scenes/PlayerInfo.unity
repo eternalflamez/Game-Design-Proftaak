@@ -1080,7 +1080,7 @@ RectTransform:
   m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1073, y: 351}
+  m_AnchoredPosition: {x: 1073, y: 332.070007}
   m_SizeDelta: {x: 193.199997, y: 224.100006}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &222161901
@@ -1171,7 +1171,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -2916,7 +2915,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22434004, guid: 5df773af9ae306a42ad62f7b5e7c61cc, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 351
+      value: 332.070007
       objectReference: {fileID: 0}
     - target: {fileID: 22434004, guid: 5df773af9ae306a42ad62f7b5e7c61cc, type: 2}
       propertyPath: m_SizeDelta.x
@@ -2952,7 +2951,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434004, guid: 5df773af9ae306a42ad62f7b5e7c61cc, type: 2}
       propertyPath: m_Size
-      value: .306986302
+      value: .306986272
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5df773af9ae306a42ad62f7b5e7c61cc, type: 2}
@@ -4084,7 +4083,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1223782111}
   m_Direction: 2
   m_Value: 1
-  m_Size: .306986302
+  m_Size: .306986272
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
