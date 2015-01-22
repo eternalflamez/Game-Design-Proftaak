@@ -479,6 +479,8 @@ public class GameManager : MonoBehaviour
 
     public void useInsulin()
     {
+        selectedFood = -1;
+        showFoodInfo();
         btnDextro.SetActive(false);
         ActivePlayer().useInsulinReserves(1f);
         
