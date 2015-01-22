@@ -162,17 +162,17 @@ public class GameManager : MonoBehaviour
         hideRouteButtons();
         selectedFood = -1;
 
-        foods.Add(new Food("Cola", "Een glas Cola", 88, 10, ItemType.Drink));
-        foods.Add(new Food("Melk halfvol", "Een glas halfvolle melk", 92, 5, ItemType.Drink));
-        foods.Add(new Food("Forel", "Een gebraden Forel Filet", 132, 5, ItemType.Food));
-        foods.Add(new Food("UNOX Rookworst", "Een portie UNOX Rookworst", 340, 5, ItemType.Food));
-        foods.Add(new Food("Ola Raket", "Een Ola Raket waterijs", 40, 5, ItemType.Food));
-        foods.Add(new Food("Roomijs", "Een portie ijs", 257, 5, ItemType.Food));
-        foods.Add(new Food("Aardbeien", "100 gram aardbeien", 36, 5, ItemType.Food));
-        foods.Add(new Food("Banaan", "1 banaan", 188, 5, ItemType.Food));
-        foods.Add(new Food("Croissant", "1 Croissant", 239, 5, ItemType.Food));
-        foods.Add(new Food("Brood bruin", "1 snee belegd brood", 64, 5, ItemType.Food));
-        foods.Add(new Food("Druivensuiker", "Nodig voor Hypo", 400, 5, ItemType.Food));
+        foods.Add(new Food("Cola", "Een glas Cola", 88, 60, ItemType.Drink));
+        foods.Add(new Food("Melk halfvol", "Een glas halfvolle melk", 92, 120, ItemType.Drink));
+        foods.Add(new Food("Forel", "Een gebraden Forel Filet", 132, 110, ItemType.Food));
+        foods.Add(new Food("UNOX Rookworst", "Een portie UNOX Rookworst", 340, 120, ItemType.Food));
+        foods.Add(new Food("Ola Raket", "Een Ola Raket waterijs", 40, 95, ItemType.Food));
+        foods.Add(new Food("Roomijs", "Een portie ijs", 257, 95, ItemType.Food));
+        foods.Add(new Food("Aardbeien", "100 gram aardbeien", 36, 80, ItemType.Food));
+        foods.Add(new Food("Banaan", "1 banaan", 188, 80, ItemType.Food));
+        foods.Add(new Food("Croissant", "1 Croissant", 239, 120, ItemType.Food));
+        foods.Add(new Food("Brood bruin", "1 snee belegd brood", 64, 120, ItemType.Food));
+        foods.Add(new Food("Druivensuiker", "Nodig voor Hypo", 400, 45, ItemType.Food));
 
         players.AddRange(informationManager.getPlayers());
 
