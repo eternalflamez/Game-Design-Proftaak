@@ -9,6 +9,8 @@ public class GraphController : MonoBehaviour {
     private List<SpriteGraph> graphs;
 	[SerializeField]
 	private List<ShowScore> journals;
+	[SerializeField]
+	private List<GameObject> trophyPanels;
     [SerializeField]
     private GameObject[] PlayerGraph;
 	[SerializeField]
@@ -20,8 +22,13 @@ public class GraphController : MonoBehaviour {
 	private Image player2Trophy;
 	[SerializeField]
 	private Image player3Trophy;
+
 	[SerializeField]
-	private Image player4Trophy;
+	private Text trophyName1;
+	[SerializeField]
+	private Text trophyName2;
+	[SerializeField]
+	private Text trophyName3;
 
 	public List<Player> sortedList;
 
@@ -48,6 +55,18 @@ public class GraphController : MonoBehaviour {
 			if (points != null)
 			{
 				ss.setPoints(points);
+			}
+		}
+
+		for (int index = 0; index < trophyPanels.Count; index++)
+		{
+			if ((index + 1) < InformationManager.instance.getPlayerCount())
+			{
+				trophyPanels[index].SetActive(true);
+			}
+			else
+			{
+				trophyPanels[index].SetActive(false);
 			}
 		}
 

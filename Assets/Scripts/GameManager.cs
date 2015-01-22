@@ -88,8 +88,6 @@ public class GameManager : MonoBehaviour
     private Text lblFoodDesciption;
     [SerializeField]
     private Text lblFoodCal;
-    [SerializeField]
-    private Text lblSound;
 
     [SerializeField]
     private GameObject btnEatFood;
@@ -98,24 +96,55 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject pnlFood;
     [SerializeField]
-    private GameObject pnlMenu;
-    [SerializeField]
     private GameObject btnDextro;
     [SerializeField]
     private GameObject btnUseInsulin;
 
-    [SerializeField]
-    private Sprite sprBlue;
-    [SerializeField]
-    private Sprite sprYellow;
-    [SerializeField]
-    private Sprite sprGreen;
-    [SerializeField]
-    private Sprite sprPurple;
-    [SerializeField]
-    private Sprite sprRed;
+	[SerializeField]
+	private GameObject pnlPopup;
+	[SerializeField]
+	private Text txtPopupText;
 
-    // Use this for initialization
+	[SerializeField]
+	private float longPopupTime = 6.0f;
+
+	[SerializeField]
+	private List<Sprite> hudBackgrounds;
+
+	[SerializeField]
+	private AudioSource foodAudio;
+	[SerializeField]
+	private AudioClip audioFood;
+	[SerializeField]
+	private AudioClip audioDrink;
+
+	public List<Color> pawnColors;
+
+	/// <summary>
+	/// Hides the playerPopup automagicly
+	/// </summary>
+	/// <returns></returns>
+	IEnumerator hidePlayerPopupTimer(float time)
+	{
+		float waitTime = 0.0f;
+
+		if (time != -1)
+		{
+			waitTime = time;
+		}
+		else
+		{
+			waitTime = InformationManager.instance.getPopupTime();
+		}
+
+		yield return new WaitForSeconds(waitTime);
+		
+		hidePopUp ();
+		
+		yield break;
+	}
+	
+	// Use this for initialization
     void Start()
     {
         // TODO: Maybe remove? Hotfix for testing without filling in info.
@@ -126,25 +155,24 @@ public class GameManager : MonoBehaviour
             InformationObject.AddComponent<InformationManager>();
 
             informationManager = InformationManager.instance;
-            informationManager.addPlayer("Tom", 22, 180, 90.00f, Gender.Male, new PawnColor(Color.yellow, "Yellow"), false);
-            informationManager.addPlayer("Henk", 71, 178, 74.22f, Gender.Male, new PawnColor(Color.green, "Green"), false);
+            informationManager.addPlayer("Tom", 22, 180, 90.00f, Gender.Male, new PawnColor(Color.yellow, "Yellow", 1), false);
+            informationManager.addPlayer("Henk", 71, 178, 74.22f, Gender.Male, new PawnColor(Color.green, "Green", 2), false);
         }
 
         hideRouteButtons();
         selectedFood = -1;
-        //hideFoodPnl ();
 
-        foods.Add(new Food("Cola", "Een glas Cola", 88, 10));
-        foods.Add(new Food("Melk halfvol", "Een glas halfvolle melk", 92, 5));
-        foods.Add(new Food("Forel", "Een gebraden Forel Filet", 132, 5));
-        foods.Add(new Food("UNOX Rookworst", "Een portie UNOX Rookworst", 340, 5));
-        foods.Add(new Food("Ola Raket", "Een Ola Raket waterijs", 40, 5));
-        foods.Add(new Food("Roomijs", "Een portie ijs", 257, 5));
-        foods.Add(new Food("Aardbeien", "100 gram aardbeien", 36, 5));
-        foods.Add(new Food("Banaan", "1 banaan", 188, 5));
-        foods.Add(new Food("Croissant", "1 Croissant", 239, 5));
-        foods.Add(new Food("Brood bruin", "1 snee belegd brood", 64, 5));
-        foods.Add(new Food("Druivensuiker", "Nodig voor Hypo", 400, 5));
+        foods.Add(new Food("Cola", "Een glas Cola", 88, 10, ItemType.Drink));
+        foods.Add(new Food("Melk halfvol", "Een glas halfvolle melk", 92, 5, ItemType.Drink));
+        foods.Add(new Food("Forel", "Een gebraden Forel Filet", 132, 5, ItemType.Food));
+        foods.Add(new Food("UNOX Rookworst", "Een portie UNOX Rookworst", 340, 5, ItemType.Food));
+        foods.Add(new Food("Ola Raket", "Een Ola Raket waterijs", 40, 5, ItemType.Food));
+        foods.Add(new Food("Roomijs", "Een portie ijs", 257, 5, ItemType.Food));
+        foods.Add(new Food("Aardbeien", "100 gram aardbeien", 36, 5, ItemType.Food));
+        foods.Add(new Food("Banaan", "1 banaan", 188, 5, ItemType.Food));
+        foods.Add(new Food("Croissant", "1 Croissant", 239, 5, ItemType.Food));
+        foods.Add(new Food("Brood bruin", "1 snee belegd brood", 64, 5, ItemType.Food));
+        foods.Add(new Food("Druivensuiker", "Nodig voor Hypo", 400, 5, ItemType.Food));
 
         players.AddRange(informationManager.getPlayers());
 
@@ -166,7 +194,8 @@ public class GameManager : MonoBehaviour
 
         for (int index = 0; index < players.Count; index++)
         {
-            GameObject newPawn = (GameObject)Instantiate(pawnObject, startTile.transform.position, Quaternion.identity);
+			Vector3 startPosition = new Vector3(startTile.transform.position.x, startTile.transform.position.y, -0.183f);
+            GameObject newPawn = (GameObject)Instantiate(pawnObject, startPosition, Quaternion.identity);
             Pawn newPawnController = (Pawn)newPawn.GetComponent("Pawn");
             newPawnController.setCurrentTile(startTile);
 
@@ -183,30 +212,12 @@ public class GameManager : MonoBehaviour
 
         lblPlayerTurn.text = "Speler " + ActivePlayer().getName() + System.Environment.NewLine + "Beurt " + turnCount;
 
-        Color color = ActivePlayer().getPawn().getColor();
-        if (color == Color.red)
-        {
-            HUDBackground.sprite = sprRed;
-        }
-        else if (color == Color.yellow)
-        {
-            HUDBackground.sprite = sprYellow;
-        }
-        else if (color == Color.green)
-        {
-            HUDBackground.sprite = sprGreen;
-        }
-        else if (color == Color.blue)
-        {
-            HUDBackground.sprite = sprBlue;
-        }
-        else if (color == new Color(170, 0, 255))
-        {
-            HUDBackground.sprite = sprPurple;
-        }
-
+        
+		setHUDBackground ();
         setInsulinMeter();
         setBloodSugarMeter();
+
+		showPopUp ("Speler " + ActivePlayer().getName() + " is aan de beurt.", longPopupTime);
     }
 
     void Awake()
@@ -288,6 +299,7 @@ public class GameManager : MonoBehaviour
         if (turnCount % (maxTurns / 8) == 0)
         {
             ScoreManager.instance.createMeasurePoint(ActivePlayer().getId(), ActivePlayer().getModel().getGlucose());
+			showPopUp("Meetpunt tekst moet aangepast worden", -1);
             // TODO: Laat zien dat het gebeurd is.
         }
 
@@ -313,11 +325,30 @@ public class GameManager : MonoBehaviour
         btnDice.interactable = true;
         lblPlayerTurn.text = "Speler " + ActivePlayer().getName() + System.Environment.NewLine + "Beurt " + turnCount;
 
-        HUDBackground.color = ActivePlayer().getPawn().getColor();
-
+		setHUDBackground ();
         setInsulinMeter();
         setBloodSugarMeter();
+
+		showPopUp ("Speler " + ActivePlayer().getName() + " is aan de beurt.", -1);
     }
+
+	/// <summary>
+	/// Shows the popup
+	/// </summary>
+	/// <param name="text">Text that will be placed in the popup</param>
+	/// <param name="time">time can be defined af a custom length, -1 used default value(from Information manager)</param>
+	public void showPopUp(string text, float time)
+	{
+		pnlPopup.SetActive (true);
+		txtPopupText.text = text;
+
+		StartCoroutine (hidePlayerPopupTimer(time));
+	}
+
+	public void hidePopUp()
+	{
+		pnlPopup.SetActive (false);
+	}
 
     /// <summary>
     /// Shows the route buttons.
@@ -371,6 +402,21 @@ public class GameManager : MonoBehaviour
         
         if (selectedFood >= 0 )
         {
+			if (foods[selectedFood].foodType == ItemType.Food)
+			{
+				Debug.Log ("FoodSound");
+				audioSource.clip = audioFood;
+				audioSource.loop = false;
+				audioSource.Play();
+			}
+			else
+			{
+				Debug.Log("DrinkSound");
+				audioSource.clip = audioDrink;
+				audioSource.loop = false;
+				audioSource.Play();
+			}
+
             btnDextro.SetActive(false);
             eatSelectedFood = true;
             showFoodPnl(false);
@@ -422,55 +468,11 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Opens the menu.
-    /// </summary>
-    public void openMenu()
-    {
-        pnlMenu.SetActive(true);
-    }
-
-    /// <summary>
-    /// Closes the menu.
-    /// </summary>
-    public void closeMenu()
-    {
-        pnlMenu.SetActive(false);
-    }
-
-    /// <summary>
-    /// Loads the aantalbeurtenScreen scene(start new game).
-    /// </summary>
-    public void clickNewGame()
-    {
-        Application.LoadLevel("MainMenu");
-    }
-
-    /// <summary>
-    /// Turns the sound on or off depending on current state.
-    /// </summary>
-    public void clickSound()
-    {
-        if (lblSound.text == "Geluid aan")
-        {
-            audioSource.mute = false;
-
-            lblSound.text = "Geluid uit";
-        }
-        else
-        {
-            audioSource.mute = true;
-
-            lblSound.text = "Geluid aan";
-        }
-    }
-
-    /// <summary>
     /// Sets the insulin meter.
     /// </summary>
     public void setInsulinMeter()
     {
         float newSize = 1 - (0.075f * ActivePlayer().getInsulineReserve());
-        Debug.Log("new insulin size: " + newSize);
 
         insulinMeter.size = newSize;
     }
@@ -485,7 +487,7 @@ public class GameManager : MonoBehaviour
 
     public void setBloodSugarMeter()
     {
-        lblGlucose.text = "" + ActivePlayer().getModel().getGlucose();
+        lblGlucose.text = "" + Mathf.Round(ActivePlayer().getModel().getGlucose() * 100f) / 100f;
 
         ScoreModel model = ScoreManager.instance.getScoreModel(ActivePlayer().getId());
         float idealValueMin = model.getIdealValue() - model.getIdealValueMargin();
@@ -512,10 +514,33 @@ public class GameManager : MonoBehaviour
         lblGlucose.color = textColor;
     }
 
-    /// <summary>
-    /// Gets the active player.
-    /// </summary>
-    /// <returns>The player whose turn it is right now.</returns>
+	/// <summary>
+	/// Changes the HUD background to the background from the current player.
+	/// </summary>
+	public void setHUDBackground()
+	{
+		HUDBackground.sprite = hudBackgrounds[ActivePlayer ().getColorId()];
+	}
+
+	/// <summary>
+	/// Enables the button dice.
+	/// </summary>
+	public void enableBtnDice()
+	{
+		btnDice.interactable = true;
+	}
+	/// <summary>
+	/// Disables the button dice.
+	/// </summary>
+	public void disableBtnDice()
+	{
+		btnDice.interactable = false;
+	}
+
+	/// <summary>
+	/// Gets the active player.
+	/// </summary>
+	/// <returns>The player whose turn it is right now.</returns>
     public Player ActivePlayer()
     {
         return this.players[playerTurn];

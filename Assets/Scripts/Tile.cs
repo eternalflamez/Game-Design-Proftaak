@@ -54,15 +54,6 @@ public class Tile : MonoBehaviour
 	public bool hasFood = false;
 	public bool hasInsuline = false;
 
-	void Start()
-	{
-		if (isSpecial)
-		{
-			//btn1.SetActive(false);
-			//btn2.SetActive(false);
-		}
-	}
-
 	public void addPawnToTile(Pawn pawn)
 	{
 		pawnsOnTile.Add (pawn);
@@ -87,16 +78,16 @@ public class Tile : MonoBehaviour
 				switch (index)
 				{
 				case 0:
-					newPosition = new Vector3((float)newPosition.x - 0.2925f, (float)newPosition.y + 0.3022f, (float)newPosition.z);
+					newPosition = new Vector3((float)newPosition.x - 0.2925f, (float)newPosition.y + 0.3022f, -0.183f);
 					break;
 				case 1:
-					newPosition = new Vector3((float)newPosition.x + 0.3005f, (float)newPosition.y - 0.2908f, (float)newPosition.z);
+					newPosition = new Vector3((float)newPosition.x + 0.3005f, (float)newPosition.y - 0.2908f, -0.183f);
 					break;
 				case 2:
-					newPosition = new Vector3((float)newPosition.x + 0.3005f, (float)newPosition.y + 0.3022f, (float)newPosition.z);
+					newPosition = new Vector3((float)newPosition.x + 0.3005f, (float)newPosition.y + 0.3022f, -0.183f);
 					break;
 				case 3:
-					newPosition = new Vector3((float)newPosition.x - 0.2925f, (float)newPosition.y - 0.2908f, (float)newPosition.z);
+					newPosition = new Vector3((float)newPosition.x - 0.2925f, (float)newPosition.y - 0.2908f, -0.183f);
 					break;
 				}
 
@@ -107,7 +98,8 @@ public class Tile : MonoBehaviour
 		{
 			if (pawnsOnTile.Count > 0)
 			{
-				pawnsOnTile[0].gameObject.transform.position = this.transform.position;
+				Vector3 newPosition = new Vector3(this.transform.position.x, this.transform.position.y, -0.183f);
+				pawnsOnTile[0].gameObject.transform.position = newPosition;
 			}
 		}
 	}

@@ -18,6 +18,7 @@ public class Player
     private PlayerModel model;
     private Pawn pawn;
     private Color pawnColor;
+	private int colorId;
 
 	public bool skipsTurn = false;
 
@@ -27,6 +28,11 @@ public class Player
     {
         return id;
     }
+
+	public int getColorId()
+	{
+		return colorId;
+	}
 
     public string getName()
     {
@@ -66,7 +72,7 @@ public class Player
     public void setPawn(Pawn p)
     {
         this.pawn = p;
-        this.pawn.setColor(pawnColor);
+		this.pawn.setColor(GameManager.instance.pawnColors[colorId]);
     }
 
     public Pawn getPawn()
@@ -79,7 +85,7 @@ public class Player
         return this.name + "-" + this.age + "-" + this.gender.ToString().ToCharArray()[0];
     }
 
-	public void setInfo(int id, string name, int age, int height, float weight, Gender gender, Color color, int maxInsulin)
+	public void setInfo(int id, string name, int age, int height, float weight, Gender gender, Color color, int colorId, int maxInsulin)
 	{
         this.id = id;
 		this.name = name;
@@ -88,6 +94,7 @@ public class Player
 		this.weight = weight;
 		this.gender = gender;
         this.pawnColor = color;
+		this.colorId = colorId;
 		this.maxInsulin = maxInsulin;
 
 		model = new PlayerModel(5);

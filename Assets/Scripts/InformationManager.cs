@@ -34,7 +34,11 @@ class InformationManager : MonoBehaviour
 	private int maxInsulin;
 
 	[SerializeField]
-	private int playerEndTurnWait = 2;
+	private float playerEndTurnWait = 1;
+	[SerializeField]
+	private float popupTime = 4;
+
+	public string soundSetting = "Sound";
 
     public ScoreManager getScoreManager()
     {
@@ -75,9 +79,13 @@ class InformationManager : MonoBehaviour
         return usedColors;
     }
 
-	public int getPlayerWait()
+	public float getPlayerWait()
 	{
 		return playerEndTurnWait;
+	}
+	public float getPopupTime()
+	{
+		return popupTime;
 	}
 
     /// <summary>
@@ -86,7 +94,7 @@ class InformationManager : MonoBehaviour
     public void addPlayer(string name, int age, int height, float weight, Gender gender, PawnColor c, bool save)
     {
         Player p = new Player();
-		p.setInfo(players.Count, name, age, height, weight, gender, c.getColor(), maxInsulin);
+		p.setInfo(players.Count, name, age, height, weight, gender, c.getColor(), c.getColorId(), maxInsulin);
         players.Add(p);
         usedColors.Add(c);
 
@@ -154,7 +162,7 @@ class InformationManager : MonoBehaviour
         }
 
         this.maxTurns = 10;
-        this.playerCount = 2; //original 2
+        this.playerCount = 0; //original 2
         Application.targetFrameRate = 100;
     }
 

@@ -46,7 +46,7 @@ public class CreatePlayerInfo : MonoBehaviour {
         height = 0;
         weight = 0;
         gender = Gender.None;
-        color = new PawnColor(Color.clear, "");
+        color = new PawnColor(Color.clear, "", -1);
         playerHeader.text = "Speler " + (InformationManager.instance.getPlayerSize() + 1);
 
         nameError.enabled = false;
@@ -138,30 +138,36 @@ public class CreatePlayerInfo : MonoBehaviour {
     public void setColor(string color)
     {
         Color temp = Color.clear;
+		int id = -1;
         switch (color)
         {
             case "Red":
                 temp = Color.red;
+				id = 0;
                 break;
 
             case "Yellow":
                 temp = Color.yellow;
+				id = 1;
                 break;
 
             case "Green":
                 temp = Color.green;
+				id = 2;
                 break;
 
             case "Blue":
                 temp = Color.blue;
+				id = 3;
                 break;
 
-            case "Purple":
+            case "Magenta":
                 temp = new Color(170, 0, 255);
+				id = 4;
                 break;
         }
 
-        PawnColor pc = new PawnColor(temp, color);
+        PawnColor pc = new PawnColor(temp, color, id);
         this.color = pc;
     }
 }

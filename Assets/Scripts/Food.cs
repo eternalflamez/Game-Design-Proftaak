@@ -13,12 +13,14 @@ public class Food
 	private float time;
 	private float carbConst;
 
+	public ItemType foodType;
+
     public Food()
     {
 
     }
 
-	public Food(string name, string description, float carbohydrates, float absorbsionTime)
+	public Food(string name, string description, float carbohydrates, float absorbsionTime, ItemType itemType)
 	{
 	    this.name = name;
 		this.description = description;
@@ -26,6 +28,7 @@ public class Food
 	    this.absorbsionTime = absorbsionTime;
         this.time = absorbsionTime;
 	    carbConst = carbohydrates;
+		this.foodType = itemType;
 	}
 
 	public string getName()

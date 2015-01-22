@@ -24,7 +24,7 @@ public class PlayerModel
 
 	public void eat(Food f)
 	{
-        Food newF = new Food(f.getName(), f.getDescription(), f.getCarbs(), f.getAbsorbionTime());
+        Food newF = new Food(f.getName(), f.getDescription(), f.getCarbs(), f.getAbsorbionTime(), ItemType.None);
 
         digesting.Add(newF);
 	}
