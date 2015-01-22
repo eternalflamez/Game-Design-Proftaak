@@ -9,7 +9,7 @@ public class CameraMovement : MonoBehaviour {
 	void Update () {
         if (canMove)
         {
-            Vector3 endPoint = GameManager.instance.getActivePawnPosition() + new Vector3(0, -7, -10);
+            Vector3 endPoint = GameManager.instance.getActivePawnPosition() + new Vector3(0, -14, -10);
 
             transform.position = Vector3.Lerp(this.transform.position, endPoint, Time.deltaTime * speed);
         }
