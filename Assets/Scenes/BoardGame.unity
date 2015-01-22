@@ -5633,7 +5633,7 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasFood: 0
+  hasFood: 1
   hasInsuline: 0
 --- !u!23 &130155893
 Renderer:
@@ -5648,7 +5648,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+  - {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -8652,7 +8652,11 @@ Prefab:
     - target: {fileID: 2300000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+      objectReference: {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasFood
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
   m_RootGameObject: {fileID: 1862542423}
@@ -9105,7 +9109,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+  - {fileID: 2100000, guid: 69e979990662e5947b868737d7f6e804, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -11940,7 +11944,7 @@ MonoBehaviour:
   tileDirection: 3
   tileType: 0
   isSpecial: 0
-  hasFood: 0
+  hasFood: 1
   hasInsuline: 0
 --- !u!23 &283605519
 Renderer:
@@ -11955,7 +11959,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+  - {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -12468,7 +12472,11 @@ Prefab:
     - target: {fileID: 2300000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+      objectReference: {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasFood
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
   m_RootGameObject: {fileID: 1702953589}
@@ -13398,6 +13406,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasFood
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
   m_RootGameObject: {fileID: 1734350257}
@@ -18840,7 +18852,7 @@ MonoBehaviour:
   tileDirection: 3
   tileType: 0
   isSpecial: 0
-  hasFood: 0
+  hasFood: 1
   hasInsuline: 0
 --- !u!23 &503603634
 Renderer:
@@ -18855,7 +18867,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+  - {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -22274,7 +22286,7 @@ MonoBehaviour:
   tileDirection: 1
   tileType: 0
   isSpecial: 0
-  hasFood: 0
+  hasFood: 1
   hasInsuline: 0
 --- !u!23 &578312725
 Renderer:
@@ -22289,7 +22301,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+  - {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -25228,7 +25240,15 @@ Prefab:
     - target: {fileID: 2300000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+      objectReference: {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: isSpecial
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasFood
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
   m_RootGameObject: {fileID: 130155891}
@@ -26901,7 +26921,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -33587,7 +33606,15 @@ Prefab:
     - target: {fileID: 2300000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+      objectReference: {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: isSpecial
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasFood
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
   m_RootGameObject: {fileID: 2048655157}
@@ -35212,7 +35239,7 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasFood: 0
+  hasFood: 1
   hasInsuline: 0
 --- !u!23 &881152551
 Renderer:
@@ -35227,7 +35254,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+  - {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -39727,7 +39754,11 @@ Prefab:
     - target: {fileID: 2300000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+      objectReference: {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasFood
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
   m_RootGameObject: {fileID: 283605517}
@@ -44640,7 +44671,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_RootOrder
-      value: 89
+      value: 88
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: x
@@ -44661,7 +44692,15 @@ Prefab:
     - target: {fileID: 2300000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+      objectReference: {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: isSpecial
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasFood
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
   m_RootGameObject: {fileID: 503603632}
@@ -53558,7 +53597,7 @@ MonoBehaviour:
   tileDirection: 2
   tileType: 0
   isSpecial: 0
-  hasFood: 0
+  hasFood: 1
   hasInsuline: 0
 --- !u!23 &1310702949
 Renderer:
@@ -53573,7 +53612,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+  - {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -56938,7 +56977,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_RootOrder
-      value: 91
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -60394,7 +60433,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_RootOrder
-      value: 90
+      value: 89
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: x
@@ -63924,7 +63963,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_RootOrder
-      value: 87
+      value: 86
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: x
@@ -67120,7 +67159,7 @@ MonoBehaviour:
   tileDirection: 0
   tileType: 0
   isSpecial: 0
-  hasFood: 0
+  hasFood: 1
   hasInsuline: 0
 --- !u!23 &1702953592
 Renderer:
@@ -67135,7 +67174,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+  - {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -74022,7 +74061,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_RootOrder
-      value: 88
+      value: 87
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: x
@@ -74482,7 +74521,7 @@ MonoBehaviour:
   tileDirection: 1
   tileType: 0
   isSpecial: 0
-  hasFood: 0
+  hasFood: 1
   hasInsuline: 0
 --- !u!23 &1862542425
 Renderer:
@@ -74497,7 +74536,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+  - {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -80239,7 +80278,11 @@ Prefab:
     - target: {fileID: 2300000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+      objectReference: {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasFood
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
   m_RootGameObject: {fileID: 578312723}
@@ -80595,7 +80638,11 @@ Prefab:
     - target: {fileID: 2300000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+      objectReference: {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasFood
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
   m_RootGameObject: {fileID: 1310702947}
@@ -81966,7 +82013,7 @@ MonoBehaviour:
   tileDirection: 0
   tileType: 0
   isSpecial: 0
-  hasFood: 0
+  hasFood: 1
   hasInsuline: 0
 --- !u!23 &2048655160
 Renderer:
@@ -81981,7 +82028,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+  - {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -84529,7 +84576,11 @@ Prefab:
     - target: {fileID: 2300000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+      objectReference: {fileID: 2100000, guid: 69e979990662e5947b868737d7f6e804, type: 2}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasFood
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
   m_RootGameObject: {fileID: 214925503}
@@ -85326,7 +85377,15 @@ Prefab:
     - target: {fileID: 2300000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
+      objectReference: {fileID: 2100000, guid: 900bc23ff5db6e847b7aa882e68ba9dc, type: 2}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: isSpecial
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasFood
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
   m_RootGameObject: {fileID: 881152549}

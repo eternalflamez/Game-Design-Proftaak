@@ -10,6 +10,11 @@ public class SceneSwitcher : MonoBehaviour {
 	
 	public void GoToScene(string changeScene)
 	{
+        if (changeScene == "MainMenu")
+        {
+            InformationManager.instance.ResetGame();
+        }
+
 		Application.LoadLevel (changeScene);
 		//audio.PlayOneShot("buttonclick"); 
 	}

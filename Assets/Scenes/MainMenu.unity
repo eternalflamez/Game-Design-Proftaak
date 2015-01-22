@@ -650,13 +650,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Sugar city is ontwikkeld voor patienten met diabetus type 2. Het spel is
+  m_Text: 'Sugar city is ontwikkeld voor patienten met diabetes type 2. Het spel is
     ontstaan door een samenwerking van de Fontys Hogeschool en het MMC. Het spel is
-    onwikkeld door een team van 5 studenten.
+    ontwikkeld door een team van 5 studenten.
 
 
     Het doel van het spel is voor de speler om zijn/haar bloedsuiker spiegel op of
-    in ieder geval zo dicht mogelijk bij hun ideal waarde te houden gedurende het
+    in ieder geval zo dicht mogelijk bij hun ideaalwaarde te houden gedurende het
     spel.
 
 
@@ -1713,7 +1713,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:

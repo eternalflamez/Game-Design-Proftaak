@@ -540,9 +540,19 @@ MonoBehaviour:
   - {fileID: 111802555}
   - {fileID: 522311358}
   - {fileID: 81317558}
-  gmoTextFields: []
+  gmoTextFields:
+  - {fileID: 1233118603}
+  - {fileID: 1598996066}
+  - {fileID: 1601668555}
+  - {fileID: 1447354230}
+  - {fileID: 959455924}
+  - {fileID: 612887784}
+  - {fileID: 1494186579}
+  - {fileID: 111802553}
+  - {fileID: 522311356}
+  - {fileID: 81317556}
   playername: {fileID: 189563372}
-  playerId: 0
+  playerId: 2
 --- !u!1 &192748717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,9 +2419,19 @@ MonoBehaviour:
   - {fileID: 64259734}
   - {fileID: 275526105}
   - {fileID: 1747793807}
-  gmoTextFields: []
+  gmoTextFields:
+  - {fileID: 1321928449}
+  - {fileID: 1935484184}
+  - {fileID: 1930550440}
+  - {fileID: 382911148}
+  - {fileID: 517825712}
+  - {fileID: 1197891037}
+  - {fileID: 1393198807}
+  - {fileID: 64259732}
+  - {fileID: 275526103}
+  - {fileID: 1747793805}
   playername: {fileID: 486038545}
-  playerId: 0
+  playerId: 1
 --- !u!1 &487446975
 GameObject:
   m_ObjectHideFlags: 0
@@ -3551,7 +3571,17 @@ MonoBehaviour:
   - {fileID: 1004092683}
   - {fileID: 1848811558}
   - {fileID: 1463248339}
-  gmoTextFields: []
+  gmoTextFields:
+  - {fileID: 1541174845}
+  - {fileID: 655391759}
+  - {fileID: 1935058892}
+  - {fileID: 1184505870}
+  - {fileID: 1367328599}
+  - {fileID: 565623234}
+  - {fileID: 1183950913}
+  - {fileID: 1004092681}
+  - {fileID: 1848811556}
+  - {fileID: 1463248337}
   playername: {fileID: 612556818}
   playerId: 0
 --- !u!1 &612887784
@@ -6117,9 +6147,19 @@ MonoBehaviour:
   - {fileID: 1529123551}
   - {fileID: 604379464}
   - {fileID: 1998474044}
-  gmoTextFields: []
+  gmoTextFields:
+  - {fileID: 1221387535}
+  - {fileID: 891621709}
+  - {fileID: 2118406960}
+  - {fileID: 349037301}
+  - {fileID: 1832486316}
+  - {fileID: 1920873897}
+  - {fileID: 487446975}
+  - {fileID: 1529123549}
+  - {fileID: 604379462}
+  - {fileID: 1998474042}
   playername: {fileID: 1150608087}
-  playerId: 0
+  playerId: 3
 --- !u!1 &1153868154
 GameObject:
   m_ObjectHideFlags: 0
@@ -8817,7 +8857,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:

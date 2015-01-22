@@ -183,5 +183,12 @@ class InformationManager : MonoBehaviour
     {
         this.scoreManager = sm;
     }
+
+    public void ResetGame()
+    {
+        this.players = new List<Player>();
+        this.usedColors = new List<PawnColor>();
+        this.playerCount = 0;
+    }
 }
 

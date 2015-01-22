@@ -172,7 +172,7 @@ public class GameManager : MonoBehaviour
         foods.Add(new Food("Banaan", "1 banaan", 188, 80, ItemType.Food));
         foods.Add(new Food("Croissant", "1 Croissant", 239, 120, ItemType.Food));
         foods.Add(new Food("Brood bruin", "1 snee belegd brood", 64, 120, ItemType.Food));
-        foods.Add(new Food("Druivensuiker", "Nodig voor Hypo", 400, 45, ItemType.Food));
+        foods.Add(new Food("Druivensuiker", "Nodig voor Hypo, beurt overslaan", 400, 45, ItemType.Food));
 
         players.AddRange(informationManager.getPlayers());
 

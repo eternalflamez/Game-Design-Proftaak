@@ -60,6 +60,7 @@ public class GameMenu : MonoBehaviour
 	/// </summary>
 	public void clickNewGame()
 	{
+        InformationManager.instance.ResetGame();
 		Application.LoadLevel("MainMenu");
 	}
 	
