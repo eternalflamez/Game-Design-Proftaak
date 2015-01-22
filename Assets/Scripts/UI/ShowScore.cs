@@ -10,6 +10,8 @@ public class ShowScore : MonoBehaviour
 
 	[SerializeField]
 	private List<Text> textFields;
+	[SerializeField]
+	private List<GameObject> gmoTextFields;
 	
 	[SerializeField]
 	private Text playername;
@@ -21,6 +23,11 @@ public class ShowScore : MonoBehaviour
 		this.values = scoreModel.getBloodSugars();
 
 		playername.text = scoreModel.getPlayerName ();
+
+		for (int index = 0; index < gmoTextFields.Count; index++)
+		{
+			gmoTextFields[index].SetActive(false);
+		}
 
 		Generate ();
 	}
@@ -39,7 +46,8 @@ public class ShowScore : MonoBehaviour
 			// precisely the points we want it to.
 			if ((cull && Mathf.Floor(i % (values.Count / maxPoints)) == 0) || !cull)
 			{
-				textFields[textCount].text = values[i].ToString();
+				gmoTextFields[textCount].SetActive(true);
+				textFields[textCount].text = (Mathf.Round(values[i] * 100f) / 100f).ToString();
 				textCount++;
 			}
 		}

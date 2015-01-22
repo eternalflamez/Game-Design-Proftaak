@@ -49,6 +49,7 @@ public class GraphController : MonoBehaviour {
 		}
 
         List<ScoreModel> sortedScores = BubbleSort.Sort(sm.getScoreModels());
+		sortedScores.Reverse ();
 
 		int maxTrophys = 3;
 		if (sortedScores.Count < maxTrophys)

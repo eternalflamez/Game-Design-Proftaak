@@ -34,7 +34,7 @@ class InformationManager : MonoBehaviour
 	private int maxInsulin;
 
 	[SerializeField]
-	private float playerEndTurnWait = 0.1f;
+	private float playerEndTurnWait = 1f;
 	[SerializeField]
 	private float popupTime = 2.5f;
 

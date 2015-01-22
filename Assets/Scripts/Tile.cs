@@ -107,14 +107,10 @@ public class Tile : MonoBehaviour
 	public void enableButtons()
 	{
 		GameManager.instance.showRouteButtons (routeUp, routeDown, routeRight, routeLeft);
-		//btn1.SetActive(true);
-		//btn2.SetActive(true);
 	}
 	public void disableButtons()
 	{
 		GameManager.instance.hideRouteButtons ();
-		//btn1.SetActive(false);
-		//btn2.SetActive(false);
 	}
 
 	public Vector2 getCoordinates()
