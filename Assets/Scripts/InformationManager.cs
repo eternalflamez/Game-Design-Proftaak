@@ -34,9 +34,9 @@ class InformationManager : MonoBehaviour
 	private int maxInsulin;
 
 	[SerializeField]
-	private float playerEndTurnWait = 1;
+	private float playerEndTurnWait = 0.1f;
 	[SerializeField]
-	private float popupTime = 4;
+	private float popupTime = 2.5f;
 
 	public string soundSetting = "Sound";
 
@@ -124,6 +124,19 @@ class InformationManager : MonoBehaviour
     {
         return this.players;
     }
+
+	public Player getPlayerById(int id)
+	{
+		for (int index = 0; index < players.Count; index++)
+		{
+			if (players[index].getId() == id)
+			{
+				return players[index];
+			}
+		}
+
+		return null;
+	}
 
     public Player getPlayerByName(string name)
     {
