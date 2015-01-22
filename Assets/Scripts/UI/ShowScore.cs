@@ -19,27 +19,6 @@ public class ShowScore : MonoBehaviour
 	public void setPoints(ScoreModel scoreModel)
 	{
 		this.values = scoreModel.getBloodSugars();
-		/*values = new List<float> ();
-		values.Add (5.0f);
-		values.Add (6.0f);
-		values.Add (7.0f);
-		values.Add (8.0f);
-		values.Add (7.0f);
-		values.Add (3.0f);
-		values.Add (2.0f);
-		values.Add (1.0f);
-		values.Add (2.0f);
-		values.Add (2.0f);
-		values.Add (2.0f);
-		values.Add (2.0f);
-		values.Add (3.0f);
-		values.Add (8.0f);
-		values.Add (9.0f);
-		values.Add (2.0f);
-		values.Add (2.0f);
-		values.Add (3.0f);
-		values.Add (8.0f);
-		values.Add (9.0f);*/
 
 		playername.text = scoreModel.getPlayerName ();
 
@@ -49,7 +28,7 @@ public class ShowScore : MonoBehaviour
 	private void Generate()
 	{
 		bool cull = (values.Count > maxPoints);
-		Debug.Log (cull);
+
 		int textCount = 0;
 		for (int i = 0; i < values.Count; i++)
 		{

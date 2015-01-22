@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
 	private Text txtPopupText;
 
 	[SerializeField]
-	private float longPopupTime = 6.0f;
+	private float longPopupTime = 5.0f;
 
 	[SerializeField]
 	private List<Sprite> hudBackgrounds;
@@ -210,7 +210,7 @@ public class GameManager : MonoBehaviour
 
         playerCount = players.Count;
 
-        lblPlayerTurn.text = "Speler " + ActivePlayer().getName() + System.Environment.NewLine + "Beurt " + turnCount;
+		lblPlayerTurn.text = "Speler " + ActivePlayer().getName() + System.Environment.NewLine + "Beurt " + turnCount + "/" + InformationManager.instance.getMaxTurns();
 
         
 		setHUDBackground ();
@@ -323,7 +323,7 @@ public class GameManager : MonoBehaviour
         }
 
         btnDice.interactable = true;
-        lblPlayerTurn.text = "Speler " + ActivePlayer().getName() + System.Environment.NewLine + "Beurt " + turnCount;
+		lblPlayerTurn.text = "Speler " + ActivePlayer().getName() + System.Environment.NewLine + "Beurt " + turnCount + "/" + InformationManager.instance.getMaxTurns();
 
 		setHUDBackground ();
         setInsulinMeter();

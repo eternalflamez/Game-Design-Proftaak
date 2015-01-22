@@ -11,24 +11,14 @@ public class GraphController : MonoBehaviour {
 	private List<ShowScore> journals;
 	[SerializeField]
 	private List<GameObject> trophyPanels;
+	[SerializeField]
+	private List<Text> trophyNames;
+	[SerializeField]
+	private List<Text> trophyScore;
     [SerializeField]
     private GameObject[] PlayerGraph;
 	[SerializeField]
 	private GameObject[] PlayerJournal;
-
-	[SerializeField]
-	private Image player1Trophy;
-	[SerializeField]
-	private Image player2Trophy;
-	[SerializeField]
-	private Image player3Trophy;
-
-	[SerializeField]
-	private Text trophyName1;
-	[SerializeField]
-	private Text trophyName2;
-	[SerializeField]
-	private Text trophyName3;
 
 	public List<Player> sortedList;
 
@@ -60,16 +50,22 @@ public class GraphController : MonoBehaviour {
 
         List<ScoreModel> sortedScores = BubbleSort.Sort(sm.getScoreModels());
 
+		int maxTrophys = 3;
+		if (sortedScores.Count < maxTrophys)
+		{
+			maxTrophys = sortedScores.Count;
+		}
+
 		for (int index = 0; index < trophyPanels.Count; index++)
 		{
-			if ((index + 1) < InformationManager.instance.getPlayerCount())
-			{
-				trophyPanels[index].SetActive(true);
-			}
-			else
-			{
-				trophyPanels[index].SetActive(false);
-			}
+			trophyPanels[index].SetActive(false);
+		}
+
+		for (int index = 0; index < maxTrophys; index++)
+		{
+			trophyPanels[index].SetActive(true);
+			trophyNames[index].text = InformationManager.instance.getPlayerById(sortedScores[index].getPlayerId()).getName();
+			trophyScore[index].text = sortedScores[index].getScore().ToString();
 		}
 
 		List<ScoreModel> rankings = ScoreManager.instance.getRanking ();
