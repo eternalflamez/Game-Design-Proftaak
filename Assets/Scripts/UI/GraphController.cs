@@ -58,6 +58,8 @@ public class GraphController : MonoBehaviour {
 			}
 		}
 
+        List<ScoreModel> sortedScores = BubbleSort.Sort(sm.getScoreModels());
+
 		for (int index = 0; index < trophyPanels.Count; index++)
 		{
 			if ((index + 1) < InformationManager.instance.getPlayerCount())

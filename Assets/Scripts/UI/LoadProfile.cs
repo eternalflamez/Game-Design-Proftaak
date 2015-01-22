@@ -96,7 +96,7 @@ public class LoadProfile : MonoBehaviour {
     private void FillProfile(string fileName)
     {
         XmlSerializer serializer = new XmlSerializer(typeof(Player));
-        FileStream stream = new FileStream(Application.persistentDataPath + "\\" + fileName, FileMode.Open);
+        FileStream stream = new FileStream(Application.persistentDataPath + "/" + fileName, FileMode.Open);
         Player p = serializer.Deserialize(stream) as Player;
         stream.Close();
         Debug.Log(fileName);

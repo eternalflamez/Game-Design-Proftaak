@@ -96,4 +96,9 @@ class ScoreManager : MonoBehaviour
 
         return null;
     }
+
+    public List<ScoreModel> getScoreModels()
+    {
+        return this.scores;
+    }
 }
