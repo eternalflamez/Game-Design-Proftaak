@@ -84,12 +84,26 @@ public class ScoreModel
 
             if (measurePoint > idealValue + idealValueMargin)
             {
-                points = maxPointsPTurn - ((measurePoint - (idealValue + idealValueMargin)) * ((hyperThreshold - idealValue) / maxPointsPTurn));
+                if (measurePoint > hyperThreshold)
+                {
+                    points = 5;
+                }
+                else
+                {
+                    points = 7.5f;
+                }
                 Debug.Log("Too high, added " + points + "for value" + measurePoint);
             }
             else if (measurePoint < idealValue - idealValueMargin)
             {
-                points = maxPointsPTurn - (((idealValue - idealValueMargin) - measurePoint) * ((idealValue - idealValueMargin) / maxPointsPTurn));
+                if (measurePoint < hypoThreshold)
+                {
+                    points = 5;
+                }
+                else
+                {
+                    points = 7.5f;
+                }
                 Debug.Log("Too low, added " + points + "for value" + measurePoint);
             }
             else
