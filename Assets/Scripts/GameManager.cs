@@ -289,6 +289,8 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+		setInfoText ("");
+
         ActivePlayer().getPawn().setMoveDir(dir);
     }
 
@@ -499,6 +501,7 @@ public class GameManager : MonoBehaviour
         ActivePlayer().useInsulinReserves(1f);
         
         setInsulinMeter();
+		setBloodSugarMeter ();
     }
 
     public void setBloodSugarMeter()
@@ -516,7 +519,7 @@ public class GameManager : MonoBehaviour
 		float b;
 
         //check if hyper/hypo
-        if (ActivePlayer().getModel().getGlucose() > model.getHyperThreshold())
+        if (ActivePlayer().getModel().getGlucose() > InformationManager.instance.getHyperThreshold())
         {
 			//orange
 			r = 242f / 255f;
@@ -524,7 +527,7 @@ public class GameManager : MonoBehaviour
 			b = 25f / 255f;
 			textColor = new Color(r, g, b);
         }
-        else if (ActivePlayer().getModel().getGlucose() < model.getHypoThreshold())
+        else if (ActivePlayer().getModel().getGlucose() < InformationManager.instance.getHypoThreshold())
         {
 			//blue
 			r = 25f / 255f;

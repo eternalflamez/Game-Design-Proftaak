@@ -15,8 +15,6 @@ public class ScoreModel
     private int hyperTurns;
     private List<float> measurePoints;
 
-    private float hypoThreshold = 3;
-    private float hyperThreshold = 12;
     private int usedSugar = 0;
 
     /// <summary>
@@ -57,16 +55,6 @@ public class ScoreModel
         return playerId;
     }
 
-	public float getHyperThreshold()
-	{
-		return hyperThreshold;
-	}
-
-	public float getHypoThreshold()
-	{
-		return hypoThreshold;
-	}
-
     public void setUsedSugar(int usedSugar)
     {
         this.usedSugar = usedSugar;
@@ -84,7 +72,7 @@ public class ScoreModel
 
             if (measurePoint > idealValue + idealValueMargin)
             {
-                if (measurePoint > hyperThreshold)
+                if (measurePoint > InformationManager.instance.getHyperThreshold())
                 {
                     points = 5;
                 }
@@ -96,7 +84,7 @@ public class ScoreModel
             }
             else if (measurePoint < idealValue - idealValueMargin)
             {
-                if (measurePoint < hypoThreshold)
+                if (measurePoint < InformationManager.instance.getHypoThreshold())
                 {
                     points = 5;
                 }
@@ -160,11 +148,11 @@ public class ScoreModel
     {
         bloodSugars.Add(bloodSugar);
 
-        if (bloodSugar > hyperThreshold)
+        if (bloodSugar > InformationManager.instance.getHyperThreshold())
         {
             hyperTurns++;
         }
-        else if (bloodSugar < hypoThreshold)
+        else if (bloodSugar < InformationManager.instance.getHypoThreshold())
         {
             hypoTurns++;
         }

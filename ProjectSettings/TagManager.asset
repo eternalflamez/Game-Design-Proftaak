@@ -4,6 +4,8 @@
 TagManager:
   tags:
   - BoardPiece
+  - BackgroundPlayer1
+  - BackGroundPlayer2
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

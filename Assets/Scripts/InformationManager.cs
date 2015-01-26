@@ -40,6 +40,11 @@ class InformationManager : MonoBehaviour
 	[SerializeField]
 	private float timerPopupLong = 5.0f;
 
+	[SerializeField]
+	private float hypoThreshold = 3;
+	[SerializeField]
+	private float hyperThreshold = 12;
+
 	public string soundSetting = "Sound";
 
     public ScoreManager getScoreManager()
@@ -92,6 +97,15 @@ class InformationManager : MonoBehaviour
 	public float getTimerLong()
 	{
 		return timerPopupLong;
+	}
+
+	public float getHypoThreshold()
+	{
+		return hypoThreshold;
+	}
+	public float getHyperThreshold()
+	{
+		return hyperThreshold;
 	}
 
     /// <summary>
