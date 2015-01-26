@@ -102,7 +102,6 @@ public class GraphGenerator : MonoBehaviour
             {
                 if (i == Mathf.Round((j / maxPoints) * values.Count))
                 {
-                    Debug.Log("Graphpoint " + j + " allowed for " + i + "/" + values.Count);
                     float x = i * increment;
                     /* 
                      *       (  current - min  )
@@ -121,7 +120,6 @@ public class GraphGenerator : MonoBehaviour
                         y = 0;
                     }
 
-                    Debug.Log(current);
                     Vector3 position = new Vector3(x, y, 0f);
                     GameObject go = (GameObject)Instantiate(pointPre);
                     go.transform.parent = this.transform;

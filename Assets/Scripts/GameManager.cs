@@ -309,7 +309,6 @@ public class GameManager : MonoBehaviour
                 ScoreManager.instance.createMeasurePoint(ActivePlayer().getId(), ActivePlayer().getModel().getGlucose());
                 showPopUp("Meetpunt tekst moet aangepast worden", -1);
                 // TODO: Text aanpassen
-                Debug.Log("Created measure point " + j + " at turn " + turnCount + "/" + maxTurns);
                 break;
             }
         }

@@ -100,12 +100,13 @@ public class SpriteGraph : MonoBehaviour
 		}
 
         float maxpoints = maxPoints;
+		float count = values.Count;
 
-		for (float i = 0; i < values.Count; i++)
+		for (float i = 1; i < values.Count + 1; i++)
 		{
             for (float j = 1; j < maxpoints + 1; j++)
             {
-                if (i == Mathf.Round((j / maxpoints) * values.Count))
+                if (i == Mathf.Round((j / maxpoints) * count))
                 {
                     float x = (i * increment) - offsetWidth;
                     /* 
@@ -115,7 +116,7 @@ public class SpriteGraph : MonoBehaviour
                         * 
                         */
 
-                    float current = values[(int)i];
+                    float current = values[(int)i - 1];
                     float top = height - margin;
                     float low = margin;
                     float y = (low - offsetHeight) + ((current - min) / (high - min)) * (top - low);
@@ -125,7 +126,6 @@ public class SpriteGraph : MonoBehaviour
                         y = 0;
                     }
 
-                    Debug.Log(current);
                     Vector3 position = new Vector3(x, y, 0f);
                     GameObject go = (GameObject)Instantiate(pointPrefab);
                     go.transform.SetParent(this.transform, true); //.parent = this.transform;

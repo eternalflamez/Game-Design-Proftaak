@@ -100,7 +100,6 @@ public class LoadProfile : MonoBehaviour {
         FileStream stream = new FileStream(Application.persistentDataPath + "/" + fileName, FileMode.Open);
         Player p = serializer.Deserialize(stream) as Player;
         stream.Close();
-        Debug.Log(fileName);
 
         CreatePlayerInfo cp = CreatePlayerInfo.instance;
         cp.setAge(p.getAge().ToString());
