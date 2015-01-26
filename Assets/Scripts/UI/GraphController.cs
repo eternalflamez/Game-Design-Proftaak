@@ -32,7 +32,7 @@ public class GraphController : MonoBehaviour {
             int id = gg.playerId;
             ScoreModel points = sm.getScoreModel(id);
 
-			setBackgroundColor(id);
+			//setBackgroundColor(id);
 
             if (points != null)
             {
