@@ -28,15 +28,21 @@ public class Pawn : MonoBehaviour
 
     IEnumerator waitBeforeEndTurn()
     {
-        yield return new WaitForSeconds(InformationManager.instance.getPlayerWait());
+		//show bloodsugar before wait
+		GameManager.instance.setBloodSugarMeter ();
 
+        yield return new WaitForSeconds(InformationManager.instance.getTimerEndTurn());
+		
         pawnStopOnTile();
 
         yield break;
     }
 	IEnumerator waitOnSkip()
 	{
-		yield return new WaitForSeconds(InformationManager.instance.getPlayerWait());
+		//show bloodsugar before wait
+		GameManager.instance.setBloodSugarMeter ();
+
+		yield return new WaitForSeconds(InformationManager.instance.getTimerEndTurn());
 
 		GameManager.instance.enableBtnDice ();
 		GameManager.instance.playerEndTurn ();
@@ -104,6 +110,7 @@ public class Pawn : MonoBehaviour
 	                    if (currentTile.hasInsuline)
 	                    {
 	                        GameManager.instance.ActivePlayer().addInsulinReserves(1);
+							GameManager.instance.setInsulinMeter();
 	                    }
 
 	                    StartCoroutine("waitBeforeEndTurn");

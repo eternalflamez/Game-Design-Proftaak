@@ -17,6 +17,7 @@ public class LoadProfile : MonoBehaviour {
     public InputField heightInput;
     public Toggle maleToggle;
     public Toggle femaleToggle;
+	public Text saveToggleText;
 
     void Start()
     {
@@ -112,6 +113,8 @@ public class LoadProfile : MonoBehaviour {
         heightInput.text = p.getHeight().ToString();
         nameInput.text = p.getName();
         weightInput.text = p.getWeight().ToString();
+
+		saveToggleText.text = "Wijzigingen opslaan";
 
         if (p.getGender() == Gender.Male)
         {

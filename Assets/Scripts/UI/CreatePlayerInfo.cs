@@ -21,6 +21,8 @@ public class CreatePlayerInfo : MonoBehaviour {
     private Text colorError;
     [SerializeField]
     private Toggle saveToggle;
+	[SerializeField]
+	private Text txtBtnNext;
 
     [SerializeField]
     private Button[] colorButtons;
@@ -67,6 +69,18 @@ public class CreatePlayerInfo : MonoBehaviour {
                 }
             }
         }
+
+		Debug.Log ("PlayerCount: " + InformationManager.instance.getPlayerCount());
+		Debug.Log ("Players: " + InformationManager.instance.getPlayerSize ());
+
+		if ((InformationManager.instance.getPlayerCount() - 1) == InformationManager.instance.getPlayerSize())
+		{
+			txtBtnNext.text = "Start Spel";
+			Debug.Log ("True");
+		}
+
+		//if (InformationManager.instance.getPlayerCount
+		//edit forward btn text
     }
 
     public void setName(string name)

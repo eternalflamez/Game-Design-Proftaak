@@ -18,6 +18,7 @@ public class MenuSoundController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		//add btn sounds
 		btnSound = gmoSound.transform.GetComponent<Button>();
 		imgSound = gmoSound.transform.GetComponent<Image>();
 
@@ -35,7 +36,11 @@ public class MenuSoundController : MonoBehaviour
 			titleAudioSource.mute = true;
 		}
 	}
-	
+
+	public void btnEffects_Click()
+	{
+
+		}
 	public void btnSound_Click()
 	{
 		if (imgSound.sprite.name == "Volume")

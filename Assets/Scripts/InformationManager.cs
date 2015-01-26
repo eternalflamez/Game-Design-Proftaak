@@ -34,9 +34,11 @@ class InformationManager : MonoBehaviour
 	private int maxInsulin;
 
 	[SerializeField]
-	private float playerEndTurnWait = 1f;
+	private float timerEndTurn = 1f;
 	[SerializeField]
-	private float popupTime = 2.5f;
+	private float timerPopup = 2.5f;
+	[SerializeField]
+	private float timerPopupLong = 5.0f;
 
 	public string soundSetting = "Sound";
 
@@ -79,13 +81,17 @@ class InformationManager : MonoBehaviour
         return usedColors;
     }
 
-	public float getPlayerWait()
+	public float getTimerEndTurn()
 	{
-		return playerEndTurnWait;
+		return timerEndTurn;
 	}
-	public float getPopupTime()
+	public float getTimerPopup()
 	{
-		return popupTime;
+		return timerPopup;
+	}
+	public float getTimerLong()
+	{
+		return timerPopupLong;
 	}
 
     /// <summary>

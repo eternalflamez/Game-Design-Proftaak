@@ -91,6 +91,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameObject btnEatFood;
+	[SerializeField]
+	private Text txtButtonUseFood;
     [SerializeField]
     private GameObject pnlGrey;
     [SerializeField]
@@ -104,9 +106,6 @@ public class GameManager : MonoBehaviour
 	private GameObject pnlPopup;
 	[SerializeField]
 	private Text txtPopupText;
-
-	[SerializeField]
-	private float longPopupTime = 5.0f;
 
 	[SerializeField]
 	private List<Sprite> hudBackgrounds;
@@ -134,7 +133,7 @@ public class GameManager : MonoBehaviour
 		}
 		else
 		{
-			waitTime = InformationManager.instance.getPopupTime();
+			waitTime = InformationManager.instance.getTimerPopup();
 		}
 
 		yield return new WaitForSeconds(waitTime);
@@ -211,13 +210,12 @@ public class GameManager : MonoBehaviour
         playerCount = players.Count;
 
 		lblPlayerTurn.text = "Speler " + ActivePlayer().getName() + System.Environment.NewLine + "Beurt " + turnCount + "/" + InformationManager.instance.getMaxTurns();
-
         
 		setHUDBackground ();
         setInsulinMeter();
         setBloodSugarMeter();
 
-		showPopUp ("Speler " + ActivePlayer().getName() + " is aan de beurt.", longPopupTime);
+		showPopUp ("Speler " + ActivePlayer().getName() + " is aan de beurt.", InformationManager.instance.getTimerLong());
     }
 
     void Awake()
@@ -404,17 +402,11 @@ public class GameManager : MonoBehaviour
         {
 			if (foods[selectedFood].foodType == ItemType.Food)
 			{
-				Debug.Log ("FoodSound");
-				audioSource.clip = audioFood;
-				audioSource.loop = false;
-				audioSource.Play();
+				audioSource.PlayOneShot(audioFood);
 			}
 			else
 			{
-				Debug.Log("DrinkSound");
-				audioSource.clip = audioDrink;
-				audioSource.loop = false;
-				audioSource.Play();
+				audioSource.PlayOneShot(audioDrink);
 			}
 
             btnDextro.SetActive(false);
@@ -454,6 +446,15 @@ public class GameManager : MonoBehaviour
     public void showFoodInfo(int foodId)
     {
         selectedFood = foodId;
+
+		if (foods[foodId].foodType == ItemType.Food)
+		{
+			txtButtonUseFood.text = "Eet op";
+		}
+		else
+		{
+			txtButtonUseFood.text = "Drink op";
+		}
 
         lblFoodName.text = foods[foodId].getName();
         lblFoodDesciption.text = foods[foodId].getDescription();
@@ -500,17 +501,20 @@ public class GameManager : MonoBehaviour
         //check if hyper/hypo
         if (ActivePlayer().getModel().getGlucose() > model.getHyperThreshold())
         {
-            textColor = Color.red;
+			//orange
+			textColor = new Color(242, 104, 25);
         }
         else if (ActivePlayer().getModel().getGlucose() < model.getHypoThreshold())
         {
-            textColor = Color.red;
+			//blue
+			textColor = new Color(25, 35, 242);
         }
 
         //check ideal value
-        if (ActivePlayer().getModel().getGlucose() < idealValueMax && ActivePlayer().getModel().getGlucose() > idealValueMin)
+        if (ActivePlayer().getModel().getGlucose() <= idealValueMax && ActivePlayer().getModel().getGlucose() >= idealValueMin)
         {
-            textColor = Color.green;
+			//dark green
+			textColor = new Color(36, 114, 36);
         }
 
         lblGlucose.color = textColor;

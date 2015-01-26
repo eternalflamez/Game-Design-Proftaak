@@ -544,8 +544,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 69, y: -5}
-  m_SizeDelta: {x: 156, y: 30}
+  m_AnchoredPosition: {x: 114.800003, y: -5}
+  m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &85709952
 MonoBehaviour:
@@ -1171,6 +1171,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -1628,7 +1629,7 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 155, y: -347}
+  m_AnchoredPosition: {x: -200.300003, y: -347}
   m_SizeDelta: {x: 40, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &331612692
@@ -2005,6 +2006,7 @@ MonoBehaviour:
   genderError: {fileID: 1558186261}
   colorError: {fileID: 1486550635}
   saveToggle: {fileID: 331612692}
+  txtBtnNext: {fileID: 575734865}
   colorButtons:
   - {fileID: 300179977}
   - {fileID: 418840513}
@@ -2031,6 +2033,7 @@ MonoBehaviour:
   heightInput: {fileID: 684322922}
   maleToggle: {fileID: 1551929709}
   femaleToggle: {fileID: 1444037031}
+  saveToggleText: {fileID: 85709952}
 --- !u!114 &420838366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4083,7 +4086,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1223782111}
   m_Direction: 2
   m_Value: 1
-  m_Size: .306986272
+  m_Size: .306986302
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4914,8 +4917,8 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -65, y: -407.399994}
-  m_SizeDelta: {x: 551, y: 30}
+  m_AnchoredPosition: {x: -12.3999996, y: -407.899994}
+  m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1486550635
 MonoBehaviour:
