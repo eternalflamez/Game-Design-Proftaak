@@ -89,6 +89,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text lblFoodCal;
 
+	[SerializeField]
+	private Text lblInfo;
+
     [SerializeField]
     private GameObject btnEatFood;
 	[SerializeField]
@@ -327,6 +330,7 @@ public class GameManager : MonoBehaviour
         setInsulinMeter();
         setBloodSugarMeter();
 
+		setInfoText ("");
 		showPopUp ("Speler " + ActivePlayer().getName() + " is aan de beurt.", -1);
     }
 
@@ -498,23 +502,36 @@ public class GameManager : MonoBehaviour
 
         Color textColor = Color.black;
 
+		float r;
+		float g;
+		float b;
+
         //check if hyper/hypo
         if (ActivePlayer().getModel().getGlucose() > model.getHyperThreshold())
         {
 			//orange
-			textColor = new Color(242, 104, 25);
+			r = 242f / 255f;
+			g = 104f / 255f;
+			b = 25f / 255f;
+			textColor = new Color(r, g, b);
         }
         else if (ActivePlayer().getModel().getGlucose() < model.getHypoThreshold())
         {
 			//blue
-			textColor = new Color(25, 35, 242);
+			r = 25f / 255f;
+			g = 35f / 255f;
+			b = 242f / 255f;
+			textColor = new Color(r, g, b);
         }
 
         //check ideal value
         if (ActivePlayer().getModel().getGlucose() <= idealValueMax && ActivePlayer().getModel().getGlucose() >= idealValueMin)
         {
 			//dark green
-			textColor = new Color(36, 114, 36);
+			r = 36f / 255f;
+			g = 114f / 255f;
+			b = 36f / 255f;
+			textColor = new Color(r, g, b);
         }
 
         lblGlucose.color = textColor;
@@ -541,6 +558,15 @@ public class GameManager : MonoBehaviour
 	public void disableBtnDice()
 	{
 		btnDice.interactable = false;
+	}
+
+	/// <summary>
+	/// Sets the info text, used to display squares to walk
+	/// </summary>
+	/// <param name="text">Text.</param>
+	public void setInfoText(string text)
+	{
+		lblInfo.text = text;
 	}
 
 	/// <summary>

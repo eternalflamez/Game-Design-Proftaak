@@ -19386,6 +19386,7 @@ MonoBehaviour:
   lblFoodName: {fileID: 1185991043}
   lblFoodDesciption: {fileID: 1490169460}
   lblFoodCal: {fileID: 2097772261}
+  lblInfo: {fileID: 990027002}
   btnEatFood: {fileID: 1235474739}
   txtButtonUseFood: {fileID: 1690261627}
   pnlGrey: {fileID: 645514808}
@@ -31211,7 +31212,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -601.400024, y: -171.300003}
+  m_AnchoredPosition: {x: -601.400024, y: -148.899994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &775625218
@@ -40458,7 +40459,7 @@ MonoBehaviour:
   m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 83423e6ba946abe4cbad655dd2fec73c, type: 3}
-    m_FontSize: 20
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -40483,8 +40484,8 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 277.100006, y: -365.899994}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -479.100006, y: -373}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: .5, y: .5}
 --- !u!222 &990027004
 CanvasRenderer:
@@ -53836,7 +53837,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Speler Tom
 
-    Beurt 1'
+    Beurt 1/10'
 --- !u!224 &1313814838
 RectTransform:
   m_ObjectHideFlags: 0
@@ -58341,7 +58342,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -350, y: -316}
+  m_AnchoredPosition: {x: -350, y: -293.600006}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1460157253

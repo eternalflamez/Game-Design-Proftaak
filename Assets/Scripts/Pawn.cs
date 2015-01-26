@@ -98,6 +98,8 @@ public class Pawn : MonoBehaviour
 	                    }
 	                    else //crossroad//object
 	                    {
+							GameManager.instance.setInfoText("Nog " + (rolledNumber - tilesMoved) + " vakken.");
+
 	                        currentTile.enableButtons();
 	                    }
 	                }
