@@ -83,7 +83,6 @@ public class SpriteGraph : MonoBehaviour
 		offset = this.transform.position;
 		
 		float increment = width / values.Count;
-		bool cull = (values.Count > maxPoints);
 		float min = 6;
 		float high = 6;
 		
@@ -99,40 +98,41 @@ public class SpriteGraph : MonoBehaviour
 				high = values[i];
 			}
 		}
-		
-		for (int i = 0; i < values.Count; i++)
+
+        float maxpoints = maxPoints;
+
+		for (float i = 0; i < values.Count; i++)
 		{
-			// For instance take count == 100
-			// max = 4
-			// if i % (25) != 0, then we won't show this point
-			// this is because this is true whenever i == 0, 25, 50 or 75
-			// precisely the points we want it to.
-			if ((cull && i % (values.Count / maxPoints) == 0) || !cull)
-			{
-				float x = (i * increment) - offsetWidth;
-				/* 
-                 *       (  current - min  )
-                 * low + ( --------------- ) * ( top - low )
-                 *       (   high - min    )
-                 * 
-                    */
-				
-				float current = values[i];
-				float top = height - margin;
-				float low = margin;
-				float y = (low - offsetHeight) + ((current - min) / (high - min)) * (top - low);
-				
-				if (y == float.NaN)
-				{
-					y = 0;
-				}
-				
-				Debug.Log(current);
-				Vector3 position = new Vector3(x, y, 0f);
-				GameObject go = (GameObject)Instantiate(pointPrefab);
-				go.transform.SetParent(this.transform, true); //.parent = this.transform;
-				go.transform.position = position + offset;
-			}
+            for (float j = 1; j < maxpoints + 1; j++)
+            {
+                if (i == Mathf.Round((j / maxpoints) * values.Count))
+                {
+                    float x = (i * increment) - offsetWidth;
+                    /* 
+                        *       (  current - min  )
+                        * low + ( --------------- ) * ( top - low )
+                        *       (   high - min    )
+                        * 
+                        */
+
+                    float current = values[(int)i];
+                    float top = height - margin;
+                    float low = margin;
+                    float y = (low - offsetHeight) + ((current - min) / (high - min)) * (top - low);
+
+                    if (y == float.NaN)
+                    {
+                        y = 0;
+                    }
+
+                    Debug.Log(current);
+                    Vector3 position = new Vector3(x, y, 0f);
+                    GameObject go = (GameObject)Instantiate(pointPrefab);
+                    go.transform.SetParent(this.transform, true); //.parent = this.transform;
+                    go.transform.position = position + offset;
+                    break;
+                }
+            }
 		}
 	}
 }

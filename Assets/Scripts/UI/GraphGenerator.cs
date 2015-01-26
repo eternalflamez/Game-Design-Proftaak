@@ -98,36 +98,35 @@ public class GraphGenerator : MonoBehaviour
 
         for (int i = 0; i < values.Count; i++)
         {
-            // For instance take count == 100
-            // max = 4
-            // if i % (25) != 0, then we won't show this point
-            // this is because this is true whenever i == 0, 25, 50 or 75
-            // precisely the points we want it to.
-            if ((cull && i % (values.Count / maxPoints) == 0) || !cull)
+            for (int j = 0; j < maxPoints; j++)
             {
-                float x = i * increment;
-                /* 
-                 *       (  current - min  )
-                 * low + ( --------------- ) * ( top - low )
-                 *       (   high - min    )
-                 * 
-                    */
-
-                float current = values[i];
-                float top = height - margin;
-                float low = margin;
-                float y = low + ((current - min) / (high - min)) * (top - low);
-
-                if (y == float.NaN)
+                if (i == Mathf.Round((j / maxPoints) * values.Count))
                 {
-                    y = 0;
-                }
+                    Debug.Log("Graphpoint " + j + " allowed for " + i + "/" + values.Count);
+                    float x = i * increment;
+                    /* 
+                     *       (  current - min  )
+                     * low + ( --------------- ) * ( top - low )
+                     *       (   high - min    )
+                     * 
+                        */
 
-                Debug.Log(current);
-                Vector3 position = new Vector3(x, y, 0f);
-                GameObject go = (GameObject)Instantiate(pointPre);
-                go.transform.parent = this.transform;
-                go.transform.position = position + offset;
+                    float current = values[i];
+                    float top = height - margin;
+                    float low = margin;
+                    float y = low + ((current - min) / (high - min)) * (top - low);
+
+                    if (y == float.NaN)
+                    {
+                        y = 0;
+                    }
+
+                    Debug.Log(current);
+                    Vector3 position = new Vector3(x, y, 0f);
+                    GameObject go = (GameObject)Instantiate(pointPre);
+                    go.transform.parent = this.transform;
+                    go.transform.position = position + offset;
+                }
             }
         }
     }

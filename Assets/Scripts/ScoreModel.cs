@@ -74,24 +74,31 @@ public class ScoreModel
 
     public float getScore()
     {
-        float maxPointsPTurn = 7.5f;
+        float maxPointsPTurn = 10f;
         float score = 0;
         
         for (int i = 0; i < measurePoints.Count; i++)
         {
             float measurePoint = measurePoints[i];
+            float points = 0;
+
             if (measurePoint > idealValue + idealValueMargin)
             {
-                score += 10 - ((measurePoint - (idealValue + idealValueMargin)) * ((hyperThreshold - idealValue) / maxPointsPTurn));
+                points = maxPointsPTurn - ((measurePoint - (idealValue + idealValueMargin)) * ((hyperThreshold - idealValue) / maxPointsPTurn));
+                Debug.Log("Too high, added " + points + "for value" + measurePoint);
             }
             else if (measurePoint < idealValue - idealValueMargin)
             {
-                score += 10 - (((idealValue - idealValueMargin) - measurePoint) * ((idealValue - idealValueMargin) / maxPointsPTurn));
+                points = maxPointsPTurn - (((idealValue - idealValueMargin) - measurePoint) * ((idealValue - idealValueMargin) / maxPointsPTurn));
+                Debug.Log("Too low, added " + points + "for value" + measurePoint);
             }
             else
             {
-                score += maxPointsPTurn;
+                points = maxPointsPTurn;
+                Debug.Log("Correct, added " + points);
             }
+
+            score += points;
         }
 
         score -= 5 * usedSugar;
@@ -101,7 +108,7 @@ public class ScoreModel
             score = 0;
         }
 
-        return Mathf.Round(score * (0.7f));
+        return Mathf.Round(score / (0.7f));
     }
 
     /// <summary>

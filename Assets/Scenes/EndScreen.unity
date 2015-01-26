@@ -3398,8 +3398,9 @@ MonoBehaviour:
   maxTurns: 10
   playerCount: 1
   maxInsulin: 10
-  playerEndTurnWait: 2
-  popupTime: 4
+  timerEndTurn: 1
+  timerPopup: 2.5
+  timerPopupLong: 5
   soundSetting: Sound
 --- !u!4 &611120974
 Transform:
@@ -3726,7 +3727,7 @@ MonoBehaviour:
   pointPrefab: {fileID: 898348526}
   width: 100
   _playerId: 0
-  maxPoints: 25
+  maxPoints: 10
   height: 100
   margin: 1
   playername: {fileID: 327474303}
@@ -4431,7 +4432,7 @@ MonoBehaviour:
   pointPrefab: {fileID: 898348526}
   width: 100
   _playerId: 1
-  maxPoints: 25
+  maxPoints: 10
   height: 100
   margin: 1
   playername: {fileID: 2025558477}
@@ -4854,7 +4855,7 @@ MonoBehaviour:
   pointPrefab: {fileID: 898348526}
   width: 100
   _playerId: 2
-  maxPoints: 25
+  maxPoints: 10
   height: 100
   margin: 1
   playername: {fileID: 1469130005}
@@ -8554,7 +8555,7 @@ MonoBehaviour:
   pointPrefab: {fileID: 898348526}
   width: 100
   _playerId: 3
-  maxPoints: 25
+  maxPoints: 10
   height: 100
   margin: 1
   playername: {fileID: 1336681604}

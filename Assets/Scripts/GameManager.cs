@@ -297,11 +297,21 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void playerEndTurn()
     {
-        if (turnCount % (maxTurns / 8) == 0)
+        float maxTurns = this.maxTurns;
+
+        //sorry for the magic number, reader.
+        float measurePoints = 7;
+        
+        for (float j = 1; j < measurePoints + 1; j++)
         {
-            ScoreManager.instance.createMeasurePoint(ActivePlayer().getId(), ActivePlayer().getModel().getGlucose());
-			showPopUp("Meetpunt tekst moet aangepast worden", -1);
-            // TODO: Laat zien dat het gebeurd is.
+            if (turnCount == Mathf.Round((j / measurePoints) * maxTurns))
+            {
+                ScoreManager.instance.createMeasurePoint(ActivePlayer().getId(), ActivePlayer().getModel().getGlucose());
+                showPopUp("Meetpunt tekst moet aangepast worden", -1);
+                // TODO: Text aanpassen
+                Debug.Log("Created measure point " + j + " at turn " + turnCount + "/" + maxTurns);
+                break;
+            }
         }
 
         ScoreManager.instance.setScore(ActivePlayer().getId(), ActivePlayer().getModel().getGlucose());
@@ -311,7 +321,7 @@ public class GameManager : MonoBehaviour
             playerTurn = 0;
             turnCount++;
 
-            if (turnCount == maxTurns)
+            if (turnCount > maxTurns)
             {
                 for (int i = 0; i < players.Count; i++)
                 {
