@@ -1,63 +1,114 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MenuSoundController : MonoBehaviour
 {
 	[SerializeField]
-	private GameObject gmoSound;
-	private Button btnSound;
-	private Image imgSound;
-	private AudioSource titleAudioSource;
+	private GameObject btnMusic;
+	[SerializeField]
+	private GameObject btnSounds;
+
+	private Image imgMusic;
+	private Image imgSounds;
+
+	private AudioSource musicAudioSource;
+
+	[SerializeField]
+	private List<AudioSource> soundsAudioSources;
 	
 	[SerializeField]
-	private Sprite sound;
+	private Sprite music;
 	[SerializeField]
-	private Sprite noSound;
+	private Sprite noMusic;
+	[SerializeField]
+	private Sprite sounds;
+	[SerializeField]
+	private Sprite noSounds;
 
 	// Use this for initialization
 	void Start ()
 	{
-		//add btn sounds
-		btnSound = gmoSound.transform.GetComponent<Button>();
-		imgSound = gmoSound.transform.GetComponent<Image>();
-
 		TitleMusic titleMusic = (TitleMusic)FindObjectOfType(typeof(TitleMusic));
-		titleAudioSource = (AudioSource)titleMusic.GetComponent <AudioSource>();
+		musicAudioSource = (AudioSource)titleMusic.GetComponent <AudioSource>();
 
-		if ( InformationManager.instance.soundSetting == "Sound")
+		imgMusic = (Image)btnMusic.GetComponent<Image> ();
+		imgSounds = (Image)btnSounds.GetComponent<Image> ();
+
+		if ( InformationManager.instance.musicSettings == "Music")
 		{
-			imgSound.sprite = sound;
-			titleAudioSource.mute = false;
+			imgMusic.sprite = music;
+			musicAudioSource.mute = false;
 		}
 		else
 		{
-			imgSound.sprite = noSound;
-			titleAudioSource.mute = true;
+			imgMusic.sprite = noMusic;
+			musicAudioSource.mute = true;
+		}
+
+		if (InformationManager.instance.soundsSettings == "Sounds")
+		{
+			imgSounds.sprite = sounds;
+			setSounds(false);
+		}
+		else
+		{
+			imgSounds.sprite = noSounds;
+			setSounds(true);
 		}
 	}
 
-	public void btnEffects_Click()
+	public void setSounds(bool mute)
 	{
-
-		}
-	public void btnSound_Click()
-	{
-		if (imgSound.sprite.name == "Volume")
+		Debug.Log ("setSound: " + mute);
+		for (int index = 0; index < soundsAudioSources.Count; index++)
 		{
-			imgSound.sprite = noSound;
-			
-			titleAudioSource.mute = true;
+			Debug.Log ("AudioListener: " + index);
+			soundsAudioSources[index].mute = mute;
+		}
+	}
 
-			InformationManager.instance.soundSetting = "NoSound";
+	public void btnSounds_Click()
+	{
+		Debug.Log ("Sounds Clicked");
+
+		if (imgSounds.sprite.name == "Sounds")
+		{
+			Debug.Log ("Name==Sounds");
+			imgSounds.sprite = noSounds;
+
+			setSounds(true);
+
+			InformationManager.instance.soundsSettings = "NoSounds";
 		}
 		else
 		{
-			imgSound.sprite = sound;
-			
-			titleAudioSource.mute = false;
+			imgSounds.sprite = sounds;
 
-			InformationManager.instance.soundSetting = "Sound";
+			setSounds(false);
+
+			InformationManager.instance.soundsSettings = "Sounds";
+		}
+	}
+	public void btnMusic_Click()
+	{
+		Debug.Log ("Music Clicked: " + imgMusic.sprite.name);
+		if (imgMusic.sprite.name == "Volume")
+		{
+			imgMusic.sprite = noMusic;
+			
+			musicAudioSource.mute = true;
+
+			InformationManager.instance.musicSettings = "NoMusic";
+		}
+		else
+		{
+			imgMusic.sprite = music;
+			
+			musicAudioSource.mute = false;
+
+			InformationManager.instance.musicSettings = "Music";
 		}
 	}
 }

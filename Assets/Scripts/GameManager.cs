@@ -317,6 +317,8 @@ public class GameManager : MonoBehaviour
 
         ScoreManager.instance.setScore(ActivePlayer().getId(), ActivePlayer().getModel().getGlucose());
 
+		bool loadLevel = false;
+
         if (++playerTurn == playerCount)
         {
             playerTurn = 0;
@@ -330,19 +332,23 @@ public class GameManager : MonoBehaviour
                 }
 
                 informationManager.SaveScores(ScoreManager.instance);
+				loadLevel = true;
                 Application.LoadLevel("EndScreen");
             }
         }
 
-        btnDice.interactable = true;
-		lblPlayerTurn.text = "Speler " + ActivePlayer().getName() + System.Environment.NewLine + "Beurt " + turnCount + "/" + InformationManager.instance.getMaxTurns();
+		if (!loadLevel)
+		{
+			btnDice.interactable = true;
+			lblPlayerTurn.text = "Speler " + ActivePlayer().getName() + System.Environment.NewLine + "Beurt " + turnCount + "/" + InformationManager.instance.getMaxTurns();
 
-		setHUDBackground ();
-        setInsulinMeter();
-        setBloodSugarMeter();
+			setHUDBackground ();
+			setInsulinMeter();
+			setBloodSugarMeter();
 
-		setInfoText ("");
-		showPopUp ("Speler " + ActivePlayer().getName() + " is aan de beurt.", -1);
+			setInfoText ("");
+			showPopUp ("Speler " + ActivePlayer().getName() + " is aan de beurt.", -1);
+		}
     }
 
 	/// <summary>

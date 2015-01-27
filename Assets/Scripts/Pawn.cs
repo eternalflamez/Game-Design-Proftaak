@@ -86,19 +86,19 @@ public class Pawn : MonoBehaviour
 
 	                        if (destinationTile != null)
 	                        {
-	                            if (destinationTile.tileType == Tile.TileType.Finish)
-	                            {
-	                                pawnFinish();
-	                            }
-								else
-								{
+	                            //if (destinationTile.tileType == Tile.TileType.Finish)
+	                            //{
+	                            //    pawnFinish();
+	                            //}
+								//else
+								//{
 									pawnWalking = true;
-								}
+								//}
 	                        }
 	                    }
 	                    else //crossroad//object
 	                    {
-							GameManager.instance.setInfoText("Nog " + (rolledNumber - tilesMoved) + " vakken.");
+							GameManager.instance.setInfoText("Nog " + (rolledNumber - tilesMoved) + " vak(ken).");
 
 	                        currentTile.enableButtons();
 	                    }
@@ -124,6 +124,7 @@ public class Pawn : MonoBehaviour
 				GameManager.instance.showPopUp("Speler " + GameManager.instance.ActivePlayer().getName() + " moet een beurt overslaan.", -1);
 				GameManager.instance.disableBtnDice();
 	            GameManager.instance.ActivePlayer().skipsTurn = false;
+
 				StartCoroutine("waitOnSkip");
 	        }
 		}

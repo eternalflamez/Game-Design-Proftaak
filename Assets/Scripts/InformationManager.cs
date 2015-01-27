@@ -45,7 +45,8 @@ class InformationManager : MonoBehaviour
 	[SerializeField]
 	private float hyperThreshold = 12;
 
-	public string soundSetting = "Sound";
+	public string musicSettings = "Music";
+	public string soundsSettings = "Sounds";
 
     public ScoreManager getScoreManager()
     {

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -30,8 +30,33 @@ public class GameMenu : MonoBehaviour
 	private AudioSource audioSourceDrink;
 
 	// Use this for initialization
-	void Start () {
-	
+	void Start ()
+	{
+		if (InformationManager.instance.musicSettings == "Music")
+		{
+			setMusic(false);
+
+			lblMusic.text = "Muziek uit";
+		}
+		else
+		{
+			setMusic(true);
+
+			lblMusic.text = "Muziek aan";
+		}
+
+		if (InformationManager.instance.soundsSettings == "Sounds")
+		{
+			setSounds(false);
+
+			lblSound.text = "Geluid uit";
+		}
+		else
+		{
+			setSounds(true);
+
+			lblSound.text = "Geluid aan";
+		}
 	}
 	
 	// Update is called once per frame
@@ -71,14 +96,18 @@ public class GameMenu : MonoBehaviour
 	{
 		if (lblMusic.text == "Muziek aan")
 		{
-			audioSourceMain.mute = false;
-			
+			//audioSourceMain.mute = false;
+
+			setMusic(false);
+
 			lblMusic.text = "Muziek uit";
 		}
 		else
 		{
-			audioSourceMain.mute = true;
-			
+			//audioSourceMain.mute = true;
+
+			setMusic(true);
+
 			lblMusic.text = "Muziek aan";
 		}
 	}
@@ -87,27 +116,47 @@ public class GameMenu : MonoBehaviour
 	{
 		if (lblSound.text == "Geluid aan")
 		{
-			audioSourceBtnUp.mute = false;
-			audioSourceBtnDown.mute = false;
-			audioSourceBtnLeft.mute = false;
-			audioSourceBtnRight.mute = false;
-			audioSourceBtnDice.mute = false;
-			audioSourceFood.mute = false;
-			audioSourceDrink.mute = false;
-			
+			//audioSourceBtnUp.mute = false;
+			//audioSourceBtnDown.mute = false;
+			//audioSourceBtnLeft.mute = false;
+			//audioSourceBtnRight.mute = false;
+			//audioSourceBtnDice.mute = false;
+			//audioSourceFood.mute = false;
+			//audioSourceDrink.mute = false;
+
+			setSounds(false);
+
 			lblSound.text = "Geluid uit";
 		}
 		else
 		{
-			audioSourceBtnUp.mute = true;
-			audioSourceBtnDown.mute = true;
-			audioSourceBtnLeft.mute = true;
-			audioSourceBtnRight.mute = true;
-			audioSourceBtnDice.mute = true;
-			audioSourceFood.mute = true;
-			audioSourceDrink.mute = true;
-			
+			//audioSourceBtnUp.mute = true;
+			//audioSourceBtnDown.mute = true;
+			//audioSourceBtnLeft.mute = true;
+			//audioSourceBtnRight.mute = true;
+			//audioSourceBtnDice.mute = true;
+			//audioSourceFood.mute = true;
+			//audioSourceDrink.mute = true;
+
+			setSounds (true);
+
 			lblSound.text = "Geluid aan";
 		}
+	}
+
+	public void setSounds(bool mute)
+	{
+		audioSourceBtnUp.mute = mute;
+		audioSourceBtnDown.mute = mute;
+		audioSourceBtnLeft.mute = mute;
+		audioSourceBtnRight.mute = mute;
+		audioSourceBtnDice.mute = mute;
+		audioSourceFood.mute = mute;
+		audioSourceDrink.mute = mute;
+	}
+
+	public void setMusic(bool mute)
+	{
+		audioSourceMain.mute = mute;
 	}
 }

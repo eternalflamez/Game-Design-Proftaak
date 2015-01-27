@@ -80,7 +80,6 @@ public class ScoreModel
                 {
                     points = 7.5f;
                 }
-                Debug.Log("Too high, added " + points + "for value" + measurePoint);
             }
             else if (measurePoint < idealValue - idealValueMargin)
             {
@@ -92,12 +91,10 @@ public class ScoreModel
                 {
                     points = 7.5f;
                 }
-                Debug.Log("Too low, added " + points + "for value" + measurePoint);
             }
             else
             {
                 points = maxPointsPTurn;
-                Debug.Log("Correct, added " + points);
             }
 
             score += points;

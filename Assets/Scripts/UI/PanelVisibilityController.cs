@@ -27,6 +27,14 @@ public class PanelVisibilityController : MonoBehaviour {
 		}
     }
 
+	public void hideAll()
+	{
+		foreach (Image image in images)
+		{
+			image.enabled = false;
+		}
+	}
+
     public void setVisible(Image i) //hides panel
     {
         foreach (Image image in images)
