@@ -129,7 +129,7 @@ public class Player
 	
 	public bool useInsulinReserves(float amount)
 	{
-		if ((this.insulinReserves - amount) > 0)
+		if ((this.insulinReserves - amount) >= 0)
 		{
 			this.insulinReserves -= amount;
 			model.useInsulin (amount);

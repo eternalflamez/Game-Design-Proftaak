@@ -32,8 +32,6 @@ public class GraphController : MonoBehaviour {
             int id = gg.playerId;
             ScoreModel points = sm.getScoreModel(id);
 
-			setBackgroundColor(id);
-
             if (points != null)
             {
                 gg.setPoints(points);
@@ -80,20 +78,4 @@ public class GraphController : MonoBehaviour {
 			PlayerJournal[(int)i].SetActive(false);
         }
     }
-
-	private void setBackgroundColor(int id)
-	{
-		Color playerColor = Color.magenta;
-
-		GameObject[] backgrounds = GameObject.FindGameObjectsWithTag ("BackGroundPlayer" + (id + 1));
-		Debug.Log ("BackGrounds" + id + "Count: " + backgrounds.Length);
-
-		foreach (GameObject gameObj in GameObject.FindGameObjectsWithTag("BackGroundPlayer" + (id + 1)))
-		{
-			Debug.Log ("Player: " + (id + 1) + " Color changed");
-			Image backgroundImage = gameObj.GetComponent<Image>();
-			backgroundImage.color = playerColor;
-			//backgrounds[index].color = playerColor;
-		}
-	}
 }

@@ -256,6 +256,8 @@ public class GameManager : MonoBehaviour
 
             btnDice.interactable = false;
 
+			hidePopUp();
+
             ActivePlayer().walk(diceRoll * 5);
             ActivePlayer().getPawn().setMovePawn(diceRoll);
         }
@@ -335,6 +337,13 @@ public class GameManager : MonoBehaviour
 				loadLevel = true;
                 Application.LoadLevel("EndScreen");
             }
+			else
+			{
+				if (turnCount == (maxTurns - 1))
+				{
+					showPopUp("De laatste ronde", -1);
+				}
+			}
         }
 
 		if (!loadLevel)
@@ -355,7 +364,7 @@ public class GameManager : MonoBehaviour
 	/// Shows the popup
 	/// </summary>
 	/// <param name="text">Text that will be placed in the popup</param>
-	/// <param name="time">time can be defined af a custom length, -1 used default value(from Information manager)</param>
+	/// <param name="time">time can be defined as a custom length, -1 used default value(from Information manager)</param>
 	public void showPopUp(string text, float time)
 	{
 		pnlPopup.SetActive (true);
@@ -407,7 +416,29 @@ public class GameManager : MonoBehaviour
         pnlFood.SetActive(true);
         pnlGrey.SetActive(!onFoodTile);
         btnEatFood.SetActive(!eatSelectedFood);
+
+		checkInsulin ();
     }
+
+	/// <summary>
+	/// shows or diables insuline buttons
+	/// </summary>
+	public void checkInsulin()
+	{
+		Debug.Log ("InsulinLevel: " + ActivePlayer().getInsulineReserve());
+		if (ActivePlayer().getInsulineReserve() == 0)
+		{
+			Debug.Log ("InsulinEmpty");
+			btnUseInsulin.SetActive(false);
+				//btnUseInsulin.GetComponent<Button>().interactable = false;
+		}
+		else
+		{
+			Debug.Log("Insulin");
+			btnUseInsulin.SetActive(true);
+			//btnUseInsulin.GetComponent<Button>().interactable = true;
+		}
+	}
 
     /// <summary>
     /// The click event to eat a certain piece of food.
@@ -505,6 +536,8 @@ public class GameManager : MonoBehaviour
         showFoodInfo();
         btnDextro.SetActive(false);
         ActivePlayer().useInsulinReserves(1f);
+
+		checkInsulin ();
         
         setInsulinMeter();
 		setBloodSugarMeter ();

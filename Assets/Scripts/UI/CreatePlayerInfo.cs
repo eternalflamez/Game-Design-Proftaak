@@ -23,6 +23,8 @@ public class CreatePlayerInfo : MonoBehaviour {
     private Toggle saveToggle;
 	[SerializeField]
 	private Text txtBtnNext;
+	[SerializeField]
+	private Text saveToggleText;
 
     [SerializeField]
     private Button[] colorButtons;
@@ -76,9 +78,16 @@ public class CreatePlayerInfo : MonoBehaviour {
 		}
     }
 
+	public void changeSaveText(string text)
+	{
+		saveToggleText.text = text;
+	}
+
     public void setName(string name)
     {
         this.pname = name;
+
+		changeSaveText ("Profiel opslaan");
     }
 
     public void setAge(string age)
@@ -97,14 +106,21 @@ public class CreatePlayerInfo : MonoBehaviour {
     public void setHeight(string height)
     {
         int result;
-        if (int.TryParse(height, out result))
-        {
-            this.height = result;
-        }
-        else
-        {
-            this.height = 0;
-        }
+		if (height != "")
+		{
+	        if (int.TryParse(height, out result))
+	        {
+	            this.height = result;
+	        }
+	        else
+	        {
+	            this.height = -1;
+	        }
+		}
+		else
+		{
+			this.height = 0;
+		}
     }
 
     public void setWeight(string weight)
@@ -132,7 +148,8 @@ public class CreatePlayerInfo : MonoBehaviour {
         error = (nameError.enabled = (pname == "")) || error;
         error = (ageError.enabled = (age == 0)) || error;
         error = (weightError.enabled = (weight == 0)) || error;
-        error = (heightError.enabled = (height == 0)) || error;
+		error = (heightError.enabled = (height == -1) || (height == 0)) || error;
+        //error = (heightError.enabled = (height == 0)) || error;
         error = (genderError.enabled = (gender == Gender.None)) || error;
         error = (colorError.enabled = (color.getColor() == Color.clear)) || error;
 
@@ -140,6 +157,17 @@ public class CreatePlayerInfo : MonoBehaviour {
         {
             InformationManager.instance.addPlayer(pname, age, height, weight, gender, color, saveToggle.isOn);
         }
+		else //show length error
+		{
+			if (height == -1) //wrong input
+			{
+				heightError.text = "Lengte is niet in centimeters";
+			}
+			else //no input
+			{
+				heightError.text = "Vul uw lengte in";
+			}
+		}
     }
 
     public void setColor(string color)

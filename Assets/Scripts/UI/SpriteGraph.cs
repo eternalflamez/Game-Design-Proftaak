@@ -31,6 +31,9 @@ public class SpriteGraph : MonoBehaviour
 	private Text hypo;
 
 	[SerializeField]
+	private Image imgBackground;
+
+	[SerializeField]
 	private int offsetWidth = 50;
 	[SerializeField]
 	private int offsetHeight = 50;
@@ -56,13 +59,18 @@ public class SpriteGraph : MonoBehaviour
 		float neutral = values.Count;
 		float hypo = scoreModel.getHypoTurns();
 		float total = hyper + neutral + hypo;
-		
+
 		this.hyper.text = makePercent(hyper, total);
 		this.neutral.text = makePercent(neutral, total);
 		this.hypo.text = makePercent(hypo, total);
 		this.playername.text = scoreModel.getPlayerName();
 		this.score.text = scoreModel.getScore().ToString();
-		
+
+		//show player color
+		Player player = (Player)InformationManager.instance.getPlayerById (scoreModel.getPlayerId ());
+		int color = player.getColorId ();
+		imgBackground.color = GameManager.instance.pawnColors [color];
+
 		this.Generate();
 	}
 	
