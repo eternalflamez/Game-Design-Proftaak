@@ -712,15 +712,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22409896, guid: 49ccf98301d4f0240b5ca6bb8cd67939, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -9.29999256
       objectReference: {fileID: 0}
     - target: {fileID: 22409896, guid: 49ccf98301d4f0240b5ca6bb8cd67939, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 126
+      value: 174.999985
       objectReference: {fileID: 0}
     - target: {fileID: 22409896, guid: 49ccf98301d4f0240b5ca6bb8cd67939, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 81.4000015
       objectReference: {fileID: 0}
     - target: {fileID: 22409896, guid: 49ccf98301d4f0240b5ca6bb8cd67939, type: 2}
       propertyPath: m_SizeDelta.y
@@ -1604,8 +1604,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 126}
-  m_SizeDelta: {x: 100, y: 250}
+  m_AnchoredPosition: {x: -9.29999256, y: 174.999985}
+  m_SizeDelta: {x: 81.4000015, y: 250}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1125095820
 MonoBehaviour:
@@ -2304,7 +2304,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:

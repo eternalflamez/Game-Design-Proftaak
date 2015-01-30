@@ -123,7 +123,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22409896, guid: 49ccf98301d4f0240b5ca6bb8cd67939, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 75
+      value: 52.5999985
       objectReference: {fileID: 0}
     - target: {fileID: 22409896, guid: 49ccf98301d4f0240b5ca6bb8cd67939, type: 2}
       propertyPath: m_SizeDelta.y
@@ -316,6 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtScorePrefab: {fileID: 2097964089}
   playername: {fileID: 612556818}
+  scrollview: {fileID: 0}
   playerId: 0
 --- !u!1 &130655398
 GameObject:
@@ -1350,7 +1351,7 @@ RectTransform:
   m_Father: {fileID: 514315476}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: .359999955, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: .5, y: .5}
@@ -1480,7 +1481,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 439, y: 309}
-  m_SizeDelta: {x: 75, y: 150}
+  m_SizeDelta: {x: 52.5999985, y: 150}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &428822127
 MonoBehaviour:
@@ -6216,6 +6217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtScorePrefab: {fileID: 2097964089}
   playername: {fileID: 1150608087}
+  scrollview: {fileID: 0}
   playerId: 3
 --- !u!114 &1323616447
 MonoBehaviour:
@@ -6818,7 +6820,7 @@ RectTransform:
   m_Father: {fileID: 1776547809}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: .360000014, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: .5, y: .5}
@@ -7631,7 +7633,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -8436,7 +8437,7 @@ RectTransform:
   m_Father: {fileID: 1797930839}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: .359999955, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: .5, y: .5}
@@ -8515,6 +8516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtScorePrefab: {fileID: 2097964089}
   playername: {fileID: 486038545}
+  scrollview: {fileID: 0}
   playerId: 1
 --- !u!114 &1682384350
 MonoBehaviour:
@@ -8824,6 +8826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtScorePrefab: {fileID: 2097964089}
   playername: {fileID: 189563372}
+  scrollview: {fileID: 0}
   playerId: 2
 --- !u!114 &1777123960
 MonoBehaviour:
@@ -9815,7 +9818,7 @@ RectTransform:
   m_Father: {fileID: 1259792720}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: .359999955, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: .5, y: .5}

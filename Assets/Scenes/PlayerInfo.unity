@@ -1172,7 +1172,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -2035,7 +2034,6 @@ MonoBehaviour:
   heightInput: {fileID: 684322922}
   maleToggle: {fileID: 1551929709}
   femaleToggle: {fileID: 1444037031}
-  saveToggleText: {fileID: 85709952}
 --- !u!114 &420838366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4229,7 +4227,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1223782111}
   m_Direction: 2
   m_Value: 1
-  m_Size: .306986302
+  m_Size: .306986332
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4495,7 +4493,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 439, y: 309}
-  m_SizeDelta: {x: 75, y: 150}
+  m_SizeDelta: {x: 52.5999985, y: 150}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1322224034
 MonoBehaviour:
