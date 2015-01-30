@@ -22,6 +22,9 @@ class InformationManager : MonoBehaviour
         }
     }
 
+	[SerializeField]
+	private int minutesPerTile = 5;
+
     [SerializeField]
     private float maxTurns;
     [SerializeField]
@@ -107,6 +110,10 @@ class InformationManager : MonoBehaviour
 	public float getHyperThreshold()
 	{
 		return hyperThreshold;
+	}
+	public int getMinutesPerTile()
+	{
+		return minutesPerTile;
 	}
 
     /// <summary>

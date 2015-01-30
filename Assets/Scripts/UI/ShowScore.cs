@@ -6,13 +6,14 @@ using System.Collections.Generic;
 public class ShowScore : MonoBehaviour
 {
 	private List<float> values;
-	private int maxPoints = 10;
 
 	[SerializeField]
 	private GameObject txtScorePrefab;
 	
 	[SerializeField]
 	private Text playername;
+	[SerializeField]
+	private Image playerColor;
 
 	[SerializeField]
 	private GameObject scrollview;
@@ -28,23 +29,27 @@ public class ShowScore : MonoBehaviour
 		//show player color
 		Player player = (Player)InformationManager.instance.getPlayerById (scoreModel.getPlayerId ());
 		int color = player.getColorId ();
-		gameObject.GetComponent<Image> ().color = GameManager.instance.pawnColors [color];
+		playerColor.color = GameManager.instance.pawnColors [color];
 
 		Generate ();
 	}
 
     private void Generate()
     {
-        int textCount = 0;
-
 		if (txtScorePrefab != null)
 		{
 			RectTransform contentTrans = (RectTransform)gameObject.transform.GetComponent<RectTransform>();
-			RectTransform scrollviewTrans = (RectTransform)gameObject.transform.GetComponent<RectTransform>();
+			RectTransform scrollviewTrans = (RectTransform)scrollview.transform.GetComponent<RectTransform>();
 			contentTrans.sizeDelta = new Vector2((values.Count * 85), contentTrans.sizeDelta.y);
+			Debug.Log ("ContentWidth: " + contentTrans.sizeDelta.x);
+			Debug.Log ("ScroolviewWidth: " + scrollviewTrans.sizeDelta.x);
 			Debug.Log ("offset: " + Mathf.Abs((contentTrans.sizeDelta.x - scrollviewTrans.sizeDelta.x) / 2));
 			Debug.Log ("offset1: " +(contentTrans.sizeDelta.x - scrollviewTrans.sizeDelta.x) / 2);
-			contentTrans.transform.position = new Vector3(Mathf.Abs((contentTrans.sizeDelta.x - scrollviewTrans.sizeDelta.x) / 2), scrollviewTrans.position.y, scrollviewTrans.position.z);
+
+			Vector3 newPosition = new Vector3((contentTrans.sizeDelta.x - scrollviewTrans.sizeDelta.x) / 2, scrollviewTrans.position.y, scrollviewTrans.position.z);
+			contentTrans.transform.position = newPosition;
+
+			Debug.Log ("NewVector: " + newPosition);
 
 			float x = 0 - contentTrans.sizeDelta.x / 2;
 			x = x - 25;

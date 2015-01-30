@@ -8,6 +8,9 @@ public class Pawn : MonoBehaviour
     [SerializeField]
     private int tilesMoved = 0;
 
+	//used for bloodsugar meter on crossroads
+	private int tileswalked = 0;
+
     [SerializeField]
     private bool isMoving = false;
     private bool isDirection = false;
@@ -63,6 +66,7 @@ public class Pawn : MonoBehaviour
 				this.transform.position = destinationPos;
 				currentTile = destinationTile;
 				tilesMoved++;
+				tileswalked++;
 				pawnWalking = false;
 			}
 		}
@@ -85,20 +89,16 @@ public class Pawn : MonoBehaviour
 	                        destinationTile = BoardController.instance.findTileWithCord(getNextCoordinates(currentTile.getCoordinates()));
 
 	                        if (destinationTile != null)
-	                        {
-	                            //if (destinationTile.tileType == Tile.TileType.Finish)
-	                            //{
-	                            //    pawnFinish();
-	                            //}
-								//else
-								//{
-									pawnWalking = true;
-								//}
+							{
+								pawnWalking = true;
 	                        }
 	                    }
 	                    else //crossroad//object
 	                    {
 							GameManager.instance.setInfoText("Nog " + (rolledNumber - tilesMoved) + " vak(ken).");
+							GameManager.instance.ActivePlayer().walk(tileswalked * InformationManager.instance.getMinutesPerTile());
+							tileswalked = 0;
+							GameManager.instance.setBloodSugarMeter();
 
 	                        currentTile.enableButtons();
 	                    }
@@ -121,7 +121,7 @@ public class Pawn : MonoBehaviour
 	        }
 	        else
 	        {
-				GameManager.instance.showPopUp("Speler " + GameManager.instance.ActivePlayer().getName() + " moet een beurt overslaan.", -1);
+				GameManager.instance.showPlayerPopUp("Speler " + GameManager.instance.ActivePlayer().getName() + " moet een beurt overslaan.", -1);
 				GameManager.instance.disableBtnDice();
 	            GameManager.instance.ActivePlayer().skipsTurn = false;
 
@@ -142,6 +142,9 @@ public class Pawn : MonoBehaviour
 
     private void stopPawn()
     {
+		GameManager.instance.ActivePlayer().walk(tileswalked * InformationManager.instance.getMinutesPerTile());
+
+		tileswalked = 0;
         tilesMoved = 0;
         rolledNumber = 0;
         isMoving = false;
