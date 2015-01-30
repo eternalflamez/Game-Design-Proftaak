@@ -67,7 +67,7 @@ public class PlayerModel
 
 	        glucose += carbsAbsorbed * glucosePerCarb;
 
-	        if (itemTime > duration)
+            if (itemTime > duration || carbsLeft <= 0)
 	        {
 	            ToRemove.Add(item);
 	        }
@@ -85,23 +85,22 @@ public class PlayerModel
 
 	    glucose -= (time / 60) * glucoseDropSpeed;
 
-	    if (insulin > 0)
-	    {
-	        float old = insulin;
-	        insulin -= .5f;
-
-	        if (insulin < 0)
-	        {
-	            insulin = 0;
-	        }
-
-	        float used = old - insulin;
-	        glucose -= used * .2f;
-	    }
-
-        if (glucose < 0)
+        if (insulin > 0)
         {
-            glucose = 0;
+            float old = insulin;
+            insulin -= 2f * (time / 30);
+
+            if (insulin < 0)
+            {
+                insulin = 0;
+            }
+
+            float used = old - insulin;
+            glucose -= used;
+            if (glucose < 0)
+            {
+                glucose = 0;
+            }
         }
 	}
 }

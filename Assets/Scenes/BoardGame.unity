@@ -10914,14 +10914,14 @@ MonoBehaviour:
   y: 0
   btn1: {fileID: 0}
   btn2: {fileID: 0}
-  routeUp: 1
+  routeUp: 0
   routeDown: 0
-  routeRight: 1
-  routeLeft: 1
+  routeRight: 0
+  routeLeft: 0
   pawnsOnTile: []
   tileDirection: 0
-  tileType: 2
-  isSpecial: 1
+  tileType: 1
+  isSpecial: 0
   hasFood: 0
   hasInsuline: 0
 --- !u!23 &244944332
@@ -27427,7 +27427,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -49100,7 +49099,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: tileType
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: tileDirection
@@ -49112,19 +49111,19 @@ Prefab:
       objectReference: {fileID: 2100000, guid: e44dc07dd36d5aa458f7819e9c40e36f, type: 2}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: routeUp
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: routeRight
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: routeLeft
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: isSpecial
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
@@ -54677,7 +54676,7 @@ MonoBehaviour:
   routeLeft: 0
   pawnsOnTile: []
   tileDirection: 3
-  tileType: 0
+  tileType: 2
   isSpecial: 1
   hasFood: 0
   hasInsuline: 0
@@ -63377,6 +63376,18 @@ Prefab:
     - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
       propertyPath: isSpecial
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: tileType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasFood
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 098933b642398f443af119726b895be1, type: 2}
+      propertyPath: hasInsuline
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 098933b642398f443af119726b895be1, type: 2}
