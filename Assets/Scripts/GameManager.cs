@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private AudioClip audioDrink;
 
-	private bool loadLevel = false;
+	public bool loadLevel = false;
 
 	public List<Color> pawnColors;
 
@@ -140,34 +140,24 @@ public class GameManager : MonoBehaviour
 	/// Hides the playerPopup automagicly
 	/// </summary>
 	/// <returns></returns>
-	IEnumerator hidePlayerPopupTimer(float time)
+	IEnumerator hidePlayerPopupTimer()
 	{
 		popupPlayerActive = true;
-		float waitTime = 0.0f;
 
-		if (time != -1)
-		{
-			waitTime = time;
-		}
-		else
-		{
-			waitTime = InformationManager.instance.getTimerPopup();
-		}
+		float waitTime = InformationManager.instance.getTimerPopup();
 		
 		setPlayerPopupText ();
-
+		
 		yield return new WaitForSeconds(waitTime);
 
-		if (playerPopups.Count > 0)
+		while (playerPopups.Count > 0)
 		{
 			setPlayerPopupText ();
-
 			yield return new WaitForSeconds(waitTime);
 		}
 
 		if (!loadLevel)
 		{
-			Debug.Log ("Hide");
 			hidePlayerPopUp ();
 		}
 		else
@@ -176,7 +166,6 @@ public class GameManager : MonoBehaviour
 		}
 
 		popupPlayerActive = false;
-
 		yield break;
 	}
 	/// <summary>
@@ -205,7 +194,6 @@ public class GameManager : MonoBehaviour
 
 	private void setPlayerPopupText()
 	{
-		Debug.Log ("setPlayerPopupText: " + playerPopups.Count);
 		txtPlayerPopup.text = playerPopups [0];
 		playerPopups.RemoveAt (0);
 	}
@@ -254,7 +242,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        playerTurn = number;
+		if (number != 0)
+		{
+			players.Insert (0, players [number]);
+			players.RemoveAt ((number + 1));
+		}
 
         Tile startTile = BoardController.instance.getStartTile();
 
@@ -282,7 +274,7 @@ public class GameManager : MonoBehaviour
         setInsulinMeter();
         setBloodSugarMeter();
 
-		showPlayerPopUp ("Speler " + ActivePlayer().getName() + " is aan de beurt.", InformationManager.instance.getTimerLong());
+		showPlayerPopUp ("Speler " + ActivePlayer().getName() + " is aan de beurt.");
     }
 
     void Awake()
@@ -375,7 +367,7 @@ public class GameManager : MonoBehaviour
             if (turnCount == Mathf.Round((j / measurePoints) * maxTurns))
             {
                 ScoreManager.instance.createMeasurePoint(ActivePlayer().getId(), ActivePlayer().getModel().getGlucose());
-                showPlayerPopUp("Meetpunt tekst moet aangepast worden", -1);
+                showPlayerPopUp("Meetpunt tekst moet aangepast worden");
                 // TODO: Text aanpassen
                 break;
             }
@@ -400,16 +392,14 @@ public class GameManager : MonoBehaviour
                 informationManager.SaveScores(ScoreManager.instance);
 				loadLevel = true;
                 
-				showPlayerPopUp("Het spel is afgelopen", -1);
-
-				//Application.LoadLevel("EndScreen");
+				showPlayerPopUp("Het spel is afgelopen");
             }
-			else
+			else if (turnCount == maxTurns)
 			{
-				if (turnCount == (maxTurns - 1))
-				{
-					showPlayerPopUp("De laatste ronde", -1);
-				}
+
+				//{
+				showPlayerPopUp("De laatste ronde");
+				//}
 			}
         }
 
@@ -422,8 +412,11 @@ public class GameManager : MonoBehaviour
 			setInsulinMeter();
 			setBloodSugarMeter();
 
+			//clear dice images
+			Reset();
+
 			setInfoText ("");
-			showPlayerPopUp ("Speler " + ActivePlayer().getName() + " is aan de beurt.", -1);
+			showPlayerPopUp ("Speler " + ActivePlayer().getName() + " is aan de beurt.");
 		}
     }
 
@@ -432,23 +425,15 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	/// <param name="text">Text that will be placed in the popup</param>
 	/// <param name="time">time can be defined as a custom length, -1 used default value(from Information manager)</param>
-	public void showPlayerPopUp(string text, float time)
+	public void showPlayerPopUp(string text)
 	{
 		pnlPopupPlayer.SetActive (true);
-		//txtPlayerPopup.text = text;
-		//if (playerPopups.Count == 0)
-		//{
-		//	txtPlayerPopup.text = text;
-		//}
-		Debug.Log ("showPlayerPopup: " + text);
 
 		playerPopups.Add (text);
 
-		Debug.Log ("Count: " + playerPopups.Count);
-
 		if (!popupPlayerActive)
 		{
-			StartCoroutine (hidePlayerPopupTimer(time));
+			StartCoroutine (hidePlayerPopupTimer());
 		}
 	}
 
@@ -499,7 +484,6 @@ public class GameManager : MonoBehaviour
     public void hideFoodPnl()
     {
 		pnlTileMenu.SetActive (false);
-        //pnlFood.SetActive(false);
     }
 
     /// <summary>
@@ -519,10 +503,8 @@ public class GameManager : MonoBehaviour
 			pnlFood.SetActive(true);
 			pnlDextro.SetActive(false);
 		}
-        //pnlFood.SetActive(true);
-        //pnlGrey.SetActive(!onFoodTile);
+
 		btnEatFood.GetComponent<Button> ().interactable = false;
-        //btnEatFood.SetActive(!eatSelectedFood);
 
 		checkInsulin ();
     }
@@ -563,9 +545,9 @@ public class GameManager : MonoBehaviour
 				audioSource.PlayOneShot(audioDrink);
 			}
 
-            btnDextro.SetActive(false);
+			btnDextro.GetComponent<Button>().interactable = false;// .SetActive(false);
             eatSelectedFood = true;
-			showFoodInfo();
+			clearFoodInfo();
             showFoodPnl(false);
         }
     }
@@ -588,11 +570,10 @@ public class GameManager : MonoBehaviour
 
         eatSelectedFood = false;
         selectedFood = -1;
-        showFoodInfo();
+        clearFoodInfo();
         hideFoodPnl();
-        btnDextro.SetActive(true);
+		btnDextro.GetComponent<Button>().interactable = true;
 		btnUseInsulin.GetComponent<Button>().interactable = true;
-        //btnUseInsulin.SetActive(true);
         playerEndTurn();
     }
 
@@ -619,13 +600,11 @@ public class GameManager : MonoBehaviour
 		btnEatFood.GetComponent<Button> ().interactable = true;
     }
 
-    public void showFoodInfo()
+    public void clearFoodInfo()
     {
         lblFoodName.text = "";
         lblFoodDesciption.text = "";
         lblFoodCal.text = "";
-
-
     }
 
     /// <summary>
@@ -641,8 +620,9 @@ public class GameManager : MonoBehaviour
     public void useInsulin()
     {
         selectedFood = -1;
-        showFoodInfo();
-        btnDextro.SetActive(false);
+        clearFoodInfo();
+		btnDextro.GetComponent<Button>().interactable = false;
+
         ActivePlayer().useInsulinReserves(1f);
 
 		checkInsulin ();

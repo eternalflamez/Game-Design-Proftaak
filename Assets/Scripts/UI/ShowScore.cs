@@ -42,11 +42,11 @@ public class ShowScore : MonoBehaviour
 			RectTransform scrollviewTrans = (RectTransform)scrollview.transform.GetComponent<RectTransform>();
 			contentTrans.sizeDelta = new Vector2((values.Count * 85), contentTrans.sizeDelta.y);
 			Debug.Log ("ContentWidth: " + contentTrans.sizeDelta.x);
-			Debug.Log ("ScroolviewWidth: " + scrollviewTrans.sizeDelta.x);
+			Debug.Log ("ScrollviewWidth: " + scrollviewTrans.sizeDelta.x);
 			Debug.Log ("offset: " + Mathf.Abs((contentTrans.sizeDelta.x - scrollviewTrans.sizeDelta.x) / 2));
 			Debug.Log ("offset1: " +(contentTrans.sizeDelta.x - scrollviewTrans.sizeDelta.x) / 2);
 
-			Vector3 newPosition = new Vector3((contentTrans.sizeDelta.x - scrollviewTrans.sizeDelta.x) / 2, scrollviewTrans.position.y, scrollviewTrans.position.z);
+			Vector3 newPosition = new Vector3(-(contentTrans.sizeDelta.x - scrollviewTrans.sizeDelta.x) / 2, scrollviewTrans.position.y, scrollviewTrans.position.z);
 			contentTrans.transform.position = newPosition;
 
 			Debug.Log ("NewVector: " + newPosition);

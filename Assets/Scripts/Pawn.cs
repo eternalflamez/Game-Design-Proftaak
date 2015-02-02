@@ -121,7 +121,7 @@ public class Pawn : MonoBehaviour
 	        }
 	        else
 	        {
-				GameManager.instance.showPlayerPopUp("Speler " + GameManager.instance.ActivePlayer().getName() + " moet een beurt overslaan.", -1);
+				GameManager.instance.showPlayerPopUp("Speler " + GameManager.instance.ActivePlayer().getName() + " moet een beurt overslaan.");
 				GameManager.instance.disableBtnDice();
 	            GameManager.instance.ActivePlayer().skipsTurn = false;
 

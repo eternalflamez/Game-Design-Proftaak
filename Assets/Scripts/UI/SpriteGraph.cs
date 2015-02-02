@@ -34,6 +34,9 @@ public class SpriteGraph : MonoBehaviour
 	private Image imgBackground;
 
 	[SerializeField]
+	private Text txtDotValue;
+
+	[SerializeField]
 	private int offsetWidth = 50;
 	[SerializeField]
 	private int offsetHeight = 50;
@@ -100,6 +103,11 @@ public class SpriteGraph : MonoBehaviour
 	{
 		return Mathf.Floor(100 * (a / b)) + "%";
 	}
+
+	public void showDotValue(Transform dotPosition)
+	{
+		txtDotValue.text = "Value: " + Mathf.Round((dotPosition.position.y / 50) * 100f) / 100f;
+	}
 	
 	// Use this for initialization
 	private void GenerateSmall()
@@ -160,6 +168,16 @@ public class SpriteGraph : MonoBehaviour
 		}
 	}
 
+	public void clearGraphBig()
+	{
+		GameObject[] dots = GameObject.FindGameObjectsWithTag ("DotBig");
+
+		for (int index = 0; index < dots.Length; index++)
+		{
+			GameObject.Destroy(dots[index]);
+		}
+	}
+
 	// Use this for initialization
 	private void GenerateBig()
 	{
@@ -204,10 +222,8 @@ public class SpriteGraph : MonoBehaviour
 					float current = values[(int)i - 1];
 					float top = height - margin;
 					float low = margin;
-					//float y = (low - offsetHeight) + ((current - min) / (high - min)) * (top - low);
 					float x = dotCount * 50.0f;
 					float y = current * 50.0f;
-					//float y = (float)values[i] * 50.0f;
 
 					dotCount++;
 
@@ -215,12 +231,11 @@ public class SpriteGraph : MonoBehaviour
 					{
 						y = 0;
 					}
-					
-					Vector3 position = new Vector3(x, y, 0f);
-					Debug.Log ("DotBig" + dotCount + ": " + position);
+
 					GameObject go = (GameObject)Instantiate(pointPrefab);
-					go.transform.SetParent(this.transform, true); //.parent = this.transform;
-					go.transform.position = position;
+					go.transform.position = new Vector3(x, y, 0f);
+					go.transform.SetParent(this.transform, false); //.parent = this.transform;
+					go.tag = "DotBig";
 					break;
 				}
 			}
