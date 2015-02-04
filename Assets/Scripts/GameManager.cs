@@ -595,7 +595,7 @@ public class GameManager : MonoBehaviour
 
         lblFoodName.text = foods[foodId].getName();
         lblFoodDesciption.text = foods[foodId].getDescription();
-        lblFoodCal.text = "Kcal: " + foods[foodId].getCarbs().ToString();
+        lblFoodCal.text = "KH: " + foods[foodId].getCarbs().ToString();
 
 		btnEatFood.GetComponent<Button> ().interactable = true;
     }
