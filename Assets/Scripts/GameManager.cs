@@ -367,7 +367,7 @@ public class GameManager : MonoBehaviour
             if (turnCount == Mathf.Round((j / measurePoints) * maxTurns))
             {
                 ScoreManager.instance.createMeasurePoint(ActivePlayer().getId(), ActivePlayer().getModel().getGlucose());
-                showPlayerPopUp("Meetpunt tekst moet aangepast worden");
+                showPlayerPopUp("De afgelopen beurt was een meetpunt voor de scores!");
                 // TODO: Text aanpassen
                 break;
             }
